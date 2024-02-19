@@ -27,3 +27,5 @@ jobs:
         run: |
           cd frontend
           npx eslint .
+
+    if: ${{ github.event_name == 'push' && contains(github.event.head_commit.modified, 'frontend/') }}
