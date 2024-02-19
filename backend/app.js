@@ -15,5 +15,3 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
-// Test
-// Test the linting file with this commeent in backend

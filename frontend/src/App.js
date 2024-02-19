@@ -10,5 +10,3 @@ function App() {
 }
 
 export default App;
-
-// Testing the linting file with this comment in frontend
