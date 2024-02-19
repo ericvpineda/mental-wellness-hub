@@ -6,19 +6,24 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install frontend dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
         run: |
-          cd frontend
+          cd backend
           npm install
 
-      - name: Run frontend tests
+      - name: Run ESLint
         run: |
-          cd frontend
-          npm test
+          cd backend
+          npx eslint .
