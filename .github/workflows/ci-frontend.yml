@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline Frontend
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd backend
+          cd frontend
           npm install
 
       - name: Run ESLint
         run: |
-          cd backend
+          cd frontend
           npx eslint .
