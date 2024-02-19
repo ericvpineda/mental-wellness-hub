@@ -28,34 +28,4 @@ jobs:
           cd backend
           npx eslint .
 
-name: CI Pipeline Frontend
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: |
-          cd frontend
-          npm install
-
-      - name: Run ESLint
-        run: |
-          cd frontend
-          npx eslint .
-
     if: ${{ github.event_name == 'push' && contains(github.event.head_commit.modified, 'backend/') }}
