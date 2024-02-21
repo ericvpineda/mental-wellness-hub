@@ -5,9 +5,8 @@ const HomePage = () => {
 
     return (
         <div>
-            Landing Page
-            <h1>Navbar includes</h1>
-            <p>Main Information here</p>
+            <h1>Welcome to our Mental Health </h1>
+            <p></p>
             <p>Footer below</p>
         </div>
     )
