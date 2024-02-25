@@ -5,10 +5,9 @@ const Navbar = () => {
         <nav>
             <ul className="flex justify-between p-4 bg-blue-500 text-white">
                 <ul className="flex">
-                    <li className="mx-4"><a href="/">Home</a></li>
-                    <li className="mx-4"><a href="/resources">Resources</a></li>
-                    <li className="mx-4"><a href="/about-us">About Us</a></li>
-                    <li className="mx-4"><a href="/login">Login</a></li>
+                    <li className="mx-4 hover:bg-sky-700"><a href="/">Home</a></li>
+                    <li className="mx-4 hover:bg-sky-700"><a href="/resources">Resources</a></li>
+                    <li className="mx-4 hover:bg-sky-700"><a href="/about-us">About Us</a></li>
                 </ul>
             </ul>
         </nav>
