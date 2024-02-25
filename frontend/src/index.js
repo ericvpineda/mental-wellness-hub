@@ -1,12 +1,8 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import Home from "./components/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./globals.css";
 import Layout from "./Layout";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import Home from "./components/Home";
 import Journal from "./routes/Journal";
 
 const router = createBrowserRouter([
@@ -26,5 +22,5 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = createRoot(document.getElementById("root"))
+const root = createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={router} />);
