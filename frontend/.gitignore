@@ -2,6 +2,7 @@
 
 # custom files
 start.sh
+notes.md
 
 # dependencies
 /node_modules
