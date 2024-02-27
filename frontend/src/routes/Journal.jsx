@@ -1,3 +1,4 @@
+import JournalSection from "../components/JournalSection";
 import { Icons } from "../components/Icons";
 
 export default function Journal() {
@@ -24,10 +25,7 @@ export default function Journal() {
           </div>
           {/* Entry Shortcuts  */}
           {articles.map((article) => (
-            <div className="journal_section_entry">
-              <h2 className="journal_entry_title">{article.name}</h2>
-              <time className="journal_entry_date">{article.date}</time>
-            </div>
+            <JournalSection name={article.name} date={article.date} />
           ))}
 
           <div className="journal_section_header">
@@ -52,7 +50,7 @@ export default function Journal() {
             <input
               type="text"
               placeholder="Search entries"
-              className="relative h-10 rounded-full border bg-transparent pl-12 outline-none w-full cursor-text bg-gray-300 text-gray-700"
+              className="relative h-10 rounded-full border pl-12 outline-none w-full cursor-text bg-gray-300 text-gray-700"
             />
           </div>
         </div>
