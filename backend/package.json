@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
   },
@@ -17,12 +16,5 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-plugin-node": "^11.1.0"
-  }
-=======
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
->>>>>>> journal
 }
