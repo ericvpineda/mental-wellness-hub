@@ -2,14 +2,14 @@ import Tiptap from "../components/Tiptap";
 import JournalSidebar from "../components/JournalSidebar";
 import { useForm } from "react-hook-form";
 import {
-  Form, 
+  Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "components/ui/form";
-
+import { Input } from "components/ui/input";
 export default function Journal() {
   const testArticle = {
     id: 1,
@@ -28,11 +28,11 @@ export default function Journal() {
     mode: "onChange",
     defaultValues: {
       title: "",
-      body: ""
-    }
-  })
+      description: "<h1> Tell me about your day... </h1>",
+    },
+  });
 
-  const onSubmit = () => {}
+  const onSubmit = () => {};
 
   return (
     <div className="h-screen w-full flex">
@@ -40,13 +40,44 @@ export default function Journal() {
       <JournalSidebar articles={articles} />
 
       {/* Note: Journal Entry  */}
-      <div className="h-full w-full bg-blue-500 px-14 pt-10">
-        <Form {...form} className="h-full bg-white" onSubmit={form.handleSubmit()}>
-          <form className="h-full bg-white">
-            <Tiptap />
+      <div className="h-full w-full px-14 pt-10">
+        <Form {...form} className="h-full bg-white">
+          <form
+            className="h-full bg-white"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      className="focus-visible:ring-0 border-none !ring-offset-0"
+                      placeholder="Title"
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Tiptap
+                      description={field.value}
+                      onChange={field.onChange}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
           </form>
         </Form>
-          {/* <h1 className="text-center font-bold">{articles[0].name}</h1>
+        {/* <h1 className="text-center font-bold">{articles[0].name}</h1>
           <p>{articles[0].body}</p> */}
       </div>
     </div>
