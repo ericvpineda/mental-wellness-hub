@@ -27,32 +27,26 @@ export default function Journal() {
   // TODO: Create route to save new/updated entries to db
   const onSubmit = () => {};
 
-  const selectedEntryIndexHandler = (updatedIndex) => {
+  const selectEntryIndexHandler = (updatedIndex) => {
     setEntryIndex(updatedIndex);
   };
 
   // Update journal editor with selected journal entry
   useEffect(() => {
-    // form.setValue("title", mockArticles[entryIndex].title, {
-    //   shouldDirty: true,
-    // });
-    // form.setValue("description", mockArticles[entryIndex].description, {
-    //   shouldValidate: true,
-    //   shouldDirty: true
-    // });
-    form.reset({
-      title: mockArticles[entryIndex].title,
-      description: mockArticles[entryIndex].description
-    })
+    form.setValue("title", mockArticles[entryIndex].title, {
+      shouldDirty: true,
+    });
+    form.setValue("description", mockArticles[entryIndex].description, {
+      shouldDirty: true,
+    });
   }, [entryIndex, form]);
 
-  console.log(form.getValues());
   return (
     <div className="h-screen w-full flex">
       {/* Note: Sidebar  */}
       <JournalSidebar
         articles={mockArticles}
-        selectedEntry={selectedEntryIndexHandler}
+        selectEntryIndex={selectEntryIndexHandler}
       />
 
       {/* Note: Journal Entry  */}
