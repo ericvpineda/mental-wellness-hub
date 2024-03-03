@@ -1,7 +1,7 @@
 import { Icons } from "./Icons";
 import JournalSection from "./JournalSection";
 
-export default function JournalSidebar({ articles, selectEntryIndex }) {
+export default function JournalSidebar({ entries, selectEntryIndex }) {
   return (
     <div className="h-full bg-[#01161e] text-[#f1faee] min-w-[22%] flex flex-col justify-between shadow-lg">
       <div className="flex flex-col">
@@ -9,13 +9,13 @@ export default function JournalSidebar({ articles, selectEntryIndex }) {
           <h1>This Week</h1>
         </div>
         {/* Entry Shortcuts  */}
-        {articles.map((article, idx) => (
+        {entries.map((entry, idx) => (
           <JournalSection
             selectEntryIndex={selectEntryIndex}
             idx={idx}
-            key={article.id}
-            name={article.title}
-            date={article.date}
+            key={entry.id}
+            name={entry.title}
+            date={entry.date}
           />
         ))}
 
