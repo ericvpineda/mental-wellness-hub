@@ -12,6 +12,11 @@ export default function Journal() {
     setEntryIndex(index);
   };
 
+  // TODO: Update entry title and description 
+  const updateEntryHandler = (entry) => {
+    allEntries[entryIndex].description = entry
+  }
+
   useEffect(() => {
     setentry(allEntries[entryIndex]);
   }, [entryIndex, allEntries]);
@@ -25,7 +30,7 @@ export default function Journal() {
       />
 
       {/* Note: Journal Editor  */}
-      <JournalEditor entry={entry} setentry={setentry}/>
+      <JournalEditor entry={entry} updateEntry={updateEntryHandler}/>
     </div>
   );
 }

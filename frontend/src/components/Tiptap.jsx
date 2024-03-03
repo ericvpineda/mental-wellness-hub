@@ -8,12 +8,14 @@ import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import Toolbar from "./Tootbar";
 import Heading from "@tiptap/extension-heading";
+import InvisibleCharacters from "@tiptap-pro/extension-invisible-characters";
 import { useEffect } from "react";
 
-export default function Tiptap({ description, onChange }) {
+export default function Tiptap({ description, onChange, updateEntry }) {
   const editor = useEditor({
     extensions: [
       StarterKit,
+      InvisibleCharacters,
       Heading.configure({
         HTMLAttributes: {
           class: "text-xl font-bold",
@@ -27,14 +29,20 @@ export default function Tiptap({ description, onChange }) {
         class: "focus-visible:outline-none border-none h-full px-3",
       },
     },
+    parseOptions: {
+      preserveWhitespace: true,
+    },
     onUpdate({ editor }) {
       onChange(editor.getHTML());
+      updateEntry(editor.getHTML());
     },
   });
 
   useEffect(() => {
-    editor?.commands.setContent(description);
-  }, [description, editor])
+    editor?.commands.setContent(description, false, {
+      preserveWhitespace: "full",
+    });
+  }, [description, editor]);
 
   return (
     <>

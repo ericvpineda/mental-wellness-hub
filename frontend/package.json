@@ -10,6 +10,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tiptap-pro/extension-invisible-characters": "^2.7.5",
+    "@tiptap-pro/extension-unique-id": "^2.7.5",
     "@tiptap/extension-bold": "^2.2.4",
     "@tiptap/extension-heading": "^2.2.4",
     "@tiptap/extension-text-style": "^2.2.4",

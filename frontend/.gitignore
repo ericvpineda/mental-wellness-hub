@@ -3,6 +3,7 @@
 # custom files
 start.sh
 notes.md
+.npmrc
 
 # dependencies
 /node_modules

@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
 
-export default function JournalEditor({ entry }) {
+export default function JournalEditor({ entry, updateEntry }) {
   const form = useForm({
     mode: "onChange",
     defaultValues: {
@@ -62,7 +62,11 @@ export default function JournalEditor({ entry }) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Tiptap description={field.value} onChange={field.onChange} />
+                  <Tiptap 
+                  description={field.value} 
+                  onChange={field.onChange} 
+                  updateEntry={updateEntry}
+                  />
                 </FormControl>
               </FormItem>
             )}
