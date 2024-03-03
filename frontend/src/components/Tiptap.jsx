@@ -8,6 +8,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import Toolbar from "./Tootbar";
 import Heading from "@tiptap/extension-heading";
+import { useEffect } from "react";
 
 export default function Tiptap({ description, onChange }) {
   const editor = useEditor({
@@ -30,6 +31,10 @@ export default function Tiptap({ description, onChange }) {
       onChange(editor.getHTML());
     },
   });
+
+  useEffect(() => {
+    editor?.commands.setContent(description);
+  }, [description, editor])
 
   return (
     <>

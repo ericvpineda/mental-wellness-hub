@@ -10,7 +10,11 @@ export default function JournalSidebar({articles}) {
           </div>
           {/* Entry Shortcuts  */}
           {articles.map((article) => (
-            <JournalSection name={article.name} date={article.date} />
+            <JournalSection 
+              key={article.id}
+              name={article.title} 
+              date={article.date} 
+            />
           ))}
 
           <div className="journal_section_header">

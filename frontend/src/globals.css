@@ -12,17 +12,17 @@ body {
 }
 
 .journal_section_entry {
-  @apply bg-[#2f3e46] flex flex-col justify-center items-start py-3 px-3 gap-1 mx-1 mb-1
+  @apply hover:bg-[#6c757d] cursor-pointer bg-[#2f3e46] flex flex-col justify-center items-start py-3 px-3 gap-1 mx-1 mb-1;
 }
 
 .journal_entry_title {
-  @apply font-semibold text-sm
+  @apply font-semibold text-sm;
 }
 
 .journal_entry_date {
-  @apply text-xs text-gray-300 italic
+  @apply text-xs text-gray-300 italic;
 }
 
 .journal_entry_empty {
-  @apply text-xs text-gray-300 italic text-center
+  @apply text-xs text-gray-300 italic text-center;
 }
