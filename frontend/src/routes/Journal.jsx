@@ -12,14 +12,13 @@ export default function Journal() {
     setEntryIndex(index);
   };
 
-  // TODO: Update entry title and description 
+  // TODO: Update entry description 
   const updateEntryHandler = (entry) => {
     allEntries[entryIndex].description = entry
   }
 
   const createNewEntryHandler = () => {
     const newEntry = {
-      title: "",
       description: "",
       date: new Date().toDateString()
     }

@@ -1,5 +1,6 @@
 import { Icons } from "./Icons";
 import JournalSection from "./JournalSection";
+import { stripHtml } from "string-strip-html";
 
 export default function JournalSidebar({
   entries,
@@ -13,15 +14,26 @@ export default function JournalSidebar({
           <h1>This Week</h1>
         </div>
         {/* Entry Shortcuts  */}
-        {entries.map((entry, idx) => (
-          <JournalSection
-            selectEntryIndex={selectEntryIndex}
-            idx={idx}
-            key={entry.id}
-            name={entry.title}
-            date={entry.date}
-          />
-        ))}
+        {entries.map((entry, idx) => {
+          // Question: Better way to parse HTML for text? 
+          const dom = new DOMParser().parseFromString(
+            entry.description,
+            "text/html"
+          );
+          let sanitizedTitle = stripHtml(
+            dom.body.firstChild.textContent
+          ).result;
+          sanitizedTitle = sanitizedTitle.length > 20 ? sanitizedTitle.substring(0, 20) + "..." : sanitizedTitle
+          return (
+            <JournalSection
+              selectEntryIndex={selectEntryIndex}
+              idx={idx}
+              key={entry.id}
+              name={sanitizedTitle}
+              date={entry.date}
+            />
+          );
+        })}
 
         <div className="journal_section_header">
           <h1>Last Week</h1>

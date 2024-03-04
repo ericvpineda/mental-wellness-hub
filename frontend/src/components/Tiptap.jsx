@@ -15,7 +15,6 @@ export default function Tiptap({ description, onChange, updateEntry }) {
   const editor = useEditor({
     extensions: [
       StarterKit,
-      InvisibleCharacters,
       Heading.configure({
         HTMLAttributes: {
           class: "text-xl font-bold",
@@ -39,9 +38,13 @@ export default function Tiptap({ description, onChange, updateEntry }) {
   });
 
   useEffect(() => {
-    editor?.commands.setContent(description, false, {
+    if (!editor) return;
+    let { from, to } = editor.state.selection;
+    editor.commands.setContent(description, false, {
       preserveWhitespace: "full",
     });
+    // Prevent cursor jumping to end after setContect()
+    editor.commands.setTextSelection({ from, to });
   }, [description, editor]);
 
   return (

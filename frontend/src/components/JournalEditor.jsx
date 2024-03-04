@@ -6,7 +6,6 @@ import {
   FormLabel,
   FormMessage,
 } from "components/ui/form";
-import { Input } from "components/ui/input";
 import Tiptap from "../components/Tiptap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
@@ -16,7 +15,6 @@ export default function JournalEditor({ entry, updateEntry }) {
   const form = useForm({
     mode: "onChange",
     defaultValues: {
-      title: "",
       description: "",
     },
   });
@@ -26,9 +24,6 @@ export default function JournalEditor({ entry, updateEntry }) {
 
   // Update journal editor with selected journal entry
   useEffect(() => {
-    form.setValue("title", entry.title, {
-      shouldDirty: true,
-    });
     form.setValue("description", entry.description, {
       shouldDirty: true,
     });
@@ -41,21 +36,6 @@ export default function JournalEditor({ entry, updateEntry }) {
           className="h-full bg-white"
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    className="focus-visible:ring-0 border-none !ring-offset-0"
-                    placeholder="Title"
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="description"
