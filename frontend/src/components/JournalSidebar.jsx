@@ -1,7 +1,11 @@
 import { Icons } from "./Icons";
 import JournalSection from "./JournalSection";
 
-export default function JournalSidebar({ entries, selectEntryIndex }) {
+export default function JournalSidebar({
+  entries,
+  selectEntryIndex,
+  createNewEntry,
+}) {
   return (
     <div className="h-full bg-[#01161e] text-[#f1faee] min-w-[22%] flex flex-col justify-between shadow-lg">
       <div className="flex flex-col">
@@ -30,7 +34,10 @@ export default function JournalSidebar({ entries, selectEntryIndex }) {
 
       <div className="flex flex-col">
         {/* Create New Journal Button  */}
-        <div className="journal_section_header flex items-start justify-center gap-2 border-r-8 border-[#2f3e46] cursor-pointer hover:bg-[#2f3e46]">
+        <div
+          onClick={() => createNewEntry()}
+          className="journal_section_header flex items-start justify-center gap-2 border-r-8 border-[#2f3e46] cursor-pointer hover:bg-[#2f3e46]"
+        >
           <Icons.write />
           <h2>New Journal</h2>
         </div>

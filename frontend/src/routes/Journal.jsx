@@ -17,6 +17,17 @@ export default function Journal() {
     allEntries[entryIndex].description = entry
   }
 
+  const createNewEntryHandler = () => {
+    const newEntry = {
+      title: "",
+      description: "",
+      date: new Date().toDateString()
+    }
+    allEntries.push(newEntry)
+    setEntryIndex(allEntries.length-1)
+    setentry(newEntry)
+  }
+
   useEffect(() => {
     setentry(allEntries[entryIndex]);
   }, [entryIndex, allEntries]);
@@ -27,6 +38,7 @@ export default function Journal() {
       <JournalSidebar
         entries={allEntries}
         selectEntryIndex={selectEntryIndexHandler}
+        createNewEntry={createNewEntryHandler}
       />
 
       {/* Note: Journal Editor  */}
