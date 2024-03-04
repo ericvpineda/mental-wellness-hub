@@ -5,6 +5,7 @@ import JournalEditor from "components/JournalEditor";
 
 export default function Journal() {
   const [entryIndex, setEntryIndex] = useState(0);
+  // TODO: Figure out how to preset data without showing placeholder
   const [entry, setentry] = useState({});
   const allEntries = mockEntries;
 
@@ -12,20 +13,20 @@ export default function Journal() {
     setEntryIndex(index);
   };
 
-  // TODO: Update entry description 
+  // TODO: Update entry description
   const updateEntryHandler = (entry) => {
-    allEntries[entryIndex].description = entry
-  }
+    allEntries[entryIndex].description = entry;
+  };
 
   const createNewEntryHandler = () => {
     const newEntry = {
       description: "",
-      date: new Date().toDateString()
-    }
-    allEntries.push(newEntry)
-    setEntryIndex(allEntries.length-1)
-    setentry(newEntry)
-  }
+      date: new Date().toDateString(),
+    };
+    allEntries.push(newEntry);
+    setEntryIndex(allEntries.length - 1);
+    setentry(newEntry);
+  };
 
   useEffect(() => {
     setentry(allEntries[entryIndex]);
@@ -41,7 +42,7 @@ export default function Journal() {
       />
 
       {/* Note: Journal Editor  */}
-      <JournalEditor entry={entry} updateEntry={updateEntryHandler}/>
+      <JournalEditor entry={entry} updateEntry={updateEntryHandler} />
     </div>
   );
 }

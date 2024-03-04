@@ -9,7 +9,11 @@ import TextStyle from "@tiptap/extension-text-style";
 import Toolbar from "./Tootbar";
 import Heading from "@tiptap/extension-heading";
 import InvisibleCharacters from "@tiptap-pro/extension-invisible-characters";
+import Placeholder from "@tiptap/extension-placeholder";
 import { useEffect } from "react";
+import Blockquote from "@tiptap/extension-blockquote";
+import BulletList from "@tiptap/extension-bullet-list";
+import ListItem from "@tiptap/extension-list-item";
 
 export default function Tiptap({ description, onChange, updateEntry }) {
   const editor = useEditor({
@@ -21,8 +25,11 @@ export default function Tiptap({ description, onChange, updateEntry }) {
           levels: [2],
         },
       }),
+      Placeholder.configure({
+        placeholder:
+          description.length === 0 && "Tell me more about your day...",
+      }),
     ],
-    content: description,
     editorProps: {
       attributes: {
         class: "focus-visible:outline-none border-none h-full px-3",

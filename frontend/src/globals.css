@@ -26,3 +26,26 @@ body {
 .journal_entry_empty {
   @apply text-xs text-gray-300 italic text-center;
 }
+
+.tiptap .is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid #0d0d0d33;
+  padding-left: 1rem;
+}
+
+.tiptap ul,
+ol {
+  padding: 0 1rem;
+}
+
+.tiptap li {
+  display: list-item;
+  list-style-type: disc;
+}

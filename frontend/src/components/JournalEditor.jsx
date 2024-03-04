@@ -10,7 +10,6 @@ import Tiptap from "../components/Tiptap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-
 export default function JournalEditor({ entry, updateEntry }) {
   const form = useForm({
     mode: "onChange",
