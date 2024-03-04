@@ -15,15 +15,19 @@ export default function JournalSidebar({
         </div>
         {/* Entry Shortcuts  */}
         {entries.map((entry, idx) => {
-          // Question: Better way to parse HTML for text? 
-          const dom = new DOMParser().parseFromString(
-            entry.description,
-            "text/html"
-          );
-          let sanitizedTitle = stripHtml(
-            dom.body.firstChild.textContent
-          ).result;
-          sanitizedTitle = sanitizedTitle.length > 20 ? sanitizedTitle.substring(0, 20) + "..." : sanitizedTitle
+          let sanitizedTitle = "Untitled Entry";
+          if (entry.description.length > 0) {
+            // Question: Better way to parse HTML for text?
+            const dom = new DOMParser().parseFromString(
+              entry.description,
+              "text/html"
+            );
+            sanitizedTitle = stripHtml(dom.body.firstChild.textContent).result;
+            sanitizedTitle =
+              sanitizedTitle.length > 20
+                ? sanitizedTitle.substring(0, 20) + "..."
+                : sanitizedTitle;
+          }
           return (
             <JournalSection
               selectEntryIndex={selectEntryIndex}
