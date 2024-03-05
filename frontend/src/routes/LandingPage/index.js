@@ -22,83 +22,74 @@ return (
               Watch our video to learn simple relaxation techniques that can help you de-stress.
             </p>
           </div>
-          <div className="w-full aspect-video overflow-hidden rounded-xl">
-            <span className="w-full h-full object-cover rounded-md bg-muted" />
+          <div>
+            <a href="https://www.youtube.com/watch?v=tEmt1Znux58" target="_blank" rel="noopener noreferrer" class="block w-full aspect-video overflow-hidden rounded-xl">
+              <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Video Thumbnail" class="w-full h-auto" />
+            </a>
           </div>
         </div>
       </div>
-      <div className="border-t border-b divide-y">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Articles</h2>
-            <p className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed xl:text-xl/relaxed dark:text-gray-400">
+      <div class="border-t border-b divide-y">
+        <div class="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
+          <div class="space-y-2">
+            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Articles</h2>
+            <p class="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Explore our collection of articles covering various mental health topics.
             </p>
           </div>
-          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-            <div className="flex flex-col justify-start space-y-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tight">Coping with Stress</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+          <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+            <div class="flex flex-col justify-start space-y-2">
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold tracking-tight">Coping with Stress</h3>
+                <p class="text-gray-500 dark:text-gray-400">
                   Simple strategies to manage stress in your daily life.
                 </p>
               </div>
-              <Link
-                className="inline-flex h-9 items-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50"
-                href="#"
-              >
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
-              </Link>
+              </a>
             </div>
-            <div className="flex flex-col justify-start space-y-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tight">Understanding Anxiety</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+            <div class="flex flex-col justify-start space-y-2">
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold tracking-tight">Understanding Anxiety</h3>
+                <p class="text-gray-500 dark:text-gray-400">
                   Information about different types of anxiety and available treatments.
                 </p>
               </div>
-              <Link
-                className="inline-flex h-9 items-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50"
-                href="#"
-              >
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
-              </Link>
+              </a>
             </div>
           </div>
         </div>
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-            <div className="flex flex-col justify-start space-y-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tight">Practicing Gratitude</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+        <div class="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
+          <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+            <div class="flex flex-col justify-start space-y-2">
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold tracking-tight">Practicing Gratitude</h3>
+                <p class="text-gray-500 dark:text-gray-400">
                   The benefits of gratitude and tips for incorporating it into your life.
                 </p>
               </div>
-              <Link
-                className="inline-flex h-9 items-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50"
-                href="#"
-              >
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
-              </Link>
+              </a>
             </div>
-            <div className="flex flex-col justify-start space-y-2">
-              <div className="space-y-2">
-                <h3 className="text-2xl font-bold tracking-tight">Seeking Help: Therapy Options</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+            <div class="flex flex-col justify-start space-y-2">
+              <div class="space-y-2">
+                <h3 class="text-2xl font-bold tracking-tight">Seeking Help: Therapy Options</h3>
+                <p class="text-gray-500 dark:text-gray-400">
                   Information about different types of therapy and how to find the right therapist.
                 </p>
               </div>
-              <Link
-                className="inline-flex h-9 items-center rounded-md border border-gray-200 border-gray-200 bg-white shadow-sm text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50"
-                href="#"
-              >
+              <a href="#" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </div>
+
       {/* <div className="py-12 lg:py-16">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
           <div className="space-y-2">
@@ -141,4 +132,3 @@ return (
     </>
   )
 }
-
