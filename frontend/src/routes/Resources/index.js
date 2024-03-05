@@ -16,7 +16,8 @@ const Resources = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3x1 font-bold mb-4">Resources page</h1>
+            <h1 className="text-3x1 font-bold mb-4">Mental Health Resources</h1>
+            <p>Access articles and external resoures to support mental well-being</p>
             <div className="mb-8">
                 <h2 className="text-xl font-bold mb-2">Articles</h2>
                 <ul className="list-disc pl-4">

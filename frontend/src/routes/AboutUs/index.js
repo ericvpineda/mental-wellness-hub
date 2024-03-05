@@ -20,13 +20,13 @@ const AboutUs = () => {
             linkedinUrl: "https://www.linkedin.com/in/johndoe"
         },
         {
-            name: "Ethan Guitteriez",
+            name: "Sameh Fazli",
             description: "Experienced in front-end development and crafting intuitive user interfaces.",
             imageUrl: "jane-smith.jpg",
             linkedinUrl: "https://www.linkedin.com/in/janesmith"
         },
         {
-            name: "Sameh Fazli",
+            name: "Ethan Guitteriez",
             description: "Specializes in backend development and architecting robust server systems.",
             imageUrl: "alex-johnson.jpg",
             linkedinUrl: "https://www.linkedin.com/in/alexjohnson"
