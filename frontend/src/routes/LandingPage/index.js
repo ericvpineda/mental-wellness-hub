@@ -23,9 +23,9 @@ return (
             </p>
           </div>
           <div>
-            <a href="https://www.youtube.com/watch?v=tEmt1Znux58" target="_blank" rel="noopener noreferrer" class="block w-full aspect-video overflow-hidden rounded-xl">
-              <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Video Thumbnail" class="w-full h-auto" />
-            </a>
+          <a href="https://www.youtube.com/watch?v=tEmt1Znux58" target="_blank" rel="noopener noreferrer" class="block w-full aspect-video overflow-hidden rounded-xl">
+              <img src="https://img.youtube.com/vi/tEmt1Znux58/maxresdefault.jpg" alt="Video Thumbnail" class="w-full h-auto" />
+          </a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ return (
                   Simple strategies to manage stress in your daily life.
                 </p>
               </div>
-              <a href="https://www.helpguide.org/articles/stress/stress-management.htm" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
+              <a href="https://www.helpguide.org/articles/stress/stress-management.htm" target="_blank" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
               </a>
             </div>
@@ -56,7 +56,7 @@ return (
                   Information about different types of anxiety and available treatments.
                 </p>
               </div>
-              <a href="https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
+              <a href="https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders" target="_blank" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
               </a>
             </div>
@@ -71,7 +71,7 @@ return (
                   The benefits of gratitude and tips for incorporating it into your life.
                 </p>
               </div>
-              <a href="https://www.mindful.org/an-introduction-to-mindful-gratitude/" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
+              <a href="https://www.mindful.org/an-introduction-to-mindful-gratitude/" target="_blank" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
               </a>
             </div>
@@ -82,7 +82,7 @@ return (
                   Information about different types of therapy and how to find the right therapist.
                 </p>
               </div>
-              <a href="https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.htm" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
+              <a href="https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.htm" target="_blank" class="inline-flex items-center justify-center px-6 py-3 mt-4 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-blue-500 border border-transparent rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:border-blue-800 dark:focus:shadow-outline-blue dark:active:bg-blue-800">
                 Read Article
               </a>
             </div>
