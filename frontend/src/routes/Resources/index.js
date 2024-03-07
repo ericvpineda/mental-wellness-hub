@@ -14,6 +14,10 @@ const Resources = () => {
         { title: "Crisis Text Line", link: "https://www.crisistextline.org" }
     ]
 
+    const videos = [
+        { title: "Understanding Bipolar Disorder", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y"}
+    ]
+
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3x1 font-bold mb-4">Mental Health Resources</h1>
@@ -35,6 +39,18 @@ const Resources = () => {
                     {hotlinks.map((hotlink, index) => (
                         <li key={index}>
                             <a href={hotlink.link} className="text-blue-600 hover:underline">{hotlink.title}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div>
+            <h2 className="text-xl font-bold mb-2">Videos</h2>
+                <p>Watch these educational videos on mental health topics</p>
+                <ul className="list-disc pl-4">
+                    {videos.map((video, index) => (
+                        <li key={index}>
+                            <a href={video.link} className="text-blue-600 hover:underline">{video.title}</a>
                         </li>
                     ))}
                 </ul>

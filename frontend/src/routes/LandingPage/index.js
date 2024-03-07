@@ -23,9 +23,7 @@ return (
             </p>
           </div>
           <div>
-          <a href="https://www.youtube.com/watch?v=tEmt1Znux58" target="_blank" rel="noopener noreferrer" class="block w-full aspect-video overflow-hidden rounded-xl">
-              <img src="https://img.youtube.com/vi/tEmt1Znux58/maxresdefault.jpg" alt="Video Thumbnail" class="w-full h-auto" />
-          </a>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/tEmt1Znux58" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
