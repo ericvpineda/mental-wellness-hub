@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import MeditationModal from '../components/MeditationModal';
 import meditation from '../assets/meditation.mp3';
 
 export default function Meditation() {
@@ -6,7 +7,11 @@ export default function Meditation() {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [timerActive, setTimerActive] = useState(false);
-    const [inputValue, setInputValue] = useState(0);
+    const [hoursLeft, setHoursLeft] = useState("00");
+    const [minutesLeft, setMinutesLeft] = useState("00");
+    const [secondsLeft, setSecondsLeft] = useState("00");
+    const [inputValue, setInputValue] = useState();
+    const [showModal, setShowModal] = useState(false);
 
     const togglePlay = (audioRef) => {
         if (audioRef.current.paused) {
@@ -19,26 +24,51 @@ export default function Meditation() {
     }
 
     const startTimer = () => {
-        // TODO
         setTimerActive(true);
+        let time = inputValue * 60;
+        let hours = Math.floor(time / 3600);
+        let minutes = Math.floor(time / 60) % 60;
+        let seconds = time % 60;
+        setHoursLeft(hours.toString().padStart(2, '0'));
+        setMinutesLeft(minutes.toString().padStart(2, '0'));
+        setSecondsLeft(seconds.toString().padStart(2, '0'));
+        const interval = setInterval(() => {
+            if (time > 0) {
+                time--;
+                hours = Math.floor(time / 3600);
+                minutes = Math.floor(time / 60) % 60;
+                seconds = time % 60;
+                setHoursLeft(hours.toString().padStart(2, '0'));
+                setMinutesLeft(minutes.toString().padStart(2, '0'));
+                setSecondsLeft(seconds.toString().padStart(2, '0'));
+            } else {
+                clearInterval(interval);
+                setTimerActive(false);
+                setShowModal(true);
+            }
+        }, 1000);
     }
 
-    const handleSubmit = () => {
-        // TODO
-        console.log("handleSubmit")
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prevents the page from refreshing when the form is submitted
+        const newValue = event.target.elements[0].value;
+        setInputValue(newValue);
+        startTimer();
     }
 
   return (
     <div className="h-screen">
-        <div className="flex flex-col items-center justify-center h-3/4 bg-white">
+    {showModal && <MeditationModal />}
+    <div className="h-screen">
+        <div className={"flex flex-col items-center justify-center h-3/4 bg-white"}>
             <div>
                 <h1 className="text-7xl font-bold mb-2">Meditation Timer</h1>
                 <p className="text-3xl text-center text-gray-500 mb-4">Set your intentions and peace.</p>
             </div>
             <div className="flex justify-center items-center w-1/6">
                 <ClockIcon className="w-6 h-6 mr-2" />
-                <form className="w-1/2" onSubmit={handleSubmit}>
-                    <input type="number" min="0" max="100" className="w-full p-2 border-2 border-gray-300 rounded-lg" value={inputValue} onChange={e => setInputValue(e.target.value)} disabled={timerActive} />
+                <form className="w-2/3" onSubmit={handleSubmit}>
+                    <input type="number" min="0" max="100" className="w-full p-2 border-2 border-gray-300 rounded-lg" value={inputValue} onChange={e => setInputValue(e.target.value)} disabled={timerActive} placeholder="Enter minutes" />
                 </form>
             </div>
             <div className="w-1/6 flex justify-around mt-4">
@@ -46,11 +76,11 @@ export default function Meditation() {
                 <button className="bg-black border-2 border-black text-white font-bold py-2 px-6 rounded-md mt-4 ml-4 hover:text-sky-500 duration-200">Stop</button>
             </div>
             <div className={timerActive ? "block" : "hidden"}>
-                <h1 className="text-3xl font-bold mt-4">Time Remaining:</h1>
-                <h1 className="text-7xl font-bold">00:00</h1>
+                <h1 className="text-3xl font-bold mt-4 text-center">Time Remaining:</h1>
+                <h1 className="text-7xl font-bold text-center">{hoursLeft}:{minutesLeft}:{secondsLeft}</h1>
             </div>
         </div>
-        <div className="flex flex-col h-1/4 justify-around items-center border-t-2">
+        <div className={"flex flex-col h-1/4 justify-around items-center border-t-2"}>
            <h1 className="text-2xl font-bold">Peaceful, ad-free music for zero disturbance.</h1>
            <div className="flex flex-row w-1/2 justify-around">
                 <div className="flex flex-row items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-md">
@@ -65,6 +95,7 @@ export default function Meditation() {
                 </div>
            </div>
         </div>
+    </div>
     </div>
   )
 }
