@@ -1,3 +1,4 @@
+import EricImage from "../../assets/images/Eric.PNG"
 import React from "react";
 
 const TeamMember = ({ name, description, imageUrl, linkedinUrl }) => {
@@ -15,8 +16,8 @@ const AboutUs = () => {
     const teamMembers = [
         {
             name: "Eric Pineda",
-            description: "Passionate about creating scalable and efficient solutions for web applications.",
-            imageUrl: "john-doe.jpg",
+            description: "Passionate about crafting efficient solutions for web applications, with a strong focus on both frontend and backend development.",
+            imageUrl: EricImage,
             linkedinUrl: "https://www.linkedin.com/in/ericvpineda/"
         },
         {

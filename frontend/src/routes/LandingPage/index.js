@@ -22,8 +22,8 @@ return (
               Watch our video to learn simple relaxation techniques that can help you de-stress.
             </p>
           </div>
-          <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/tEmt1Znux58" frameborder="0" allowfullscreen></iframe>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tEmt1Znux58" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
