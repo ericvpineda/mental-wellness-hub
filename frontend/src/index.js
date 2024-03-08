@@ -4,6 +4,7 @@ import "./globals.css";
 import Layout from "./Layout";
 import Home from "./components/Home";
 import Journal from "./routes/Journal";
+import Meditation from "./routes/Meditation";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "journal",
         element: <Journal />,
+      },
+      {
+        path: "meditation",
+        element: <Meditation />,
       },
     ],
   },
