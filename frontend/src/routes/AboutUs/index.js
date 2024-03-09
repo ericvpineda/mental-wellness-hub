@@ -2,6 +2,8 @@ import EricImage from "../../assets/images/Eric.PNG"
 import React from "react";
 import SamImage from "../../assets/images/sam.PNG"
 import EthanImage from "../../assets/images/ethan.PNG"
+import PropTypes from 'prop-types';
+
 
 const TeamMember = ({ name, description, imageUrl, linkedinUrl }) => {
     return (
@@ -49,3 +51,10 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+TeamMember.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    linkedinUrl: PropTypes.string.isRequired
+};
