@@ -5,20 +5,24 @@ import {
   BubbleMenu,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import TextStyle from "@tiptap/extension-text-style";
 import Toolbar from "./Tootbar";
 import Heading from "@tiptap/extension-heading";
-import InvisibleCharacters from "@tiptap-pro/extension-invisible-characters";
 import Placeholder from "@tiptap/extension-placeholder";
 import { useEffect } from "react";
-import Blockquote from "@tiptap/extension-blockquote";
-import BulletList from "@tiptap/extension-bullet-list";
-import ListItem from "@tiptap/extension-list-item";
+import TextStyle from "@tiptap/extension-text-style";
+import InvisibleCharacters from "@tiptap-pro/extension-invisible-characters";
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
+import { createLowlight, common } from "lowlight";
+import { LiteralTab } from "./tiptap/LiteralTab";
 
 export default function Tiptap({ description, onChange, updateEntry }) {
+  const lowlight = createLowlight(common);
   const editor = useEditor({
     extensions: [
       StarterKit,
+      CodeBlockLowlight.configure({
+        lowlight,
+      }),
       Heading.configure({
         HTMLAttributes: {
           class: "text-xl font-bold",
@@ -29,6 +33,7 @@ export default function Tiptap({ description, onChange, updateEntry }) {
         placeholder:
           description.length === 0 && "Tell me more about your day...",
       }),
+      LiteralTab
     ],
     editorProps: {
       attributes: {
@@ -36,7 +41,7 @@ export default function Tiptap({ description, onChange, updateEntry }) {
       },
     },
     parseOptions: {
-      preserveWhitespace: true,
+      preserveWhitespace: "full",
     },
     onUpdate({ editor }) {
       onChange(editor.getHTML());

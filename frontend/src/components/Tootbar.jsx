@@ -1,5 +1,5 @@
 "use client";
-import { Heading2, Bold, Quote, List } from "lucide-react";
+import { Heading2, Bold, Quote, List, Italic, Code } from "lucide-react";
 import { Toggle } from "./ui/toggle";
 export default function Toolbar({ editor }) {
   if (!editor) {
@@ -38,6 +38,21 @@ export default function Toolbar({ editor }) {
       >
         <List className="h-4 w-4" />
       </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("italic")}
+        onPressedChange={() => editor.chain().focus().toggleItalic().run()}
+      >
+        <Italic className="h-4 w-4" />
+      </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("codeBlock")}
+        onPressedChange={() => editor.chain().focus().toggleCodeBlock().run()}
+      >
+        <Code className="h-4 w-4" />
+      </Toggle>
+    
     </div>
   );
 }
