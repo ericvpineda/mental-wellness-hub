@@ -15,9 +15,9 @@ const Resources = () => {
     ]
 
     const videos = [
-        { title: "Understanding Bipolar Disorder", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y"},
-        { title: "Overcoming PTSD: Personal Stories", link: "https://www.youtube.com/watch?v=fxM0aeZ3vLg"},
-        { title: "Self-Care and Mental Wellness", link: "https://www.youtube.com/watch?v=IYq0h3KgDpY"}
+        { title: "Understanding Bipolar Disorder", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y" },
+        { title: "Overcoming PTSD: Personal Stories", link: "https://www.youtube.com/watch?v=fxM0aeZ3vLg" },
+        { title: "Self-Care and Mental Wellness", link: "https://www.youtube.com/watch?v=IYq0h3KgDpY" }
     ]
 
     return (

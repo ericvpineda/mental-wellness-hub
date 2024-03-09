@@ -1,5 +1,7 @@
 import EricImage from "../../assets/images/Eric.PNG"
 import React from "react";
+import SamImage from "../../assets/images/sam.PNG"
+import EthanImage from "../../assets/images/ethan.PNG"
 
 const TeamMember = ({ name, description, imageUrl, linkedinUrl }) => {
     return (
@@ -23,13 +25,13 @@ const AboutUs = () => {
         {
             name: "Sameh Fazli",
             description: "Experienced in front-end development and crafting intuitive user interfaces.",
-            imageUrl: "jane-smith.jpg",
+            imageUrl: SamImage,
             linkedinUrl: "https://www.linkedin.com/in/sameh-fazli/"
         },
         {
             name: "Ethan Guitteriez",
             description: "Specializes in backend development and architecting robust server systems.",
-            imageUrl: "alex-johnson.jpg",
+            imageUrl: EthanImage,
             linkedinUrl: "https://www.linkedin.com/in/ethan-gutierrez-0a598124b/"
         }
     ];
