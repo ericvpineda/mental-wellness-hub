@@ -1,3 +1,5 @@
+// test - cheers
+
 export default function Journal() {
   return (
     <div className="h-screen w-full flex">
