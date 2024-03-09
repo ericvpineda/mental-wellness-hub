@@ -3,9 +3,9 @@ import React from "react";
 const Resources = () => {
 
     const articles = [
-        { title: "Understanding Anxiety Disorders", link: "https://example.com/article1" },
-        { title: "Tips for Managing Stress", link: "https://example.com/article2" },
-        { title: "Importance of Self-Care", link: "https://example.com/article3" }
+        { title: "Understanding Anxiety Disorders", link: "https://www.nimh.nih.gov/health/topics/anxiety-disorders" },
+        { title: "Tips for Managing Stress", link: "https://www.webmd.com/balance/tips-to-control-stress" },
+        { title: "Importance of Self-Care", link: "https://www.snhu.edu/about-us/newsroom/health/what-is-self-care" }
     ];
 
     const hotlinks = [
