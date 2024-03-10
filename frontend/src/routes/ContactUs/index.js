@@ -82,10 +82,6 @@ const ContactUs = () => {
                     Send message
                 </button>
             </div>
-            <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">Need immediate assistance?</h2>
-                <p className="text-gray-600 dark:text-gray-400">Call our support line: +1 (555) 123-4567</p>
-            </div>
         </div>
     )
 }
