@@ -40,13 +40,19 @@ const Resources = () => {
 
   return (
     <>
-      <div className="py-12 lg:py-24">
-        <div className="container grid items-start justify-center gap-4 px-4 md:gap-8 md:px-6">
-          <div className="flex flex-col space-y-2">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mental Health Resources</h1>
+      <div className="bg-gray-50 py-12 lg:py-24">
+        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 md:px-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mental Health Resources</h1>
             <p className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Access a curated collection of mental health articles, hotlinks, and videos to support your well-being.
             </p>
+          </div>
+        </div>
+      </div>
+      <div className="py-12 lg:py-24">
+        <div className="container grid items-start justify-center gap-4 px-4 md:gap-8 md:px-6">
+          <div className="flex flex-col space-y-2">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Articles</h2>
             <p className="text-gray-500 dark:text-gray-400">Informative reads</p>
           </div>

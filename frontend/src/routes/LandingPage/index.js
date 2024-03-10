@@ -44,14 +44,14 @@ export default function Template() {
           </div>
           <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
             <ImageItem
-               image={StressImage} 
+               image={StressImage}
                headline={"Coping with Stress"}
                link={"https://www.helpguide.org/articles/stress/stress-management.htm/"}
             >
               Simple strategies to manage stress in your daily life.
             </ImageItem>
             <ImageItem
-               image={AnxietyImage} 
+               image={AnxietyImage}
                headline={"Understanding Anxiety"}
                link={"https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders"}
             >
@@ -62,14 +62,14 @@ export default function Template() {
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
           <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
             <ImageItem
-              image={GratitudeImage} 
+              image={GratitudeImage}
               headline={"Practicing Gratitude"}
               link={"https://www.mindful.org/an-introduction-to-mindful-gratitude/"}
             >
               The benefits of gratitude and tips for incorporating it into your life.
             </ImageItem>
-            <ImageItem 
-              image={TherapyImage} 
+            <ImageItem
+              image={TherapyImage}
               headline={"Seeking Help: Therapy Options"}
               link={"https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.html"}
             >
