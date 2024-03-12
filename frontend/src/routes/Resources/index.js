@@ -6,6 +6,8 @@ import SelfCare from '../../assets/images/self_care.jpg'
 import UnderstandingBipolar from '../../assets/images/understanding_bipolar.jpg'
 import MediationImage from '../../assets/images/mediation.jpg'
 import MentalHealthImage from '../../assets/images/mental_health.jpg'
+import HealthyRelationshipImage from '../../assets/images/healthy_relationship.jpg'
+import DepressionImage from '../../assets/images/depression.jpg'
 
 const ResourceItem = ({ title, link, description, imgSrc }) => {
     return (
@@ -46,6 +48,12 @@ const Resources = () => {
           link: "https://www.snhu.edu/about-us/newsroom/health/what-is-self-care",
           description: "Discover the benefits of self-compassion and how to cultivate it.",
           imgSrc: SelfCare
+        },
+        {
+          title: "Healthier Relationships = Better Health",
+          link: "https://www.pinerest.org/newsroom/articles/healthier-relationships-better-health-blog/",
+          description: "Read this article to explore how to have healthier relationships",
+          imgSrc: HealthyRelationshipImage
         }
       ];
 
@@ -60,6 +68,12 @@ const Resources = () => {
     { title: "Understanding Bipolar Disorder: Personal Stories", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Hear from individuals living with bipolar disorder about their experiences and insights.", imgSrc: UnderstandingBipolar},
     { title: "Mindfulness Meditation: Finding Calm in the Present", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Join this guided meditation session to practice mindfulness and relaxation.", imgSrc: MediationImage},
     { title: "Breaking the Silence: Youth Mental Health", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Watch this panel discussion on addressing mental health challenges among young people.", imgSrc: MentalHealthImage},
+    {
+      title: "Understanding Depression: Symptoms and Treatments",
+      link: "https://www.youtube.com/watch?v=d7NPnvKFs2Y",
+      description: "Learn about the symptoms of depression and the various treatment options available.",
+      imgSrc: DepressionImage
+    }
   ];
 
   return (
