@@ -1,6 +1,8 @@
+import React from "react"
+
 export default function Meditation() {
     return (
-        <div class="w-full bg-neutral-300">
+        <div className="w-full bg-neutral-300">
             <h1>Test</h1>
         </div>
     )
