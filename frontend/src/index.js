@@ -8,6 +8,8 @@ import HomePage from "./routes/LandingPage";
 import Resources from "./routes/Resources";
 import ContactUs from "./routes/ContactUs";
 import Faq from "./routes/Faq";
+import React from 'react';
+
 
 const router = createBrowserRouter([
   {

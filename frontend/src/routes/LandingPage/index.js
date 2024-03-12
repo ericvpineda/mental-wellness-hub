@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import StressImage from '../../assets/images/stress.jpg'
 import AnxietyImage from '../../assets/images/understanding_anxiety.jpg'
 import GratitudeImage from '../../assets/images/practice_gratitude.jpg'
 import TherapyImage from '../../assets/images/therapy.png'
 import ImageItem from '../../components/ImageItem'
+import React from 'react';
+
 
 export default function Template() {
 
@@ -28,28 +30,28 @@ export default function Template() {
             </p>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/tEmt1Znux58" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tEmt1Znux58" frameBorder="0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-      <div class="border-t border-b divide-y">
-        <div class="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div class="space-y-2">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Articles</h2>
-            <p class="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed xl:text-xl/relaxed dark:text-gray-400">
+      <div className="border-t border-b divide-y">
+        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Articles</h2>
+            <p className="mx-auto max-w-3xl text-gray-500 md:text-xl/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Explore our collection of articles covering various mental health topics.
             </p>
           </div>
-          <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
             <ImageItem
-               image={StressImage} 
+               image={StressImage}
                headline={"Coping with Stress"}
                link={"https://www.helpguide.org/articles/stress/stress-management.htm/"}
             >
               Simple strategies to manage stress in your daily life.
             </ImageItem>
             <ImageItem
-               image={AnxietyImage} 
+               image={AnxietyImage}
                headline={"Understanding Anxiety"}
                link={"https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders"}
             >
@@ -57,17 +59,17 @@ export default function Template() {
             </ImageItem>
           </div>
         </div>
-        <div class="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
+          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
             <ImageItem
-              image={GratitudeImage} 
+              image={GratitudeImage}
               headline={"Practicing Gratitude"}
               link={"https://www.mindful.org/an-introduction-to-mindful-gratitude/"}
             >
               The benefits of gratitude and tips for incorporating it into your life.
             </ImageItem>
-            <ImageItem 
-              image={TherapyImage} 
+            <ImageItem
+              image={TherapyImage}
               headline={"Seeking Help: Therapy Options"}
               link={"https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.html"}
             >

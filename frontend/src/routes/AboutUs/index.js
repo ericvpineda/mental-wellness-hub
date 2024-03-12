@@ -2,6 +2,8 @@ import EricImage from "../../assets/images/Eric.PNG"
 import React from "react";
 import SamImage from "../../assets/images/sam.PNG"
 import EthanImage from "../../assets/images/ethan.PNG"
+import PropTypes from 'prop-types';
+
 
 const TeamMember = ({ name, description, imageUrl, linkedinUrl }) => {
     return (
@@ -37,7 +39,7 @@ const AboutUs = () => {
     ];
 
     return (
-        <div>
+        <div className="min-h-[74vh]">
             <h1 className="text-3xl font-bold text-center mb-8">Meet the Team</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {teamMembers.map((member, index) => (
@@ -49,3 +51,10 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
+
+TeamMember.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    linkedinUrl: PropTypes.string.isRequired
+};
