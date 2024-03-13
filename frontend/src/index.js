@@ -3,9 +3,14 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./globals.css";
 import Layout from "./Layout";
-import Home from "./components/Home";
 import Journal from "./routes/Journal";
 import Meditation from "./routes/Meditation";
+import AboutUs from "./routes/AboutUs";
+import HomePage from "./routes/LandingPage";
+import Resources from "./routes/Resources";
+import ContactUs from "./routes/ContactUs";
+import Faq from "./routes/Faq";
+import React from 'react';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "journal",
@@ -23,6 +28,21 @@ const router = createBrowserRouter([
       {
         path: "meditation",
         element: <Meditation />,
+      },
+        path: "about-us",
+        element: <AboutUs/>
+      },
+      {
+        path: "resources",
+        element: <Resources />
+      },
+      {
+        path: "faq",
+        element: <Faq />
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs />
       }
     ],
   },
