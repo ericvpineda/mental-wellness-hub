@@ -19,7 +19,7 @@
 
 ## Features:
 
-## Website Pages:
+### Website Pages:
 - Home Page
 - Landing Page
 - Navigation
@@ -41,12 +41,13 @@
 
 ## Backend:
 - Routing Configuration
+- Convex Configuation
 
-# Team Contributors:
+## Team Contributors:
 - Frontend:
     - Eric: ReactJS, TailwindCSS, Journal Page
-    - Sam: Home Page, About Page, Resources, Articles, Contact Us
-    - Ethan: Meditation Timer Page
+    - Sam: ReactJS, TailwindCSS, Home Page, About Page, Resources, Articles, Contact Us
+    - Ethan: ReactJS, TailwindCSS, Meditation Timer Page
 - Backend:
     - Ethan: Express, Authentication/Authorization, AI Bot, Routing
     - Eric, Ethan and Sam: Convex Database Integration, Backend Database
@@ -60,7 +61,7 @@
 
 
 
-## How to use:
+### How to use:
 1. Clone the repository.
 2. Install dependencies using ```npm install```.
 3. Start the server using ```npm start```.
@@ -69,14 +70,14 @@
 
 # Example Usage:
 
-# Journaling Feature:
+## Journaling Feature:
 - Users can record their thoughts and feeling ins the journal section.
 - They can track their journal entries over time.
 
-# Meditation Timer:
+## Meditation Timer:
 - Users can set a time for their meditation sessions.
 - The application tracks the duration of each mediation session.
 
-# AI Bot for Mental Health Support
+## AI Bot for Mental Health Support
 - Users can engage in conversations with an AI bout about mental health topics.
 
