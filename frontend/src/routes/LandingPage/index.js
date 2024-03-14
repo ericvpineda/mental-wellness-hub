@@ -43,7 +43,7 @@ export default function Template() {
               Explore our collection of articles covering various mental health topics.
             </p>
           </div>
-          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 justify-center">
+          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 justify-center border">
             <ImageItem
               image={StressImage}
               headline={"Coping with Stress"}
