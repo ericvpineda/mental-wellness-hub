@@ -1,19 +1,16 @@
 import {
   useEditor,
   EditorContent,
-  FloatingMenu,
-  BubbleMenu,
 } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Tootbar";
 import Heading from "@tiptap/extension-heading";
 import Placeholder from "@tiptap/extension-placeholder";
 import { useEffect } from "react";
-import TextStyle from "@tiptap/extension-text-style";
 import InvisibleCharacters from "@tiptap-pro/extension-invisible-characters";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { createLowlight, common } from "lowlight";
 import { LiteralTab } from "./tiptap/LiteralTab";
+import StarterKit from "@tiptap/starter-kit";
 
 export default function Tiptap({ description, onChange, updateEntry }) {
   const lowlight = createLowlight(common);
@@ -33,7 +30,10 @@ export default function Tiptap({ description, onChange, updateEntry }) {
         placeholder:
           description.length === 0 && "Tell me more about your day...",
       }),
-      LiteralTab
+      LiteralTab,
+      InvisibleCharacters.configure({
+        visible: false,
+      }),
     ],
     editorProps: {
       attributes: {
@@ -51,12 +51,12 @@ export default function Tiptap({ description, onChange, updateEntry }) {
 
   useEffect(() => {
     if (!editor) return;
-    let { from, to } = editor.state.selection;
-    editor.commands.setContent(description, false, {
-      preserveWhitespace: "full",
-    });
-    // Prevent cursor jumping to end after setContect()
-    editor.commands.setTextSelection({ from, to });
+    // let { from, to } = editor.state.selection;
+    // editor.commands.setContent(description, false, {
+    //   preserveWhitespace: "full",
+    // });
+    // // Prevent cursor jumping to end after setContect()
+    // editor.commands.setTextSelection({ from, to });
   }, [description, editor]);
 
   return (

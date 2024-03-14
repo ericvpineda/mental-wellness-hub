@@ -1,6 +1,17 @@
 "use client";
-import { Heading2, Bold, Quote, List, Italic, Code } from "lucide-react";
-import { Toggle } from "./ui/toggle";
+import {
+  Heading2,
+  Bold,
+  Quote,
+  List,
+  Italic,
+  Code,
+  Pilcrow,
+  Undo,
+  Redo,
+} from "lucide-react";
+import { Toggle, ToggleNoPressed } from "./ui/toggle";
+
 export default function Toolbar({ editor }) {
   if (!editor) {
     return null;
@@ -52,7 +63,31 @@ export default function Toolbar({ editor }) {
       >
         <Code className="h-4 w-4" />
       </Toggle>
-    
+
+      <Toggle
+        size="sm"
+        onPressedChange={() =>
+          editor.chain().focus().toggleInvisibleCharacters().run()
+        }
+      >
+        <Pilcrow className="h-4 w-4" />
+      </Toggle>
+
+      <ToggleNoPressed
+        size="sm"
+        onClick={() => editor.chain().focus().undo().run()}
+        disabled={!editor.can().undo()}
+      >
+        <Undo className="h-4 w-4" />
+      </ToggleNoPressed>
+
+      <ToggleNoPressed
+        size="sm"
+        disabled={!editor.can().redo()}
+        onClick={() => editor.chain().focus().redo().run()}
+      >
+        <Redo className="h-4 w-4" />
+      </ToggleNoPressed>
     </div>
   );
 }
