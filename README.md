@@ -20,14 +20,14 @@
 ## Features:
 
 ### Website Pages:
-- Home Page
-- Landing Page
-- Navigation
-- Footer
-- About Page
-- Resources
-- Articles
-- Hotlines
+    - Home Page
+    - Landing Page
+    - Navigation
+    - Footer
+    - About Page
+    - Resources
+    - Articles
+    - Hotlines
 
 ## Application Features:
 - Authentication/Authorization:
@@ -60,14 +60,6 @@
 
 
 
-
-### How to use:
-1. Clone the repository.
-2. Install dependencies using ```npm install```.
-3. Start the server using ```npm start```.
-4. Open the browser and go to ```localhost:3000``` to access the website.
-
-
 # Example Usage:
 
 ## Journaling Feature:
@@ -80,4 +72,3 @@
 
 ## AI Bot for Mental Health Support
 - Users can engage in conversations with an AI bout about mental health topics.
-
