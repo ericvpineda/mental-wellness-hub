@@ -6,7 +6,7 @@ export default function ImageItem({ image, headline, children, link }) {
         <div className="flex flex-col justify-start space-y-2 min-w-96 max-w-96">
             <div className="space-y-2">
                 <h3 className="text-2xl font-bold tracking-tight">{headline}</h3>
-                <img src={image} alt="Seeking Help Image" className="w-full mx-auto my-4 min-h-80 rounded-md max-h-80 object-contain" />
+                <img src={image} alt="Seeking Help Image" className="w-full h-64 mx-auto my-4 rounded-md " />
                 <p className="text-gray-500 dark:text-gray-400">
                     {children}
                 </p>

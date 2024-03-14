@@ -4,7 +4,6 @@ import SamImage from "../../assets/images/sam.PNG"
 import EthanImage from "../../assets/images/ethan.PNG"
 import PropTypes from 'prop-types';
 
-
 const TeamMember = ({ name, description, imageUrl, linkedinUrl, githubUrl }) => {
     return (
         <div className="text-center p-8">
@@ -28,14 +27,14 @@ const AboutUs = () => {
         },
         {
             name: "Sameh Fazli",
-            description: "Experienced in front-end development and crafting intuitive user interfaces.",
+            description: "Experienced in front-end development and crafting intuitive user interfaces, passionate about backend development.",
             imageUrl: SamImage,
             linkedinUrl: "https://www.linkedin.com/in/sameh-fazli/",
             githubUrl: "https://github.com/sfazli96"
         },
         {
             name: "Ethan Guitteriez",
-            description: "Specializes in backend development and architecting robust server systems.",
+            description: "Specializes in frontend + backend development and architecting robust server systems.",
             imageUrl: EthanImage,
             linkedinUrl: "https://www.linkedin.com/in/ethan-gutierrez-0a598124b/",
             githubUrl: "https://github.com/Ethanqg0"
@@ -43,7 +42,7 @@ const AboutUs = () => {
     ];
 
     return (
-        <div className="min-h-[74vh]">
+        <div className="min-h-[74vh] bg-gray-100">
             <h1 className="text-3xl font-bold text-center mb-8">Meet the Team</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {teamMembers.map((member, index) => (

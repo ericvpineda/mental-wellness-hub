@@ -49,7 +49,7 @@ export default function Template() {
               headline={"Coping with Stress"}
               link={"https://www.helpguide.org/articles/stress/stress-management.htm/"}
             >
-              Simple strategies to manage stress in your daily life.
+              Explore easy-to-implement strategies for managing daily stress and enhancing your well-being.
             </ImageItem>
             <ImageItem
               image={AnxietyImage}
