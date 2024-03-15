@@ -10,52 +10,52 @@ import HealthyRelationshipImage from '../../assets/images/healthy_relationship.j
 import DepressionImage from '../../assets/images/depression.jpg'
 
 const ResourceItem = ({ title, link, description, imgSrc }) => {
-    return (
-      <div className="flex flex-col items-center space-y-2">
-        <a
-          className="font-semibold text-blue-500 underline hover:text-blue-700 visited:text-purple-600 hover:underline"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {title}
-        </a>
-        {imgSrc && (
-          <img src={imgSrc} alt={title} className="object-cover w-full h-64" />
-        )}
-        <p className="text-sm text-gray-500">{description}</p>
-      </div>
-    );
-  };
+  return (
+    <div className="flex flex-col items-center space-y-2">
+      <a
+        className="font-semibold text-blue-500 underline hover:text-blue-700 visited:text-purple-600 hover:underline"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {title}
+      </a>
+      {imgSrc && (
+        <img src={imgSrc} alt={title} className="object-cover w-full h-64" />
+      )}
+      <p className="text-sm text-gray-500">{description}</p>
+    </div>
+  );
+};
 
 const Resources = () => {
 
-    const articles = [
-        {
-          title: "Understanding Anxiety Disorders",
-          link: "https://www.nimh.nih.gov/health/topics/anxiety-disorders",
-          description: "Learn practical strategies to handle stress in your everyday life.",
-          imgSrc: AnxietyImage
-        },
-        {
-          title: "Tips for Managing Stress",
-          link: "https://www.webmd.com/balance/tips-to-control-stress",
-          description: "Explore the different forms of anxiety and the available therapies.",
-          imgSrc: ManagingStressImage
-        },
-        {
-          title: "Importance of Self-Care",
-          link: "https://www.snhu.edu/about-us/newsroom/health/what-is-self-care",
-          description: "Discover the benefits of self-compassion and how to cultivate it.",
-          imgSrc: SelfCare
-        },
-        {
-          title: "Healthier Relationships = Better Health",
-          link: "https://www.pinerest.org/newsroom/articles/healthier-relationships-better-health-blog/",
-          description: "Read this article to explore how to have healthier relationships",
-          imgSrc: HealthyRelationshipImage
-        }
-      ];
+  const articles = [
+    {
+      title: "Understanding Anxiety Disorders",
+      link: "https://www.nimh.nih.gov/health/topics/anxiety-disorders",
+      description: "Learn practical strategies to handle stress in your everyday life.",
+      imgSrc: AnxietyImage
+    },
+    {
+      title: "Tips for Managing Stress",
+      link: "https://www.webmd.com/balance/tips-to-control-stress",
+      description: "Explore the different forms of anxiety and the available therapies.",
+      imgSrc: ManagingStressImage
+    },
+    {
+      title: "Importance of Self-Care",
+      link: "https://www.snhu.edu/about-us/newsroom/health/what-is-self-care",
+      description: "Discover the benefits of self-compassion and how to cultivate it.",
+      imgSrc: SelfCare
+    },
+    {
+      title: "Healthier Relationships = Better Health",
+      link: "https://www.pinerest.org/newsroom/articles/healthier-relationships-better-health-blog/",
+      description: "Read this article to explore how to have healthier relationships",
+      imgSrc: HealthyRelationshipImage
+    }
+  ];
 
 
   const hotlinks = [
@@ -65,9 +65,9 @@ const Resources = () => {
   ];
 
   const videos = [
-    { title: "Understanding Bipolar Disorder: Personal Stories", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Hear from individuals living with bipolar disorder about their experiences and insights.", imgSrc: UnderstandingBipolar},
-    { title: "Mindfulness Meditation: Finding Calm in the Present", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Join this guided meditation session to practice mindfulness and relaxation.", imgSrc: MediationImage},
-    { title: "Breaking the Silence: Youth Mental Health", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Watch this panel discussion on addressing mental health challenges among young people.", imgSrc: MentalHealthImage},
+    { title: "Understanding Bipolar Disorder: Personal Stories", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Hear from individuals living with bipolar disorder about their experiences and insights.", imgSrc: UnderstandingBipolar },
+    { title: "Mindfulness Meditation: Finding Calm in the Present", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Join this guided meditation session to practice mindfulness and relaxation.", imgSrc: MediationImage },
+    { title: "Breaking the Silence: Youth Mental Health", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Watch this panel discussion on addressing mental health challenges among young people.", imgSrc: MentalHealthImage },
     {
       title: "Understanding Depression: Symptoms and Treatments",
       link: "https://www.youtube.com/watch?v=d7NPnvKFs2Y",
@@ -89,6 +89,16 @@ const Resources = () => {
         </div>
       </div>
 
+      <div className="mx-auto py-12 lg:py-24 min-w-screen">
+        <div className="grid items-start justify-center gap-4 px-4 md:gap-8 md:px-6">
+          <div className="flex flex-col items-center space-y-2 mt-[-8rem]">
+            <img src={MediationImage} alt="Meditation" className="object-cover w-full h-[38rem] object-top rounded-lg" />
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Meditation for Relaxation</h2>
+            <p className="text-gray-500 dark:text-gray-400">Take a moment to practice mindfulness and relaxation through meditation.</p>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto py-12 lg:py-24">
         <div className="grid items-start justify-center gap-4 px-4 md:gap-8 md:px-6">
           <div className="flex flex-col space-y-2">
@@ -97,7 +107,7 @@ const Resources = () => {
           </div>
           <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10 max-w-screen-md mx-auto">
             {articles.map((article, index) => (
-              <ResourceItem key={index} title={article.title} link={article.link} description={article.description} imgSrc={article.imgSrc}/>
+              <ResourceItem key={index} title={article.title} link={article.link} description={article.description} imgSrc={article.imgSrc} />
             ))}
           </div>
         </div>
@@ -125,20 +135,21 @@ const Resources = () => {
           </div>
           <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10 max-w-screen-md mx-auto">
             {videos.map((video, index) => (
-              <ResourceItem key={index} title={video.title} link={video.link} description={video.description} imgSrc={video.imgSrc}/>
+              <ResourceItem key={index} title={video.title} link={video.link} description={video.description} imgSrc={video.imgSrc} />
             ))}
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 
 export default Resources;
 
 ResourceItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired
 };
