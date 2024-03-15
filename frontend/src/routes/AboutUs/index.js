@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const TeamMember = ({ name, description, imageUrl, linkedinUrl, githubUrl }) => {
     return (
         <div className="text-center p-8">
-            <img src={imageUrl} alt={name} className="rounded-full w-32 h-32 mx-auto mb-4 " />
+            <img src={imageUrl} alt={name} className="rounded-full w-32 h-32 mx-auto mb-4" />
             <h2 className="text-xl font-bold mb-2">{name}</h2>
             <p className="text-gray-700 mb-4">{description}</p>
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">LinkedIn</a>
