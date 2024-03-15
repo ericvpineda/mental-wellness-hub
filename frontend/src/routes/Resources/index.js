@@ -95,7 +95,7 @@ const Resources = () => {
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Articles</h2>
             <p className="text-gray-500 dark:text-gray-400">Informative reads</p>
           </div>
-          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10 max-w-screen-md mx-auto">
             {articles.map((article, index) => (
               <ResourceItem key={index} title={article.title} link={article.link} description={article.description} imgSrc={article.imgSrc}/>
             ))}
@@ -109,7 +109,7 @@ const Resources = () => {
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Hotlinks</h2>
             <p className="text-gray-500 dark:text-gray-400">Quick access resources</p>
           </div>
-          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10 max-w-screen-md mx-auto">
             {hotlinks.map((hotlink, index) => (
               <ResourceItem key={index} title={hotlink.title} link={hotlink.link} description={hotlink.description} />
             ))}
@@ -123,7 +123,7 @@ const Resources = () => {
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Videos</h2>
             <p className="text-gray-500 dark:text-gray-400">Educational content</p>
           </div>
-          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+          <div className="grid w-full grid-cols-1 items-start justify-center gap-6 md:grid-cols-2 md:gap-8 lg:gap-10 max-w-screen-md mx-auto">
             {videos.map((video, index) => (
               <ResourceItem key={index} title={video.title} link={video.link} description={video.description} imgSrc={video.imgSrc}/>
             ))}

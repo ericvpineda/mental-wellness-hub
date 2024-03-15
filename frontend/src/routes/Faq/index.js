@@ -18,8 +18,7 @@ const Faq = () => {
     }
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-lg min-h-[70vh]">
-            <h1 className="text-3xl font-bold mb-4">Frequently Asked Questions</h1>
+        <div className="p-6 bg-white rounded-lg shadow-lg min-h-[70vh] max-w-screen-md mx-auto">            <h1 className="text-3xl font-bold mb-4">Frequently Asked Questions</h1>
             <p className="text-gray-700 mb-8">The significance of mental health cannot be overstated; it constitutes a fundamental aspect of overall health and well-being, encompassing emotional, psychological, and social dimensions. Below, you will find responses to frequently asked questions concerning mental health, aimed at enhancing your comprehension and fostering support for your mental well-being.</p>
             <div className="border-t border-b border-gray-200 py-4">
                 <h2 className="text-lg font-semibold flex items-center justify-between cursor-pointer" onClick={toggleAnswer1}>
