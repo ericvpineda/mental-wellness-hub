@@ -42,7 +42,11 @@ export default function Journal() {
       />
 
       {/* Note: Journal Editor  */}
-      <JournalEditor entry={entry} updateEntry={updateEntryHandler} />
+      <JournalEditor
+        entryIndex={entryIndex}
+        entry={entry}
+        updateEntry={updateEntryHandler}
+      />
     </div>
   );
 }
