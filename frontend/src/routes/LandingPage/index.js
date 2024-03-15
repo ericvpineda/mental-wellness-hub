@@ -5,6 +5,7 @@ import GratitudeImage from '../../assets/images/practice_gratitude.jpg'
 import TherapyImage from '../../assets/images/therapy.png'
 import ImageItem from '../../components/ImageItem'
 import React from 'react';
+import ChatbotAI from '../../components/chatbotAI'
 
 
 export default function Template() {
@@ -75,7 +76,7 @@ export default function Template() {
           </div>
         </div>
       </div>
-
+      <ChatbotAI />
     </>
   )
 }
