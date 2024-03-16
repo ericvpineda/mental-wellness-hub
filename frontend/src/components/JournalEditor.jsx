@@ -10,8 +10,8 @@ import Tiptap from "../components/Tiptap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-export default function JournalEditor({ entry }) {
-  console.log("DEBUG: entry desription=", entry);
+export default function JournalEditor({ entry, entryIndex, updateEntry }) {
+
   const form = useForm({
     mode: "onChange",
     defaultValues: {
@@ -20,7 +20,9 @@ export default function JournalEditor({ entry }) {
   });
 
   // TODO: Create route to save new/updated entries to db
-  const onSubmit = () => {};
+  const onSubmit = (data) => {
+    console.log("DEBUG: data=", data)
+  };
 
   // Update journal editor with selected journal entry
   useEffect(() => {
@@ -28,8 +30,8 @@ export default function JournalEditor({ entry }) {
   }, [entry, form]);
 
   return (
-    <div className="h-full w-full px-14 pt-10">
-      <Form {...form} className="h-full bg-white">
+    <div className="h-full w-full px-14 pt-10 bg-white">
+      <Form {...form} className="h-full ">
         <form
           className="h-full bg-white"
           onSubmit={form.handleSubmit(onSubmit)}
@@ -41,11 +43,10 @@ export default function JournalEditor({ entry }) {
               <FormItem>
                 <FormControl>
                   <Tiptap
-                    description={field.description}
+                    description={field.value}
                     onChange={field.onChange}
-                    // updateEntry={updateEntry}
-                  >
-                  </Tiptap>
+                    entryIndex={entryIndex}
+                  />
                 </FormControl>
               </FormItem>
             )}

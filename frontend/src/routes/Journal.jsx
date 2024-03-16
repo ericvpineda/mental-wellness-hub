@@ -5,12 +5,11 @@ import JournalEditor from "components/JournalEditor";
 
 // Component that implements Journal sidebar and main editor functionality
 export default function Journal() {
-  
-  // Current index for list of entries 
+  // Current index for list of entries
   const [index, setIndex] = useState(0);
-  
+
   // Contains all fetched journal entries
-  let [allEntries, setAllEntries] = useState([]); 
+  let [allEntries, setAllEntries] = useState([]);
 
   // QUESTION: Is this needed?
   const selectIndexHandler = (index) => {
@@ -24,7 +23,9 @@ export default function Journal() {
 
   // TODO: Figure out how to preset data without showing placeholder
   const [entry, setentry] = useState({
-    description: ""
+    id: 0,
+    description: null,
+    date: new Date().toDateString(),
   });
 
   // Creates new entry on button 'New Journal' button click
@@ -38,9 +39,8 @@ export default function Journal() {
     setentry(newEntry);
   };
 
-  // Fetch all entries set entry to entry at index 0 default 
+  // Fetch all entries set entry to entry at index 0 default
   useEffect(() => {
-
     // TODO: GET request for backend
     // fetch('https://localhost:8000/entries', {
     //   method: 'GET',
@@ -51,9 +51,8 @@ export default function Journal() {
     // })
 
     // Mock for fetching enteries later
-    setAllEntries(mockEntries)
-    setentry(mockEntries[index])
-
+    setAllEntries(mockEntries);
+    setentry(mockEntries[index]);
   }, [index, allEntries]);
 
   return (
@@ -66,10 +65,10 @@ export default function Journal() {
       />
 
       {/* Main Journal editor  */}
-      <JournalEditor
-        entry={entry}
-        updateEntry={updateEntryHandler}
-      />
+      <JournalEditor 
+      entry={entry} 
+      entryIndex={index}
+      updateEntry={updateEntryHandler} />
     </div>
   );
 }

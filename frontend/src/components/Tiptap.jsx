@@ -12,12 +12,15 @@ import { mergeAttributes } from "@tiptap/react";
 
 export default function Tiptap({
   description,
-  onChange,
+  // onChange,
+  entryIndex,
   // updateEntry,
 }) {
+  console.log("DEBUG: tipttap description=", description == null);
+  const [index, setIndex] = useState(-1);
   const lowlight = createLowlight(common);
   const editor = useEditor({
-    content: description,
+    content: "",
     extensions: [
       StarterKit,
       CodeBlockLowlight.configure({
@@ -65,7 +68,7 @@ export default function Tiptap({
       preserveWhitespace: "full",
     },
     onUpdate({ editor }) {
-      onChange(editor.getHTML());
+      // onChange(editor.getHTML());
       // Note: Updates stored html
       // updateEntry(editor.getHTML());
     },
@@ -75,9 +78,12 @@ export default function Tiptap({
     if (!editor) return;
     let { from, to } = editor.state.selection;
     // Prevent history from being destroyed from multiple setContent() updates
-    editor.commands.setContent(description, false, {
-      preserveWhitespace: "full",
-    });
+    if (entryIndex !== index && description !== null) {
+      editor.commands.setContent(description, false, {
+        preserveWhitespace: "full",
+      });
+      setIndex(entryIndex);
+    }
     // Prevent cursor jumping to end after setContect()
     editor.commands.setTextSelection({ from, to });
   }, [description, editor]);
