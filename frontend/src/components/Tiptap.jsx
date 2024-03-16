@@ -9,14 +9,15 @@ import { createLowlight, common } from "lowlight";
 import { LiteralTab } from "./tiptap/LiteralTab";
 import StarterKit from "@tiptap/starter-kit";
 import { mergeAttributes } from "@tiptap/react";
+import { print } from "lib/utils";
+import { EditorState } from "@tiptap/pm/state";
 
 export default function Tiptap({
   description,
-  // onChange,
+  onChange,
   entryIndex,
   // updateEntry,
 }) {
-  console.log("DEBUG: tipttap description=", description == null);
   const [index, setIndex] = useState(-1);
   const lowlight = createLowlight(common);
   const editor = useEditor({
@@ -74,19 +75,33 @@ export default function Tiptap({
     },
   });
 
+  function resetEditorContent(editor, newContent) {
+    editor.commands.setContent(newContent);
+
+    // The following code clears the history. Hopefully without side effects.
+    const newEditorState = EditorState.create({
+        doc: editor.state.doc,
+        plugins: editor.state.plugins,
+        schema: editor.state.schema
+    });
+    editor.view.updateState(newEditorState);
+}
+
   useEffect(() => {
     if (!editor) return;
     let { from, to } = editor.state.selection;
     // Prevent history from being destroyed from multiple setContent() updates
+    print("index, entryIndex", index, entryIndex);
     if (entryIndex !== index && description !== null) {
-      editor.commands.setContent(description, false, {
-        preserveWhitespace: "full",
-      });
+      // editor.commands.setContent(description, true, {
+      //   preserveWhitespace: "full",
+      // });
+      resetEditorContent(editor, description)
       setIndex(entryIndex);
     }
     // Prevent cursor jumping to end after setContect()
     editor.commands.setTextSelection({ from, to });
-  }, [description, editor]);
+  }, [description, editor, index]);
 
   return (
     <>
