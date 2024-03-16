@@ -5,15 +5,16 @@ import GratitudeImage from '../../assets/images/practice_gratitude.jpg'
 import TherapyImage from '../../assets/images/therapy.png'
 import ImageItem from '../../components/ImageItem'
 import React from 'react';
+// import ChatbotAI from '../../components/chatbotAI'
 
 
 export default function Template() {
 
   return (
     <>
-      <div className="bg-gray-50 py-12 lg:py-16">
+      <div className="flex justify-center items-center bg-gray-50 py-12 lg:py-16">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="space-y-2">
+          <div className="space-y-2 mx-auto">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Your Mental Health Matters</h1>
             <p className="mx-auto max-w-2xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Resources and support for your mental well-being.
@@ -21,7 +22,8 @@ export default function Template() {
           </div>
         </div>
       </div>
-      <div className="py-12 lg:py-16">
+
+      <div className="py-12 lg:py-16 flex justify-center">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Relaxation Techniques Demo</h2>
@@ -34,7 +36,7 @@ export default function Template() {
           </div>
         </div>
       </div>
-      <div className="border-t border-b divide-y">
+      <div className="border-t border-b divide-y flex justify-center items-center">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Featured Articles</h2>
@@ -42,25 +44,21 @@ export default function Template() {
               Explore our collection of articles covering various mental health topics.
             </p>
           </div>
-          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8 justify-center border">
             <ImageItem
-               image={StressImage}
-               headline={"Coping with Stress"}
-               link={"https://www.helpguide.org/articles/stress/stress-management.htm/"}
+              image={StressImage}
+              headline={"Coping with Stress"}
+              link={"https://www.helpguide.org/articles/stress/stress-management.htm/"}
             >
-              Simple strategies to manage stress in your daily life.
+              Explore easy-to-implement strategies for managing daily stress and enhancing your well-being.
             </ImageItem>
             <ImageItem
-               image={AnxietyImage}
-               headline={"Understanding Anxiety"}
-               link={"https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders"}
+              image={AnxietyImage}
+              headline={"Understanding Anxiety"}
+              link={"https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders"}
             >
-             Information about different types of anxiety and available treatments.
+              Information about different types of anxiety and available treatments.
             </ImageItem>
-          </div>
-        </div>
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
             <ImageItem
               image={GratitudeImage}
               headline={"Practicing Gratitude"}
@@ -78,46 +76,7 @@ export default function Template() {
           </div>
         </div>
       </div>
-
-      {/* <div className="py-12 lg:py-16">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Testimonials</h2>
-          </div>
-          <div className="max-w-3xl mx-auto grid gap-4 items-center justify-center md:grid-cols-2 md:gap-8 lg:max-w-5xl">
-            <div className="space-y-2">
-              <p className="text-gray-500 dark:text-gray-400">
-                “The resources provided here have been invaluable in helping me better understand my mental health and
-                find strategies to improve my well-being. Thank you for creating such a supportive and informative
-                platform!”
-              </p>
-              <div className="font-medium">— Sarah, 32</div>
-            </div>
-            <div className="space-y-2">
-              <p className="text-gray-500 dark:text-gray-400">
-                “As someone who has struggled with anxiety for years, I appreciate the practical tips and advice offered
-                on this site. The articles are well-written and the information is presented in a way that is easy to
-                understand.”
-              </p>
-              <div className="font-medium">— Alex, 28</div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="bg-gray-50 py-12 lg:py-16">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Get in Touch</h2>
-            <p className="mx-auto max-w-2xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              If you have any questions or would like to learn more about our services, please contact us.
-            </p> */}
-      {/* </div> */}
-      {/* <form className="mx-auto max-w-sm space-y-4">
-            <Input placeholder="Enter your email" type="email" />
-            <Button type="submit">Subscribe</Button>
-          </form> */}
-      {/* </div> */}
-      {/* </div> */}
+      {/* <ChatbotAI /> */}
     </>
   )
 }

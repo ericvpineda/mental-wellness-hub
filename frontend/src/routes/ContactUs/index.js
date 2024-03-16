@@ -2,14 +2,15 @@ import React from "react";
 
 const ContactUs = () => {
     return (
-        <div className="container grid max-w-3xl min-h-screen place-content-center px-4 space-y-4">
-            <div className="space-y-2">
-                <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">Contact Us</h1>
-                <p className="text-gray-600 dark:text-gray-400">
-                    Please fill out the form below and we will get back to you as soon as possible.
-                </p>
-            </div>
-            <div className="space-y-4">
+        <div className="flex items-center justify-center h-screen">
+            <div className="max-w-3xl w-full p-4 space-y-4">
+                <div className="space-y-2">
+                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">Contact Us</h1>
+                    <p className="text-gray-600 dark:text-gray-400">
+                        Please fill out the form below and we will get back to you as soon as possible.
+                    </p>
+                </div>
+                <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                         <label
@@ -82,6 +83,7 @@ const ContactUs = () => {
                     Send message
                 </button>
             </div>
+        </div>
         </div>
     )
 }

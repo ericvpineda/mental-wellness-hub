@@ -15,13 +15,13 @@ const HomePage = () => {
                     <span className="text-white text-3xl font-bold">information here</span>
                 </div>
             </div>
-            
+
                 <h1 className="text-xl font-bold mt-4">Here are some articles to check out from other people about there Mental Health</h1>
             <div className="grid grid-col-3 gap-4 gap-6">
                     <div>
                         <h2 className="mb-6 text-xl font-bold">Title of the Article</h2>
                     </div>
-                    <div class="mb-6 flex-grow">
+                    <div className="mb-6 flex-grow">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
