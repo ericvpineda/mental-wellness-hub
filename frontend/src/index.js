@@ -10,7 +10,6 @@ import HomePage from "./routes/LandingPage";
 import Resources from "./routes/Resources";
 import ContactUs from "./routes/ContactUs";
 import Faq from "./routes/Faq";
-import React from 'react';
 
 const router = createBrowserRouter([
   {
@@ -29,21 +28,19 @@ const router = createBrowserRouter([
         path: "meditation",
         element: <Meditation />,
       },
-        path: "about-us",
-        element: <AboutUs/>
-      },
+      { path: "about-us", element: <AboutUs /> },
       {
         path: "resources",
-        element: <Resources />
+        element: <Resources />,
       },
       {
         path: "faq",
-        element: <Faq />
+        element: <Faq />,
       },
       {
         path: "contact-us",
-        element: <ContactUs />
-      }
+        element: <ContactUs />,
+      },
     ],
   },
 ]);
