@@ -16,7 +16,7 @@ export default function Tiptap({
   description,
   onChange,
   entryIndex,
-  // updateEntry,
+  updateEntry,
 }) {
   const [index, setIndex] = useState(-1);
   const lowlight = createLowlight(common);
@@ -69,9 +69,9 @@ export default function Tiptap({
       preserveWhitespace: "full",
     },
     onUpdate({ editor }) {
-      // onChange(editor.getHTML());
+      onChange(editor.getHTML());
       // Note: Updates stored html
-      // updateEntry(editor.getHTML());
+      updateEntry(editor.getHTML());
     },
   });
 

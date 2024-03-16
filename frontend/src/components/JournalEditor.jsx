@@ -46,6 +46,7 @@ export default function JournalEditor({ entry, entryIndex, updateEntry }) {
                     description={field.value}
                     onChange={field.onChange}
                     entryIndex={entryIndex}
+                    updateEntry={updateEntry}
                   />
                 </FormControl>
               </FormItem>
