@@ -14,12 +14,10 @@ export default function Tiptap({
   description,
   onChange,
   // updateEntry,
-  entryIndex,
 }) {
   const lowlight = createLowlight(common);
-  const [index, setindex] = useState(-1);
   const editor = useEditor({
-    content: "",
+    content: description,
     extensions: [
       StarterKit,
       CodeBlockLowlight.configure({
@@ -49,7 +47,9 @@ export default function Tiptap({
       }),
       Placeholder.configure({
         placeholder:
-          description.length === 0 && "Tell me more about your day...",
+          description &&
+          description.length > 0 &&
+          "Tell me more about your day...",
       }),
       LiteralTab,
       InvisibleCharacters.configure({
@@ -74,18 +74,13 @@ export default function Tiptap({
   useEffect(() => {
     if (!editor) return;
     let { from, to } = editor.state.selection;
-
     // Prevent history from being destroyed from multiple setContent() updates
-    if (index !== entryIndex && description.length > 0) {
-      editor.commands.setContent(description, false, {
-        preserveWhitespace: "full",
-      });
-      setindex(entryIndex);
-    }
-
+    editor.commands.setContent(description, false, {
+      preserveWhitespace: "full",
+    });
     // Prevent cursor jumping to end after setContect()
     editor.commands.setTextSelection({ from, to });
-  }, [description, entryIndex, editor, index]);
+  }, [description, editor]);
 
   return (
     <>
