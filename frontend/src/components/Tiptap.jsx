@@ -13,7 +13,7 @@ import { mergeAttributes } from "@tiptap/react";
 export default function Tiptap({
   description,
   onChange,
-  updateEntry,
+  // updateEntry,
   entryIndex,
 }) {
   const lowlight = createLowlight(common);
@@ -25,17 +25,16 @@ export default function Tiptap({
       CodeBlockLowlight.configure({
         lowlight,
       }),
-      Heading
-      .extend({
+      Heading.extend({
         levels: [1, 2],
         renderHTML({ node, HTMLAttributes }) {
           const level = this.options.levels.includes(node.attrs.level)
             ? node.attrs.level
             : this.options.levels[0];
           const classes = {
-            1: 'text-4xl',
-            2: 'text-3xl',
-            3: 'text-2xl',
+            1: "text-4xl",
+            2: "text-3xl",
+            3: "text-2xl",
           };
           return [
             `h${level}`,
@@ -45,9 +44,8 @@ export default function Tiptap({
             0,
           ];
         },
-      })
-      .configure({
-          levels: [1,2,3],
+      }).configure({
+        levels: [1, 2, 3],
       }),
       Placeholder.configure({
         placeholder:
@@ -68,31 +66,31 @@ export default function Tiptap({
     },
     onUpdate({ editor }) {
       onChange(editor.getHTML());
-      updateEntry(editor.getHTML());
+      // Note: Updates stored html
+      // updateEntry(editor.getHTML());
     },
   });
 
-  console.log("DEBUG: index=", index, entryIndex);
   useEffect(() => {
     if (!editor) return;
-    // let { from, to } = editor.state.selection;
-    if (index !== entryIndex) {
-      console.log("DEBUG: setting content....");
+    let { from, to } = editor.state.selection;
+
+    // Prevent history from being destroyed from multiple setContent() updates
+    if (index !== entryIndex && description.length > 0) {
       editor.commands.setContent(description, false, {
         preserveWhitespace: "full",
       });
       setindex(entryIndex);
-      console.log("DEBUG: index=", index, entryIndex);
     }
 
-    // // Prevent cursor jumping to end after setContect()
-    // editor.commands.setTextSelection({ from, to });
-  }, [description, editor, index, entryIndex]);
+    // Prevent cursor jumping to end after setContect()
+    editor.commands.setTextSelection({ from, to });
+  }, [description, entryIndex, editor, index]);
 
   return (
     <>
       <Toolbar editor={editor} />
-      <EditorContent editor={editor} content={description} />
+      <EditorContent editor={editor} />
       {/* <FloatingMenu editor={editor}>This is the floating menu</FloatingMenu> */}
       {/* <BubbleMenu editor={editor}>This is the bubble menu</BubbleMenu> */}
     </>

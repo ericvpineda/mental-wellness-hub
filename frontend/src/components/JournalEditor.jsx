@@ -10,7 +10,7 @@ import Tiptap from "../components/Tiptap";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-export default function JournalEditor({ entry, updateEntry }) {
+export default function JournalEditor({ entry, entryIndex }) {
   const form = useForm({
     mode: "onChange",
     defaultValues: {
@@ -26,7 +26,7 @@ export default function JournalEditor({ entry, updateEntry }) {
     form.setValue("description", entry.description, {
       shouldDirty: true,
     });
-  }, [form, entry]);
+  }, [entry, form]);
 
   return (
     <div className="h-full w-full px-14 pt-10">
@@ -44,7 +44,8 @@ export default function JournalEditor({ entry, updateEntry }) {
                   <Tiptap 
                   description={field.value} 
                   onChange={field.onChange} 
-                  updateEntry={updateEntry}
+                  entryIndex={entryIndex}
+                  // updateEntry={updateEntry}
                   />
                 </FormControl>
               </FormItem>

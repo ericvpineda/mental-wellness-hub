@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { mockEntries } from "lib/mockData";
 import JournalEditor from "components/JournalEditor";
 
+
 export default function Journal() {
   const [entryIndex, setEntryIndex] = useState(0);
   // TODO: Figure out how to preset data without showing placeholder
