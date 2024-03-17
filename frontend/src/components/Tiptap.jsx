@@ -10,6 +10,9 @@ import { LiteralTab } from "./tiptap/LiteralTab";
 import StarterKit from "@tiptap/starter-kit";
 import { mergeAttributes } from "@tiptap/react";
 import { EditorState } from "@tiptap/pm/state";
+import Highlight from "@tiptap/extension-highlight";
+import Image from "@tiptap/extension-image";
+import Link from "@tiptap/extension-link";
 
 export default function Tiptap({
   description,
@@ -58,6 +61,12 @@ export default function Tiptap({
       InvisibleCharacters.configure({
         visible: false,
       }),
+      Highlight,
+      Image,
+      Link.configure({
+        openOnClick: true,
+        autolink: true,
+      })
     ],
     editorProps: {
       attributes: {
