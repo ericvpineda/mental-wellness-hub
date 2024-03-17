@@ -3,12 +3,14 @@ import userRoutes from './routes/users.js'
 import journalRoutes from './routes/journals.js'
 import chatbotRoutes from './routes/chatbot.js'
 import * as dotenv from "dotenv";
+import cors from "cors";
 
 const app = express();
 const PORT = 8000;
 dotenv.config({ path: "./.env.local" });
 
 app.use(express.json());
+app.use(cors())
 
 app.use('/users', userRoutes);
 app.use('/journals', journalRoutes);
