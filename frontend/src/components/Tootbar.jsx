@@ -14,11 +14,13 @@ import {
   Highlighter,
   ImagePlus,
   Link,
+  Tally5,
+  Strikethrough
 } from "lucide-react";
 import { Toggle, ToggleNoPressed } from "./ui/toggle";
 import { useCallback } from "react";
 
-export default function Toolbar({ editor }) {
+export default function Toolbar({ editor, setIsShowingCharCount }) {
   if (!editor) {
     return null;
   }
@@ -34,15 +36,20 @@ export default function Toolbar({ editor }) {
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes("link").href;
     const url = window.prompt("URL", previousUrl);
-    
+
     // cancelled
     if (url === null || url === undefined) {
       return;
     } else if (url === "") {
-      editor.chain().focus().extendMarkRange('link').unsetLink().run()
+      editor.chain().focus().extendMarkRange("link").unsetLink().run();
     } else {
       // update link
-      editor.chain().focus().extendMarkRange('link').toggleLink({ href: url }).run()
+      editor
+        .chain()
+        .focus()
+        .extendMarkRange("link")
+        .toggleLink({ href: url })
+        .run();
     }
   }, [editor]);
 
@@ -137,10 +144,24 @@ export default function Toolbar({ editor }) {
         size="sm"
         pressed={editor.isActive("link")}
         onClick={setLink}
-        // onPressedChange={() => editor.chain().focus().unsetLink().run()}
       >
         <Link className="h-4 w-4" />
       </ToggleNoPressed>
+
+      <Toggle
+        size="sm"
+        onPressedChange={() => setIsShowingCharCount(prev => !prev)}
+      >
+        <Tally5 className="h-4 w-4" />
+      </Toggle>
+     
+      <Toggle
+        size="sm"
+        pressed={editor.isActive('strike')}
+        onPressedChange={() => editor.chain().focus().toggleStrike().run()}
+      >
+        <Strikethrough className="h-4 w-4" />
+      </Toggle>
 
       {/* Redo and Undo Buttons */}
 
