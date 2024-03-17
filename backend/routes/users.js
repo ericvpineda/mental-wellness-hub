@@ -1,8 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 // GET /users
-// Test
 router.get('/', (req, res) => {
   res.send('GET /users route, user information will display here');
 });
@@ -16,4 +15,4 @@ router.post('/create_user', (req, res) => {
   res.send('POST /users route, user information will be added here');
 });
 
-module.exports = router;
+export default router;
