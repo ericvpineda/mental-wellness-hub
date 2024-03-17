@@ -36,15 +36,15 @@ body {
 }
 
 .journal_entry_title {
-  @apply font-semibold text-sm;
+  @apply font-semibold text-sm text-center w-full;
 }
 
 .journal_entry_date {
-  @apply text-xs text-gray-300 italic;
+  @apply text-xs text-gray-300 italic text-center w-full;
 }
 
 .journal_entry_empty {
-  @apply text-xs text-gray-300 italic text-center;
+  @apply text-xs text-gray-300 italic mb-3 px-5 text-center;
 }
 
 .tiptap .is-editor-empty:first-child::before {

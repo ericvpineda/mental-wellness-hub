@@ -11,6 +11,9 @@ export default function JournalSidebar({
   const [minWidth, maxWidth, defaultWidth] = [200, 500, 350];
   const [width, setWidth] = useState(defaultWidth);
   const isResized = useRef(false);
+  const lastWeekDate = new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000);
+  const currWeekList = [];
+  const lastWeekList = [];
 
   useEffect(() => {
     window.addEventListener("mousemove", (e) => {
@@ -26,6 +29,49 @@ export default function JournalSidebar({
       isResized.current = false;
     });
   }, []);
+
+  // Place entries into lastWeekList if date is less than 7 days ago
+  // Else, place entry into currWeekList
+  if (entries && entries.length > 0) {
+    for (let i = 0; i < entries.length; i++) {
+      const entry = entries[i];
+      let sanitizedTitle = "Untitled Entry";
+      // Strip entry html into plain text
+      if (entry.description.length > 0) {
+        // Question: Better way to parse HTML for text?
+        const dom = new DOMParser().parseFromString(
+          entry.description,
+          "text/html"
+        );
+        sanitizedTitle = stripHtml(dom.body.firstChild.textContent).result;
+        sanitizedTitle =
+          sanitizedTitle.length > 30
+            ? sanitizedTitle.substring(0, 30) + "..."
+            : sanitizedTitle;
+      }
+      if (new Date(entry.date) <= lastWeekDate) {
+        lastWeekList.push(
+          <JournalSection
+            selectEntryIndex={selectEntryIndex}
+            idx={i}
+            key={entry.id}
+            name={sanitizedTitle}
+            date={entry.date}
+          />
+        );
+      } else {
+        currWeekList.push(
+          <JournalSection
+            selectEntryIndex={selectEntryIndex}
+            idx={i}
+            key={entry.id}
+            name={sanitizedTitle}
+            date={entry.date}
+          />
+        );
+      }
+    }
+  }
 
   return (
     <div className="flex">
@@ -60,38 +106,25 @@ export default function JournalSidebar({
             <h1>This Week</h1>
           </div>
           {/* Entry Shortcuts  */}
-          {entries.map((entry, idx) => {
-            let sanitizedTitle = "Untitled Entry";
-            if (entry.description.length > 0) {
-              // Question: Better way to parse HTML for text?
-              const dom = new DOMParser().parseFromString(
-                entry.description,
-                "text/html"
-              );
-              sanitizedTitle = stripHtml(
-                dom.body.firstChild.textContent
-              ).result;
-              sanitizedTitle =
-                sanitizedTitle.length > 20
-                  ? sanitizedTitle.substring(0, 20) + "..."
-                  : sanitizedTitle;
-            }
-            return (
-              <JournalSection
-                selectEntryIndex={selectEntryIndex}
-                idx={idx}
-                key={entry.id}
-                name={sanitizedTitle}
-                date={entry.date}
-              />
-            );
-          })}
+          {currWeekList.length > 0 ? (
+            currWeekList.map((entry) => entry)
+          ) : (
+            <div className="journal_entry_empty">
+              <h1>Nothing happened..</h1>
+            </div>
+          )}
+
           <div className="journal_section_header">
             <h1>Last Week</h1>
           </div>
-          <div className="journal_entry_empty">
-            <h1>Nothing happened..</h1>
-          </div>
+
+          {lastWeekList.length > 0 ? (
+            lastWeekList.map((entry) => entry)
+          ) : (
+            <div className="journal_entry_empty">
+              <h1>Nothing happened..</h1>
+            </div>
+          )}
         </div>
       </div>
 

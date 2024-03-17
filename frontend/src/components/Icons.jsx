@@ -7,7 +7,7 @@ export const Icons = {
       height="3rem"
       viewBox="0 0 48 48"
     >
-      <title>70 Basic icons by Xicons.co</title>
+      <title>New Journal Entry</title>
       <path
         d="M33,48H4a4,4,0,0,1-4-4V20L13,9H33a4,4,0,0,1,4,4V44A4,4,0,0,1,33,48Z"
         fill="#e7e9e9"
