@@ -19,6 +19,8 @@ import Strike from "@tiptap/extension-strike";
 import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import TextAlign from "@tiptap/extension-text-align";
+import ts from "highlight.js/lib/languages/typescript";
+import html from "highlight.js/lib/languages/xml";
 
 export default function Tiptap({
   description,
@@ -31,6 +33,9 @@ export default function Tiptap({
   const [isShowingCharCount, setIsShowingCharCount] = useState(false);
   // Used for codeblock styling
   const lowlight = createLowlight(common);
+  lowlight.register({ html });
+  lowlight.register({ ts });
+
   // All tiptap imported extensions
   const extensions = [
     StarterKit, // includes extensions: https://tiptap.dev/docs/editor/api/extensions/starter-kit
@@ -128,8 +133,8 @@ export default function Tiptap({
       nested: true,
     }),
     TextAlign.configure({
-      types: ['heading', 'paragraph'],
-    })
+      types: ["heading", "paragraph"],
+    }),
   ];
   // Tiptap editor
   const editor = useEditor({
