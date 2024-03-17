@@ -39,6 +39,7 @@ export default function Journal() {
   };
 
   const fetchEntries = async () => {
+    console.log("DEBUG: fetching data");
     try {
       const response = await fetch("http://localhost:8000/journals", {
         method: "GET",
@@ -48,21 +49,24 @@ export default function Journal() {
         const data = await response.json();
         setAllEntries(data);
         setentry(data[index]);
-        return data;
       }
     } catch (error) {
       // TODO: Toast notification?
       console.log(error);
     }
-    return null;
   };
 
   // Fetch all entries set entry to entry at index 0 default
   useEffect(() => {
-    // TODO: GET request for backend
-
     fetchEntries();
-  }, [index, allEntries]);
+  }, []);
+
+  // Only update new selected entry
+  useEffect(() => {
+    if (allEntries.length > 0) {
+      setentry(allEntries[index]);
+    }
+  }, [index]);
 
   return (
     <div
