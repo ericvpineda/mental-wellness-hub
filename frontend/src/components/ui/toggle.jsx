@@ -69,5 +69,6 @@ const ToggleNoPressed = React.forwardRef(
 );
 
 Toggle.displayName = TogglePrimitive.Root.displayName;
+ToggleNoPressed.displayName = TogglePrimitive.Root.displayName;
 
 export { Toggle, toggleVariants, ToggleNoPressed };
