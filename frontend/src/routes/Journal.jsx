@@ -56,7 +56,8 @@ export default function Journal() {
   }, [index, allEntries]);
 
   return (
-    <div className="h-screen w-full flex">
+    <div className="h-screen w-full grid grid-cols-[max-content_auto]
+    ">
       {/* Sidebar of Journal entry headers */}
       <JournalSidebar
         entries={allEntries}
