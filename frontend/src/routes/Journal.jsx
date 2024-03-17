@@ -42,7 +42,7 @@ export default function Journal() {
   // Fetch all entries set entry to entry at index 0 default
   useEffect(() => {
     // TODO: GET request for backend
-    // fetch('https://localhost:8000/entries', {
+    // fetch('https://localhost:8000/journals', {
     //   method: 'GET',
     // })
     // .then((res) => res.json())
