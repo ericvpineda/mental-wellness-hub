@@ -10,5 +10,6 @@ parserOptions:
 plugins:
   - react
 rules: {
-  'react/react-in-jsx-scope': 'off'
+  'react/react-in-jsx-scope': 'off', # prevents react import
+  "react/prop-types": "off" # prevents props validation
 }

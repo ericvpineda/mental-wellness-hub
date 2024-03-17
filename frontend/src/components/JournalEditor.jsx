@@ -3,8 +3,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
-  FormMessage,
 } from "components/ui/form";
 import Tiptap from "../components/Tiptap";
 import { useForm } from "react-hook-form";
