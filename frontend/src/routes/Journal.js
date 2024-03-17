@@ -1,3 +1,4 @@
+import React from 'react'
 // test - cheers
 
 export default function Journal() {
