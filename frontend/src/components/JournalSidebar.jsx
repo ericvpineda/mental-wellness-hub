@@ -17,7 +17,7 @@ export default function JournalSidebar({
       if (!isResized.current) return;
 
       setWidth((prevWidth) => {
-        const newWidth = prevWidth + e.movementX;
+        const newWidth = prevWidth + e.movementX * 2;
         const isInRange = minWidth <= newWidth && newWidth <= maxWidth;
         return isInRange ? newWidth : prevWidth;
       });
