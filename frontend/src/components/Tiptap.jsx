@@ -9,7 +9,6 @@ import { createLowlight, common } from "lowlight";
 import { LiteralTab } from "./tiptap/LiteralTab";
 import StarterKit from "@tiptap/starter-kit";
 import { mergeAttributes } from "@tiptap/react";
-import { print } from "lib/utils";
 import { EditorState } from "@tiptap/pm/state";
 
 export default function Tiptap({
@@ -91,7 +90,6 @@ export default function Tiptap({
     if (!editor) return;
     let { from, to } = editor.state.selection;
     // Prevent history from being destroyed from multiple setContent() updates
-    print("index, entryIndex", index, entryIndex);
     if (entryIndex !== index && description !== null) {
       // editor.commands.setContent(description, true, {
       //   preserveWhitespace: "full",
