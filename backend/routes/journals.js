@@ -1,19 +1,22 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+import { ConvexHttpClient } from "convex/browser";
+import { api } from "./convex/_generated/api.js";
 
-// GET /users
-// Test
+const router = express.Router();
+const client = new ConvexHttpClient(process.env["CONVEX_URL"]);
+
+// ----- Journal Routes ------ 
+
+// Get all journal entries
 router.get('/', (req, res) => {
-  res.send('GET /users route, user information will display here');
+  const allJournals = client.query(api.journals.get);
+  res.send(allJournals);
 });
 
+// Get specific journal entry
 router.get('/:id', (req, res) => {
     res.send('GET /users/:id route, parameterized user information will display here');
 });
 
-// POST /users
-router.post('/create_user', (req, res) => {
-  res.send('POST /users route, user information will be added here');
-});
 
-module.exports = router;
+export default router;

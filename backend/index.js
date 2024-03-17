@@ -1,9 +1,12 @@
-const express = require('express');
+import express from 'express';
+import userRoutes from './routes/users.js'
+import journalRoutes from './routes/journals.js'
+import chatbotRoutes from './routes/chatbot.js'
+import * as dotenv from "dotenv";
+
 const app = express();
 const PORT = 8000;
-const userRoutes = require('./routes/users')
-const journalRoutes = require('./routes/journals')
-const chatbotRoutes = require('./routes/chatbot');
+dotenv.config({ path: ".env.local" });
 
 app.use(express.json());
 
