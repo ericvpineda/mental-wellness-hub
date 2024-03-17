@@ -15,7 +15,11 @@ import {
   ImagePlus,
   Link,
   Tally5,
-  Strikethrough
+  Strikethrough,
+  CheckSquare2,
+  AlignLeft,
+  AlignRight,
+  AlignCenter,
 } from "lucide-react";
 import { Toggle, ToggleNoPressed } from "./ui/toggle";
 import { useCallback } from "react";
@@ -55,6 +59,33 @@ export default function Toolbar({ editor, setIsShowingCharCount }) {
 
   return (
     <div>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive({ textAlign: "left" })}
+        onPressedChange={() =>
+          editor.chain().focus().setTextAlign("left").run()
+        }
+      >
+        <AlignLeft className="h-4 w-4" />
+      </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive({ textAlign: "center" })}
+        onPressedChange={() =>
+          editor.chain().focus().setTextAlign("center").run()
+        }
+      >
+        <AlignCenter className="h-4 w-4" />
+      </Toggle>
+      <Toggle
+        size="sm"
+        pressed={editor.isActive({ textAlign: "right" })}
+        onPressedChange={() =>
+          editor.chain().focus().setTextAlign("right").run()
+        }
+      >
+        <AlignRight className="h-4 w-4" />
+      </Toggle>
       <Toggle
         size="sm"
         pressed={editor.isActive("heading", { level: 1 })}
@@ -150,17 +181,25 @@ export default function Toolbar({ editor, setIsShowingCharCount }) {
 
       <Toggle
         size="sm"
-        onPressedChange={() => setIsShowingCharCount(prev => !prev)}
+        onPressedChange={() => setIsShowingCharCount((prev) => !prev)}
       >
         <Tally5 className="h-4 w-4" />
       </Toggle>
-     
+
       <Toggle
         size="sm"
-        pressed={editor.isActive('strike')}
+        pressed={editor.isActive("strike")}
         onPressedChange={() => editor.chain().focus().toggleStrike().run()}
       >
         <Strikethrough className="h-4 w-4" />
+      </Toggle>
+
+      <Toggle
+        size="sm"
+        pressed={editor.isActive("taskList")}
+        onPressedChange={() => editor.chain().focus().toggleTaskList().run()}
+      >
+        <CheckSquare2 className="h-4 w-4" />
       </Toggle>
 
       {/* Redo and Undo Buttons */}

@@ -16,6 +16,9 @@ import Link from "@tiptap/extension-link";
 import FileHandler from "@tiptap-pro/extension-file-handler";
 import CharacterCount from "@tiptap/extension-character-count";
 import Strike from "@tiptap/extension-strike";
+import TaskItem from "@tiptap/extension-task-item";
+import TaskList from "@tiptap/extension-task-list";
+import TextAlign from "@tiptap/extension-text-align";
 
 export default function Tiptap({
   description,
@@ -119,7 +122,14 @@ export default function Tiptap({
       },
     }),
     CharacterCount,
-    Strike
+    Strike,
+    TaskList,
+    TaskItem.configure({
+      nested: true,
+    }),
+    TextAlign.configure({
+      types: ['heading', 'paragraph'],
+    })
   ];
   // Tiptap editor
   const editor = useEditor({
@@ -169,10 +179,7 @@ export default function Tiptap({
 
   return (
     <>
-      <Toolbar
-        editor={editor}
-        setIsShowingCharCount={setIsShowingCharCount}
-      />
+      <Toolbar editor={editor} setIsShowingCharCount={setIsShowingCharCount} />
       <EditorContent editor={editor} />
       {isShowingCharCount && editor && (
         <div className="text-[#adb5bd] ml-3">
