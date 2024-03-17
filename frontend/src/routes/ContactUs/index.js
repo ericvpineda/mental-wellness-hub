@@ -20,7 +20,7 @@ const ContactUs = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('/contact-us', {
+            const response = await fetch('http://localhost:8000/contact-us', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,12 +28,19 @@ const ContactUs = () => {
                 body: JSON.stringify(formData)
             });
 
-            if (!response.ok) {
-                throw new Error('Failed to send message');
+            if (response.ok) {
+                // const data = await response.json();
+                // alert(data);
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                });
+                // throw new Error('Failed to send message');
             }
 
-            const data = await response.json();
-            alert(data.message);
         } catch (error) {
             console.error('Error:', error);
             alert('Failed to send message');
