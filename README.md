@@ -1,7 +1,7 @@
 # Mental Wellness Hub
 
 ## Live Version:
-- To explore the live version of our website, simply follow this link: [Mental Wellness Hub](zero-to-one-beta.vercel.app)
+- To explore the live version of our website, simply follow this link: ```zero-to-one-beta.vercel.app```
 
 ## Technologies used:
 - Frontend:
