@@ -36,6 +36,8 @@
     - Record and manage journals
 - Meditation Timer
     - Track meditation sessions and duration
+
+# Future Features
 - AI Bot for Mental Health Support
     - Record and review previous conversations
 
