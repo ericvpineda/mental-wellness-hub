@@ -1,7 +1,7 @@
 # Mental Wellness Hub
 
 ## Live Version:
-- To explore the live version of our website, simply follow this link: ```zero-to-one-beta.vercel.app```
+- To explore the live version of our website, simply follow this link: https://zero-to-one-beta.vercel.app/.
 
 ## Important Installation
 - Please read the Frontend and Backend readme for step-by-step instruction on how to setup the frontend + backend + convex (database). Thank you!
