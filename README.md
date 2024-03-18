@@ -10,6 +10,7 @@
     - ReactJS
     - TailwindCSS
     - Vanilla JavaScript
+    - Tip Tap
 - Backend:
     - Express
     - Convex (Database)
@@ -23,13 +24,14 @@
 
 ### Website Pages:
     - Home Page
-    - Landing Page
-    - Navigation
-    - Footer
     - About Page
-    - Resources
-    - Articles
-    - Hotlines
+    - Services Dropdown
+        - Meditation Page
+        - Resources Page
+        - Journal Page
+    - Footer
+    - Faq Page
+    - Contact Us
 
 ## Application Features:
 - Authentication/Authorization:
@@ -42,6 +44,8 @@
 # Future Features
 - AI Bot for Mental Health Support
     - Record and review previous conversations
+- Implement Dark-Mode theme for all pages
+    - User can be able to switch between light and dark-mode in each page and should stay that mode.
 
 ## Backend:
 - Routing Configuration
