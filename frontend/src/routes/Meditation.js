@@ -1,7 +1,11 @@
 import React, { useRef, useState } from 'react';
 import MeditationModal from '../components/MeditationModal';
-import meditation from '../assets/meditation.mp3';
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+} from "@clerk/clerk-react";
+import { user } from '@clerk/clerk-react';
 
 export default function Meditation() {
     const audioRef1 = useRef(null);
@@ -59,6 +63,7 @@ export default function Meditation() {
                 clearInterval(intervalRef);
                 setTimerActive(false);
                 setShowModal(true);
+                // user.id and meditation info appended to meditations table
             }
         }, 1000);
     }
@@ -85,6 +90,7 @@ export default function Meditation() {
 
   return (
     <div className="h-screen">
+        <SignedIn>
         {showModal && <MeditationModal toggleModal={toggleModal}/>}
         <div className="h-screen">
             <div className={"flex flex-col items-center justify-center h-3/4 bg-white"}>
@@ -113,17 +119,24 @@ export default function Meditation() {
                     <div className="flex flex-row items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-md">
                         <h1 className="text-lg font-semibold">Ambient Music</h1>
                         <button onClick={() => togglePlay(audioRef1, 'audio1')} className="ml-4 bg-black text-white rounded py-2 px-4 hover:text-sky-500 duration-200">{isPlaying.audio1 ? 'Pause' : 'Play'}</button>
-                        <audio ref={audioRef1} src={meditation}/>
+                        <audio ref={audioRef1} />
                     </div>
                     <div className="flex flex-row items-center bg-tree px-6 py-3 rounded-md">
                         <h1 className="text-lg font-semibold">Nature Sounds</h1>
                         <button onClick={() => togglePlay(audioRef2, 'audio2')} className="ml-4 bg-black text-white rounded py-2 px-4 hover:text-sky-500 duration-200">{isPlaying.audio2 ? 'Pause' : 'Play'}</button>
-                        <audio ref={audioRef2} src={meditation}/>
+                        <audio ref={audioRef2} />
                     </div>
             </div>
             </div>
         </div>
-    </div>
+        </SignedIn>
+        <SignedOut>
+            <div className="w-full flex flex-col justify-center items-center">
+                This page requires you to be logged in. :)
+                <SignInButton />
+            </div>
+        </SignedOut>
+    </div> 
   )
 }
 

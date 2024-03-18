@@ -34,7 +34,7 @@ const AboutUs = () => {
             githubUrl: "https://github.com/sfazli96"
         },
         {
-            name: "Ethan Guitteriez",
+            name: "Ethan Gutierrez",
             description: "Specializes in frontend + backend development and architecting robust server systems.",
             imageUrl: EthanImage,
             linkedinUrl: "https://www.linkedin.com/in/ethan-gutierrez-0a598124b/",
