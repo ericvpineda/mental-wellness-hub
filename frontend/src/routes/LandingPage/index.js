@@ -96,7 +96,7 @@ export default function Template() {
               image={TherapyImage}
               headline={"Seeking Help: Therapy Options"}
               link={
-                "https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.html"
+                "https://www.mhanational.org/finding-therapy#:~:text=TALK%20(1.800.,counselor%20at%20Crisis%20Text%20Line%20."
               }
             >
               Information about different types of therapy and how to find the

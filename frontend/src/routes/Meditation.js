@@ -7,7 +7,6 @@ import {
 } from "@clerk/clerk-react";
 import MeditationMusic from "/Users/ethangutierrez/Desktop/zero-to-one-2/frontend/src/assets/meditation.mp3";
 
-
 export default function Meditation() {
     const audioRef1 = useRef(MeditationMusic);
 

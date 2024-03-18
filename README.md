@@ -1,13 +1,16 @@
 # Mental Wellness Hub
 
 ## Live Version:
-- To explore the live version of our website, simply follow this link: Mental Wellness Hub
+- To explore the live version of our website, simply follow this link: https://zero-to-one-beta.vercel.app/.
 
+## Important Installation
+- Please read the Frontend and Backend readme for step-by-step instruction on how to setup the frontend + backend + convex (database). Thank you!
 ## Technologies used:
 - Frontend:
     - ReactJS
     - TailwindCSS
     - Vanilla JavaScript
+    - Tip Tap
 - Backend:
     - Express
     - Convex (Database)
@@ -21,13 +24,14 @@
 
 ### Website Pages:
     - Home Page
-    - Landing Page
-    - Navigation
-    - Footer
     - About Page
-    - Resources
-    - Articles
-    - Hotlines
+    - Services Dropdown
+        - Meditation Page
+        - Resources Page
+        - Journal Page
+    - Footer
+    - Faq Page
+    - Contact Us
 
 ## Application Features:
 - Authentication/Authorization:
@@ -36,8 +40,12 @@
     - Record and manage journals
 - Meditation Timer
     - Track meditation sessions and duration
+
+# Future Features
 - AI Bot for Mental Health Support
     - Record and review previous conversations
+- Implement Dark-Mode theme for all pages
+    - User can be able to switch between light and dark-mode in each page and should stay that mode.
 
 ## Backend:
 - Routing Configuration
@@ -58,8 +66,24 @@
 
 ## Screenshots
 
+### About Us Page:
+![About Us](about-us.png)
 
 
+## Resources Page:
+![resources1](resources.png)
+![alt text](resources1.png)
+![alt text](resources2.png)
+
+## Faq Page:
+![alt text](faq.png)
+
+## Contact Us Page:
+![alt text](contact-us.png)
+
+## Meditation page (required to login to see it):
+![alt text](med.png)
+![alt text](meditationTimer.png)
 # Example Usage:
 
 ## Journaling Feature:

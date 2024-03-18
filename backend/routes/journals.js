@@ -10,9 +10,9 @@ const client = new ConvexHttpClient(process.env["CONVEX_URL"]);
 // ----- Journal Routes ------ 
 
 // Get all journal entries
-router.get('/', (req, res) => {
-  const allJournals = client.query(api.journals.get);
-  res.send(allJournals);
+router.get('/', async (req, res) => {
+  const allJournals = await client.query(api.journals.get);
+  res.status(200).send(allJournals);
 });
 
 // Get specific journal entry
