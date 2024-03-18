@@ -1,6 +1,5 @@
 import JournalSidebar from "../components/JournalSidebar";
 import { useEffect, useState } from "react";
-import { mockEntries } from "lib/mockData";
 import JournalEditor from "components/JournalEditor";
 
 // Component that implements Journal sidebar and main editor functionality
@@ -39,25 +38,41 @@ export default function Journal() {
     setentry(newEntry);
   };
 
+  const fetchEntries = async () => {
+    console.log("DEBUG: fetching data");
+    try {
+      const response = await fetch("http://localhost:8000/journals", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setAllEntries(data);
+        setentry(data[index]);
+      }
+    } catch (error) {
+      // TODO: Toast notification?
+      console.log(error);
+    }
+  };
+
   // Fetch all entries set entry to entry at index 0 default
   useEffect(() => {
-    // TODO: GET request for backend
-    // fetch('https://localhost:8000/journals', {
-    //   method: 'GET',
-    // })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   setAllEntries(data);
-    // })
+    fetchEntries();
+  }, []);
 
-    // Mock for fetching enteries later
-    setAllEntries(mockEntries);
-    setentry(mockEntries[index]);
-  }, [index, allEntries]);
+  // Only update new selected entry
+  useEffect(() => {
+    if (allEntries.length > 0) {
+      setentry(allEntries[index]);
+    }
+  }, [index]);
 
   return (
-    <div className="h-screen w-full grid grid-cols-[max-content_auto]
-    ">
+    <div
+      className="h-screen w-full grid grid-cols-[max-content_auto]
+    "
+    >
       {/* Sidebar of Journal entry headers */}
       <JournalSidebar
         entries={allEntries}
@@ -66,10 +81,11 @@ export default function Journal() {
       />
 
       {/* Main Journal editor  */}
-      <JournalEditor 
-      entry={entry} 
-      entryIndex={index}
-      updateEntry={updateEntryHandler} />
+      <JournalEditor
+        entry={entry}
+        entryIndex={index}
+        updateEntry={updateEntryHandler}
+      />
     </div>
   );
 }

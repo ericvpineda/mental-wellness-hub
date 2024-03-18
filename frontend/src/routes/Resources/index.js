@@ -65,9 +65,9 @@ const Resources = () => {
   ];
 
   const videos = [
-    { title: "Understanding Bipolar Disorder: Personal Stories", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Hear from individuals living with bipolar disorder about their experiences and insights.", imgSrc: UnderstandingBipolar },
+    { title: "Understanding Bipolar Disorder: Personal Stories & Insights", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Hear from individuals living with bipolar disorder about their experiences and insights.", imgSrc: UnderstandingBipolar },
     { title: "Mindfulness Meditation: Finding Calm in the Present", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Join this guided meditation session to practice mindfulness and relaxation.", imgSrc: MediationImage },
-    { title: "Breaking the Silence: Youth Mental Health", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Watch this panel discussion on addressing mental health challenges among young people.", imgSrc: MentalHealthImage },
+    { title: "Breaking the Silence: Youth Mental Health Perspectives", link: "https://www.youtube.com/watch?v=O4D8XIsoU0Y", description: "Watch this panel discussion on addressing mental health challenges among young people.", imgSrc: MentalHealthImage },
     {
       title: "Understanding Depression: Symptoms and Treatments",
       link: "https://www.youtube.com/watch?v=d7NPnvKFs2Y",

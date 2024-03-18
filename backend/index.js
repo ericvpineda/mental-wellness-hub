@@ -2,17 +2,24 @@ import express from 'express';
 import userRoutes from './routes/users.js'
 import journalRoutes from './routes/journals.js'
 import chatbotRoutes from './routes/chatbot.js'
+import contactUsRoutes from './routes/contact.js'
 import * as dotenv from "dotenv";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 const app = express();
 const PORT = 8000;
 dotenv.config({ path: "./.env.local" });
 
 app.use(express.json());
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use('/users', userRoutes);
 app.use('/journals', journalRoutes);
 app.use('/chatbot', chatbotRoutes);
+app.use('/contact-us', contactUsRoutes);
 
 app.get('/', (req, res) => {
     res.send('Test route for backend.');

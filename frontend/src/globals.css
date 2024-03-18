@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   min-height: 100vh;
   width: 100%;
   /* background-color: red; */
@@ -26,7 +27,6 @@ html, body {
   border-radius: inherit;
 }
 
-
 .journal_section_header {
   @apply py-4 text-center font-nunito font-extrabold;
 }
@@ -36,15 +36,15 @@ html, body {
 }
 
 .journal_entry_title {
-  @apply font-semibold text-sm;
+  @apply font-semibold text-sm text-center w-full;
 }
 
 .journal_entry_date {
-  @apply text-xs text-gray-300 italic;
+  @apply text-xs text-gray-300 italic text-center w-full;
 }
 
 .journal_entry_empty {
-  @apply text-xs text-gray-300 italic text-center;
+  @apply text-xs text-gray-300 italic mb-3 px-5 text-center;
 }
 
 .tiptap .is-editor-empty:first-child::before {
@@ -135,4 +135,42 @@ code {
 
 .hljs-strong {
   font-weight: 700;
+}
+
+.tiptap a {
+  color: #2a9d8f;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+ul[data-type="taskList"] p {
+  margin: 0;
+}
+
+ul[data-type="taskList"] li {
+  display: flex;
+}
+
+ul[data-type="taskList"] li > label {
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+ul[data-type="taskList"] li > div {
+  flex: 1 1 auto;
+}
+
+ul[data-type="taskList"] ul li,
+ul[data-type="taskList"] ol li {
+  display: list-item;
+}
+
+ul[data-type="taskList"] > li {
+  display: flex;
 }
