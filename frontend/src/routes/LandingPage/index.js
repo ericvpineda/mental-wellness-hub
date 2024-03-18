@@ -13,14 +13,16 @@ export default function Template() {
 
   return (
     <>
-      <div className="flex justify-center items-center bg-gray-50 py-12 lg:py-16">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div className="space-y-2 mx-auto">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              Your Mental Health Matters
+      <div className="flex justify-center items-center bg-gray-100 py-12 lg:py-16">
+        <div
+          className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6"
+        >
+          <div style={{ height: "40vh" }} className="space-y-2 mx-auto flex flex-col justify-center items-center">
+            <h1 className="font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              Better Your Mental Health
             </h1>
-            <p className="mx-auto max-w-2xl text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Resources and support for your mental well-being.
+            <p className="mx-auto font-medium max-w-2xl text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              We offer a library of resources and tools to help you improve and maintain your most important asset: your mental health.
             </p>
           </div>
         </div>
@@ -48,8 +50,8 @@ export default function Template() {
           </div>
         </div>
       </div>
-      <div className="border-t border-b divide-y flex justify-center items-center">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
+      <div className="border-t border-b divide-y flex justify-center items-center bg-gray-50">
+        <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6 p-16">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Featured Articles

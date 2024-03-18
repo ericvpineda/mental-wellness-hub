@@ -6,6 +6,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import Logo from "/Users/ethangutierrez/Desktop/zero-to-one-2/frontend/src/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,11 @@ const Navbar = () => {
     <nav className="bg-slate-50 text-black border-b-2 p-6 z-auto">
       <div className="container mx-auto flex text-black justify-between items-center">
         <Link to="/" className="text-black text-3xl font-bold">
-          Logo
+          <img
+            src={Logo}
+            className="w-12 h-12"
+            style={{ transform: "scaleX(-1)" }}
+          />
         </Link>
         <ul className="flex space-x-4">
           <li>
