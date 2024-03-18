@@ -5,7 +5,7 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/clerk-react";
-import { user } from '@clerk/clerk-react';
+// import { user } from '@clerk/clerk-react';
 
 export default function Meditation() {
     const audioRef1 = useRef(null);
