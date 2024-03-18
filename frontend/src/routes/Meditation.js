@@ -5,11 +5,11 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/clerk-react";
-import { user } from '@clerk/clerk-react';
+import MeditationMusic from "/Users/ethangutierrez/Desktop/zero-to-one-2/frontend/src/assets/meditation.mp3";
+
 
 export default function Meditation() {
-    const audioRef1 = useRef(null);
-    const audioRef2 = useRef(null);
+    const audioRef1 = useRef(MeditationMusic);
 
     const [isPlaying, setIsPlaying] = useState({audio1: false, audio2: false});
     const [timerActive, setTimerActive] = useState(false);
@@ -23,7 +23,6 @@ export default function Meditation() {
         if (audioRef.current.paused) {
             // Pause the other audio
             if (audioKey === 'audio1') {
-                audioRef2.current.pause();
                 setIsPlaying(prevState => ({...prevState, audio2: false}));
             } else {
                 audioRef1.current.pause();
@@ -119,12 +118,7 @@ export default function Meditation() {
                     <div className="flex flex-row items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-md">
                         <h1 className="text-lg font-semibold">Ambient Music</h1>
                         <button onClick={() => togglePlay(audioRef1, 'audio1')} className="ml-4 bg-black text-white rounded py-2 px-4 hover:text-sky-500 duration-200">{isPlaying.audio1 ? 'Pause' : 'Play'}</button>
-                        <audio ref={audioRef1} />
-                    </div>
-                    <div className="flex flex-row items-center bg-tree px-6 py-3 rounded-md">
-                        <h1 className="text-lg font-semibold">Nature Sounds</h1>
-                        <button onClick={() => togglePlay(audioRef2, 'audio2')} className="ml-4 bg-black text-white rounded py-2 px-4 hover:text-sky-500 duration-200">{isPlaying.audio2 ? 'Pause' : 'Play'}</button>
-                        <audio ref={audioRef2} />
+                        <audio ref={audioRef1} src={MeditationMusic} />
                     </div>
             </div>
             </div>
