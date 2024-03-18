@@ -66,8 +66,24 @@
 
 ## Screenshots
 
+### About Us Page:
+![About Us](about-us.png)
 
 
+## Resources Page:
+![resources1](resources.png)
+![alt text](resources1.png)
+![alt text](resources2.png)
+
+## Faq Page:
+![alt text](faq.png)
+
+## Contact Us Page:
+![alt text](contact-us.png)
+
+## Meditation page (required to login to see it):
+![alt text](med.png)
+![alt text](meditationTimer.png)
 # Example Usage:
 
 ## Journaling Feature:
