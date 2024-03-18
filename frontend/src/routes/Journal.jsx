@@ -39,12 +39,14 @@ export default function Journal() {
   };
 
   const fetchEntries = async () => {
-    console.log("DEBUG: fetching data");
     try {
-      const response = await fetch("http://localhost:8000/journals", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        "https://zero-to-one-backend.vercel.app/journals",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         setAllEntries(data);
