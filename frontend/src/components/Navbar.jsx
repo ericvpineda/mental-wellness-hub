@@ -6,7 +6,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import Logo from "/Users/ethangutierrez/Desktop/ZeroToOne/zero-to-one-2/frontend/src/assets/logo.png";
+import Logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

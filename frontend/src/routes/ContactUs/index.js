@@ -20,7 +20,7 @@ const ContactUs = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8000/contact-us', {
+            const response = await fetch('https://zero-to-one-backend.vercel.app/contact-us', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
