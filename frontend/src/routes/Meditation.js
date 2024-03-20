@@ -6,8 +6,6 @@ import {
   SignInButton,
 } from "@clerk/clerk-react";
 
-import MeditationMusic from '../assets/meditation.mp3'
-
 export default function Meditation() {
     const audioRef1 = useRef();
 
