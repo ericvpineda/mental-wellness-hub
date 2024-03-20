@@ -6,7 +6,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import Logo from "/Users/ethangutierrez/Desktop/zero-to-one-2/frontend/src/assets/logo.png";
+import Logo from "/Users/ethangutierrez/Desktop/ZeroToOne/zero-to-one-2/frontend/src/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,14 +76,6 @@ const Navbar = () => {
                 </ul>
               )}
             </div>
-          </li>
-          <li>
-            <Link
-              to="/faq"
-              className="text-black hover:text-sky-700 transition duration-200"
-            >
-              Faq
-            </Link>
           </li>
           <li>
             <Link
