@@ -5,10 +5,11 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/clerk-react";
+
 import MeditationMusic from '../assets/meditation.mp3'
 
 export default function Meditation() {
-    const audioRef1 = useRef(MeditationMusic);
+    const audioRef1 = useRef();
 
     const [isPlaying, setIsPlaying] = useState({audio1: false, audio2: false});
     const [timerActive, setTimerActive] = useState(false);
@@ -117,7 +118,7 @@ export default function Meditation() {
                     <div className="flex flex-row items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-md">
                         <h1 className="text-lg font-semibold">Ambient Music</h1>
                         <button onClick={() => togglePlay(audioRef1, 'audio1')} className="ml-4 bg-black text-white rounded py-2 px-4 hover:text-sky-500 duration-200">{isPlaying.audio1 ? 'Pause' : 'Play'}</button>
-                        <audio ref={audioRef1} src={MeditationMusic} />
+                        <audio ref={audioRef1} />
                     </div>
             </div>
             </div>
