@@ -14,14 +14,14 @@ const Navbar = () => {
   return (
     <nav className="bg-slate-50 text-black border-b-2 p-6 z-auto">
       <div className="container mx-auto flex text-black justify-between items-center">
-        <Link to="/" className="text-black text-3xl font-bold">
+        <Link to="/" className="text-black text-3xl font-bold hidden md:block">
           <img
             src={Logo}
             className="w-12 h-12"
             style={{ transform: "scaleX(-1)" }}
           />
         </Link>
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-2 md:space-x-6">
           <li>
             <Link
               to="/"
@@ -35,7 +35,7 @@ const Navbar = () => {
               to="/about-us"
               className="text-black hover:text-sky-700 transition duration-200"
             >
-              About Us
+              About
             </Link>
           </li>
           <li>
@@ -82,7 +82,7 @@ const Navbar = () => {
               to="/contact-us"
               className="text-black hover:text-sky-700 transition duration-200"
             >
-              Contact Us
+              Contact
             </Link>
           </li>
         </ul>
