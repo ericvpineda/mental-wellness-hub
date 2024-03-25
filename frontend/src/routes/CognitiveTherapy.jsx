@@ -62,22 +62,22 @@ const CognitiveTherapy = () => {
             <p>
               With CBT, you work with a therapist to understand and challenge
               negative thoughts, learn new coping skills, and gradually face
-              fears. It's used for lots of issues like depression, anxiety, and
-              stress, and it's all about helping you feel happier and more in
-              control.
+              fears. It&apos;s used for lots of issues like depression, anxiety,
+              and stress, and it&apos;s all about helping you feel happier and
+              more in control.
             </p>
           </div>
 
           <div>
             <p className="text-xl font-semibold mb-6">How does it work?</p>
-            <p>CBT utilizes a 5-step method. Let's take a look:</p>
+            <p>CBT utilizes a 5-step method. Let&apos;s take a look:</p>
             <ol>
               <li>
                 <p>
                   <strong>1. Identify the problem.</strong>
                 </p>
                 <p className="text-indigo-800">
-                  Example: "I have anxiety about an upcoming test at school."
+                  Example: I have anxiety about an upcoming test at school.
                 </p>
               </li>
               <li>
@@ -87,7 +87,7 @@ const CognitiveTherapy = () => {
                   </strong>
                 </p>
                 <p className="text-indigo-800">
-                  Example: "If I don't get an A, I'm a failure."
+                  Example: If I don&apos;t get an A, I&apos;m a failure.
                 </p>
               </li>
               <li>
@@ -95,8 +95,9 @@ const CognitiveTherapy = () => {
                   <strong>3. Gather evidence to challenge this thought.</strong>
                 </p>
                 <p className="text-indigo-800">
-                  Example: "I've passed all my previous tests with good grades,
-                  one test doesn't define my overall academic ability."
+                  Example: I&apos;ve passed all my previous tests with good
+                  grades, one test doesn&apos;t define my overall academic
+                  ability.
                 </p>
               </li>
               <li>
@@ -107,8 +108,9 @@ const CognitiveTherapy = () => {
                   </strong>
                 </p>
                 <p className="text-indigo-800">
-                  Example: "Even if I don't get an A, it doesn't mean I'm a
-                  failure. It's just one test and I've done well in the past."
+                  Example: Even if I don&apos;t get an A, it doesn&apos;t mean
+                  I&apos;m a failure. It&apos;s just one test and I&apos;ve done
+                  well in the past.
                 </p>
               </li>
               <li>
@@ -119,9 +121,9 @@ const CognitiveTherapy = () => {
                   </strong>
                 </p>
                 <p className="text-indigo-800">
-                  Example: "I can start a journal to write down my thoughts and
+                  Example: I can start a journal to write down my thoughts and
                   feelings, meditate for a few minutes every day to clear my
-                  mind, or talk to a friend about my worries."
+                  mind, or talk to a friend about my worries.
                 </p>
               </li>
             </ol>
@@ -158,6 +160,7 @@ const CognitiveTherapy = () => {
           >
             {conversation.map((message, index) => (
               <div
+                key={index}
                 className="bg-gray-100 rounded-lg p-4"
                 style={{ display: "inline-flex" }}
               >
