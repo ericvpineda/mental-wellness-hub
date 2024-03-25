@@ -40,7 +40,7 @@ const CognitiveTherapy = () => {
         style={{ height: "25vh" }}
         className="w-full flex flex-col justify-center items-center bg-neutral-100"
       >
-        <p className="text-6xl font-semibold p-16">Cognitive Behavioral Therapy</p>
+        <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold p-16">Cognitive Behavioral Therapy</p>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center px-2 py-8">
