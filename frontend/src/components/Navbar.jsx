@@ -48,7 +48,15 @@ const Navbar = () => {
                 Services
               </button>
               {isOpen && (
-                <ul className="flex flex-col space-y-2 bg-white text-black absolute -translate-x-4 border-2 rounded-md p-2">
+                <ul className="flex flex-col space-y-2 bg-white text-black absolute -translate-x-10 border-2 border-gray-100 rounded-md px-8 py-2">
+                  <li>
+                    <Link
+                      to="/cbt"
+                      className="text-black hover:text-sky-700 transition duration-200 p-1 border-b-2 w-full"
+                    >
+                      CBT
+                    </Link>
+                  </li>  
                   <li>
                     <Link
                       to="/meditation"

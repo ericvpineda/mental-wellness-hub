@@ -10,7 +10,7 @@ import AboutUs from "./routes/AboutUs";
 import HomePage from "./routes/LandingPage";
 import Resources from "./routes/Resources";
 import ContactUs from "./routes/ContactUs";
-import Faq from "./routes/Faq";
+import CognitiveTherapy from "./routes/CognitiveTherapy";
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 
@@ -24,6 +24,14 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
+        path: "about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "cbt",
+        element: <CognitiveTherapy />,
+      },
+      {
         path: "journal",
         element: <Journal />,
       },
@@ -32,16 +40,8 @@ const router = createBrowserRouter([
         element: <Meditation />,
       },
       {
-        path: "about-us",
-        element: <AboutUs />,
-      },
-      {
         path: "resources",
         element: <Resources />,
-      },
-      {
-        path: "faq",
-        element: <Faq />,
       },
       {
         path: "contact-us",
