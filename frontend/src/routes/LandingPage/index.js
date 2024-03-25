@@ -2,7 +2,7 @@
 import React from 'react';
 import Faq from "../Faq/index";
 import { useNavigate } from 'react-router-dom';
-import "/Users/ethangutierrez/Desktop/ZeroToOne/zero-to-one-2/frontend/src/globals.css";
+import "../../globals.css";
 
 // import ChatbotAI from '../../components/chatbotAI'
 
