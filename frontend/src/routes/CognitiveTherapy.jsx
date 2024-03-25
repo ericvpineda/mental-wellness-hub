@@ -40,12 +40,12 @@ const CognitiveTherapy = () => {
         style={{ height: "25vh" }}
         className="w-full flex flex-col justify-center items-center bg-neutral-100"
       >
-        <p className="text-6xl font-semibold">Cognitive Behavioral Therapy</p>
+        <p className="text-6xl font-semibold p-16">Cognitive Behavioral Therapy</p>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center px-2 py-8">
         <div
-          style={{ height: "120vh" }}
+          style={{ minHeight: "120vh" }}
           className="w-3/4 flex flex-col items-start justify-around"
         >
           <div>
@@ -68,15 +68,15 @@ const CognitiveTherapy = () => {
             </p>
           </div>
 
-          <div>
-            <p className="text-xl font-semibold mb-6">How does it work?</p>
+          <div className="mt-12 md:mt-0">
+            <p className="text-xl font-semibold">How does it work?</p>
             <p>CBT utilizes a 5-step method. Let&apos;s take a look:</p>
             <ol>
               <li>
                 <p>
                   <strong>1. Identify the problem.</strong>
                 </p>
-                <p className="text-indigo-800">
+                <p className="text-gray-600">
                   Example: I have anxiety about an upcoming test at school.
                 </p>
               </li>
@@ -86,7 +86,7 @@ const CognitiveTherapy = () => {
                     2. Identify negative thoughts related to the problem.
                   </strong>
                 </p>
-                <p className="text-indigo-800">
+                <p className="text-gray-600">
                   Example: If I don&apos;t get an A, I&apos;m a failure.
                 </p>
               </li>
@@ -94,7 +94,7 @@ const CognitiveTherapy = () => {
                 <p>
                   <strong>3. Gather evidence to challenge this thought.</strong>
                 </p>
-                <p className="text-indigo-800">
+                <p className="text-gray-600">
                   Example: I&apos;ve passed all my previous tests with good
                   grades, one test doesn&apos;t define my overall academic
                   ability.
@@ -107,7 +107,7 @@ const CognitiveTherapy = () => {
                     perspective.
                   </strong>
                 </p>
-                <p className="text-indigo-800">
+                <p className="text-gray-600">
                   Example: Even if I don&apos;t get an A, it doesn&apos;t mean
                   I&apos;m a failure. It&apos;s just one test and I&apos;ve done
                   well in the past.
@@ -120,7 +120,7 @@ const CognitiveTherapy = () => {
                     or healthy communication with a friend.
                   </strong>
                 </p>
-                <p className="text-indigo-800">
+                <p className="text-gray-600">
                   Example: I can start a journal to write down my thoughts and
                   feelings, meditate for a few minutes every day to clear my
                   mind, or talk to a friend about my worries.
@@ -129,7 +129,7 @@ const CognitiveTherapy = () => {
             </ol>
           </div>
 
-          <div>
+          <div className="mt-12 md:mt-0">
             <p className="text-xl font-semibold mb-6">How can I use CBT?</p>
             <p>
               You can access CBT with a therapist through your health insurance
@@ -143,7 +143,7 @@ const CognitiveTherapy = () => {
           </div>
         </div>
 
-        <div className="mt-6 w-3/4 flex flex-col border-2 border-gray-200 rounded-md dark:border-gray-800">
+        <div className="mt-12 md:mt-6 w-3/4 flex flex-col border-2 border-gray-200 rounded-md dark:border-gray-800">
           <div className="flex items-center justify-between p-4 border-b gap-4">
             <div className="flex flex-col justify-center items-start ml-2">
               <p className="text-2xl font-bold">KelvinAI</p>
