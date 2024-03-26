@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const CognitiveTherapy = () => {
+  // States
   const [userInput, setUserInput] = useState("");
   const [conversation, setConversation] = useState([
-    { role: "KelvinAI:", message: "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?"}
+    {
+      role: "KelvinAI:",
+      message:
+        "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?",
+    },
   ]);
 
+  // Refs
+  const textareaRef = useRef(null);
   const divRef = useRef(null);
 
   useEffect(() => {
@@ -14,25 +21,29 @@ const CognitiveTherapy = () => {
   }, [conversation]);
 
   const sendMessage = async () => {
+    const userInputValue = textareaRef.current.value; // Get the value from the textarea
     const response = await fetch("http://localhost:4000/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userMessage: userInput,
+        userMessage: userInputValue, // Send the user's message to the backend
         previousMessages: conversation,
       }),
     });
     const data = await response.text();
+
+    // Update the conversation state with the user's message and the AI's response
     setConversation([
       ...conversation,
-      { role: "You:", message: userInput },
+      { role: "You:", message: userInputValue },
       { role: "KelvinAI:", message: data },
     ]);
+
     setUserInput("");
+    textareaRef.current.value = "";
   };
-  console.log("DEBUG: rendering...")
 
   return (
     <main>
@@ -40,15 +51,15 @@ const CognitiveTherapy = () => {
         style={{ height: "25vh" }}
         className="w-full flex flex-col justify-center items-center bg-neutral-100"
       >
-        <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold p-16">Cognitive Behavioral Therapy</p>
+        <p className="text-6xl font-semibold">Cognitive Behavioral Therapy</p>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center px-2 py-8">
         <div
-          style={{ minHeight: "120vh" }}
+          style={{ height: "120vh" }}
           className="w-3/4 flex flex-col items-start justify-around"
         >
-          <div>
+          <div className="">
             <p className="text-xl font-semibold mb-6">What is it?</p>
             <p>
               Cognitive Behavioral Therapy (CBT) is a widely practiced form of
@@ -68,15 +79,15 @@ const CognitiveTherapy = () => {
             </p>
           </div>
 
-          <div className="mt-12 md:mt-0">
-            <p className="text-xl font-semibold">How does it work?</p>
+          <div>
+            <p className="text-xl font-semibold mb-6">How does it work?</p>
             <p>CBT utilizes a 5-step method. Let&apos;s take a look:</p>
             <ol>
               <li>
                 <p>
                   <strong>1. Identify the problem.</strong>
                 </p>
-                <p className="text-gray-600">
+                <p className="text-indigo-800">
                   Example: I have anxiety about an upcoming test at school.
                 </p>
               </li>
@@ -86,7 +97,7 @@ const CognitiveTherapy = () => {
                     2. Identify negative thoughts related to the problem.
                   </strong>
                 </p>
-                <p className="text-gray-600">
+                <p className="text-indigo-800">
                   Example: If I don&apos;t get an A, I&apos;m a failure.
                 </p>
               </li>
@@ -94,7 +105,7 @@ const CognitiveTherapy = () => {
                 <p>
                   <strong>3. Gather evidence to challenge this thought.</strong>
                 </p>
-                <p className="text-gray-600">
+                <p className="text-indigo-800">
                   Example: I&apos;ve passed all my previous tests with good
                   grades, one test doesn&apos;t define my overall academic
                   ability.
@@ -107,7 +118,7 @@ const CognitiveTherapy = () => {
                     perspective.
                   </strong>
                 </p>
-                <p className="text-gray-600">
+                <p className="text-indigo-800">
                   Example: Even if I don&apos;t get an A, it doesn&apos;t mean
                   I&apos;m a failure. It&apos;s just one test and I&apos;ve done
                   well in the past.
@@ -120,7 +131,7 @@ const CognitiveTherapy = () => {
                     or healthy communication with a friend.
                   </strong>
                 </p>
-                <p className="text-gray-600">
+                <p className="text-indigo-800">
                   Example: I can start a journal to write down my thoughts and
                   feelings, meditate for a few minutes every day to clear my
                   mind, or talk to a friend about my worries.
@@ -129,7 +140,7 @@ const CognitiveTherapy = () => {
             </ol>
           </div>
 
-          <div className="mt-12 md:mt-0">
+          <div>
             <p className="text-xl font-semibold mb-6">How can I use CBT?</p>
             <p>
               You can access CBT with a therapist through your health insurance
@@ -143,7 +154,7 @@ const CognitiveTherapy = () => {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-6 w-3/4 flex flex-col border-2 border-gray-200 rounded-md dark:border-gray-800">
+        <div className="mt-6 w-3/4 flex flex-col border-2 border-gray-200 rounded-md dark:border-gray-800">
           <div className="flex items-center justify-between p-4 border-b gap-4">
             <div className="flex flex-col justify-center items-start ml-2">
               <p className="text-2xl font-bold">KelvinAI</p>
@@ -174,12 +185,13 @@ const CognitiveTherapy = () => {
           <div className="p-4 border-t">
             <div className="rounded-lg flex flex-shrink-0 flex-grow-0">
               <textarea
+                ref={textareaRef}
                 className="p-1 flex-1 min-h-[40px] w-3/5 rounded-md outline-gray-100"
                 placeholder="Type a message..."
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
+                defaultValue={userInput} // utilize defaultValue to make textarea able to change
                 style={{ resize: "none" }}
               />
+
               <div className="flex justify-center items-center px-4">
                 <button
                   onClick={sendMessage}
