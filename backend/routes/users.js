@@ -1,18 +1,16 @@
 import express from 'express';
+import supabase from '../utils/supabase.js';
 const router = express.Router();
 
 // GET /users
-router.get('/', (req, res) => {
-  res.send('GET /users route, user information will display here');
-});
-
-router.get('/:id', (req, res) => {
-    res.send('GET /users/:id route, parameterized user information will display here');
-});
-
-// POST /users
-router.post('/create_user', (req, res) => {
-  res.send('POST /users route, user information will be added here');
+router.get("/", async (req, res) => {
+  const { data, error } = await supabase.from("users").select();
+  if (error) {
+    console.log(error);
+    res.status(500).json({ error: "An error occurred while fetching users" });
+    return;
+  }
+  res.json(data);
 });
 
 export default router;

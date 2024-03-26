@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useUser } from "@clerk/clerk-react";
 
 const CognitiveTherapy = () => {
+  const { isSignedIn, user } = useUser();
   const [userInput, setUserInput] = useState("");
   const [conversation, setConversation] = useState([
     { role: "KelvinAI:", message: "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?"}
@@ -14,7 +16,7 @@ const CognitiveTherapy = () => {
   }, [conversation]);
 
   const sendMessage = async () => {
-    const response = await fetch("http://localhost:4000/api/chat", {
+    const response = await fetch("http://localhost:4000/api/chat/kelvinAI", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,6 +35,12 @@ const CognitiveTherapy = () => {
     setUserInput("");
   };
   console.log("DEBUG: rendering...")
+  console.log()
+
+  if (isSignedIn) {
+    console.log(user.id)
+    console.log(user.firstName)
+  }
 
   return (
     <main>

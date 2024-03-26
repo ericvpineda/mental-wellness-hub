@@ -10,6 +10,7 @@ import AboutUs from "./routes/AboutUs";
 import HomePage from "./routes/LandingPage";
 import Resources from "./routes/Resources";
 import ContactUs from "./routes/ContactUs";
+import UserDashboard from "./routes/UserDashboard";
 import CognitiveTherapy from "./routes/CognitiveTherapy";
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "dashboard",
+        element: <UserDashboard />,
       },
       {
         path: "cbt",
@@ -51,8 +56,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// const root = createRoot(document.getElementById("root"));
-// root.render(<RouterProvider router={router} />);
 
 const convex = new ConvexReactClient(
   "https://reminiscent-scorpion-857.convex.cloud"
