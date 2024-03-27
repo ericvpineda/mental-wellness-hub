@@ -1,13 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useUser } from "@clerk/clerk-react";
 
 const CognitiveTherapy = () => {
-  const { isSignedIn, user } = useUser();
+  // States
   const [userInput, setUserInput] = useState("");
   const [conversation, setConversation] = useState([
-    { role: "KelvinAI:", message: "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?"}
+    {
+      role: "KelvinAI:",
+      message:
+        "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?",
+    },
   ]);
 
+  // Refs
+  const textareaRef = useRef(null);
   const divRef = useRef(null);
 
   useEffect(() => {
@@ -16,31 +21,32 @@ const CognitiveTherapy = () => {
   }, [conversation]);
 
   const sendMessage = async () => {
-    const response = await fetch("http://localhost:4000/api/chat/kelvinAI", {
+    const userInputValue = textareaRef.current.value; // Get the value from the textarea
+    const response = await fetch("http://localhost:4000/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userMessage: userInput,
+        userMessage: userInputValue, // Send the user's message to the backend
         previousMessages: conversation,
       }),
     });
     const data = await response.text();
+
+    // Update the conversation state with the user's message and the AI's response
     setConversation([
       ...conversation,
-      { role: "You:", message: userInput },
+      { role: "You:", message: userInputValue },
       { role: "KelvinAI:", message: data },
     ]);
-    setUserInput("");
-  };
-  console.log("DEBUG: rendering...")
-  console.log()
 
-  if (isSignedIn) {
-    console.log(user.id)
-    console.log(user.firstName)
-  }
+    // Clear the userInput state
+    setUserInput("");
+    textareaRef.current.value = "";
+  };
+
+  console.log("DEBUG: rendering...");
 
   return (
     <main>
@@ -56,7 +62,7 @@ const CognitiveTherapy = () => {
           style={{ height: "120vh" }}
           className="w-3/4 flex flex-col items-start justify-around"
         >
-          <div>
+          <div className="">
             <p className="text-xl font-semibold mb-6">What is it?</p>
             <p>
               Cognitive Behavioral Therapy (CBT) is a widely practiced form of
@@ -182,12 +188,13 @@ const CognitiveTherapy = () => {
           <div className="p-4 border-t">
             <div className="rounded-lg flex flex-shrink-0 flex-grow-0">
               <textarea
+                ref={textareaRef}
                 className="p-1 flex-1 min-h-[40px] w-3/5 rounded-md outline-gray-100"
                 placeholder="Type a message..."
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
+                defaultValue={userInput} // Use defaultValue instead of value
                 style={{ resize: "none" }}
               />
+
               <div className="flex justify-center items-center px-4">
                 <button
                   onClick={sendMessage}
