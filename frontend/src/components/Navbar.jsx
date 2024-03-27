@@ -39,6 +39,14 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link
+              to="/dashboard"
+              className="text-black hover:text-sky-700 transition duration-200"
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li>
             <div
               onMouseEnter={() => setIsOpen(true)}
               onMouseLeave={() => setIsOpen(false)}
@@ -56,7 +64,7 @@ const Navbar = () => {
                     >
                       CBT
                     </Link>
-                  </li>  
+                  </li>
                   <li>
                     <Link
                       to="/meditation"

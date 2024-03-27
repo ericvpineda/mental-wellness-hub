@@ -41,6 +41,7 @@ const CognitiveTherapy = () => {
       { role: "KelvinAI:", message: data },
     ]);
 
+    // Clear the userInput state
     setUserInput("");
     textareaRef.current.value = "";
   };
@@ -188,7 +189,7 @@ const CognitiveTherapy = () => {
                 ref={textareaRef}
                 className="p-1 flex-1 min-h-[40px] w-3/5 rounded-md outline-gray-100"
                 placeholder="Type a message..."
-                defaultValue={userInput} // utilize defaultValue to make textarea able to change
+                defaultValue={userInput}
                 style={{ resize: "none" }}
               />
 

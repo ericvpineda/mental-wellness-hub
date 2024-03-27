@@ -106,7 +106,7 @@ export default function Template() {
                     href="#"
                     className="text-base font-semibold leading-7 text-indigo-600"
                   >
-                    Learn more about our company{" "}
+                    {" "}
                     <span aria-hidden="true">&rarr;</span>
                   </a>
                 </div>
