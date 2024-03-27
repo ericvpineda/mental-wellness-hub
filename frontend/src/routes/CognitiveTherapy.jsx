@@ -46,8 +46,6 @@ const CognitiveTherapy = () => {
     textareaRef.current.value = "";
   };
 
-  console.log("DEBUG: rendering...");
-
   return (
     <main>
       <section
@@ -191,7 +189,7 @@ const CognitiveTherapy = () => {
                 ref={textareaRef}
                 className="p-1 flex-1 min-h-[40px] w-3/5 rounded-md outline-gray-100"
                 placeholder="Type a message..."
-                defaultValue={userInput} // Use defaultValue instead of value
+                defaultValue={userInput}
                 style={{ resize: "none" }}
               />
 
