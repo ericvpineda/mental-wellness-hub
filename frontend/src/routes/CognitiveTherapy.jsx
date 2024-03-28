@@ -1,6 +1,67 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const CognitiveTherapy = () => {
+const steps = () => {
+  return (
+      <ol>
+    <li>
+      <p>
+        <strong>1. Identify the problem.</strong>
+      </p>
+      <p className="text-indigo-800">
+        Example: I have anxiety about an upcoming test at school.
+      </p>
+    </li>
+    <li>
+      <p>
+        <strong>
+          2. Identify negative thoughts related to the problem.
+        </strong>
+      </p>
+      <p className="text-indigo-800">
+        Example: If I don&apos;t get an A, I&apos;m a failure.
+      </p>
+    </li>
+    <li>
+      <p>
+        <strong>3. Gather evidence to challenge this thought.</strong>
+      </p>
+      <p className="text-indigo-800">
+        Example: I&apos;ve passed all my previous tests with good
+        grades, one test doesn&apos;t define my overall academic
+        ability.
+      </p>
+    </li>
+    <li>
+      <p>
+        <strong>
+          4. Restructure your negative thought to a more balanced
+          perspective.
+        </strong>
+      </p>
+      <p className="text-indigo-800">
+        Example: Even if I don&apos;t get an A, it doesn&apos;t mean
+        I&apos;m a failure. It&apos;s just one test and I&apos;ve done
+        well in the past.
+      </p>
+    </li>
+    <li>
+      <p>
+        <strong>
+          5. Find healthy ways to cope such as journaling, meditation,
+          or healthy communication with a friend.
+        </strong>
+      </p>
+      <p className="text-indigo-800">
+        Example: I can start a journal to write down my thoughts and
+        feelings, meditate for a few minutes every day to clear my
+        mind, or talk to a friend about my worries.
+      </p>
+    </li>
+  </ol>
+  )
+}
+
+export default function CognitiveTherapy() {
   // States
   const [userInput, setUserInput] = useState("");
   const [conversation, setConversation] = useState([
@@ -15,11 +76,13 @@ const CognitiveTherapy = () => {
   const textareaRef = useRef(null);
   const divRef = useRef(null);
 
+  // Scrolls to bottom of the conversation
   useEffect(() => {
     const div = divRef.current;
     div.scrollTop = div.scrollHeight;
   }, [conversation]);
 
+  // Sends message to database and updates the conversation state
   const sendMessage = async () => {
     const userInputValue = textareaRef.current.value; // Get the value from the textarea
     const response = await fetch("http://localhost:4000/api/chat", {
@@ -41,7 +104,6 @@ const CognitiveTherapy = () => {
       { role: "KelvinAI:", message: data },
     ]);
 
-    // Clear the userInput state
     setUserInput("");
     textareaRef.current.value = "";
   };
@@ -83,62 +145,7 @@ const CognitiveTherapy = () => {
           <div>
             <p className="text-xl font-semibold mb-6">How does it work?</p>
             <p>CBT utilizes a 5-step method. Let&apos;s take a look:</p>
-            <ol>
-              <li>
-                <p>
-                  <strong>1. Identify the problem.</strong>
-                </p>
-                <p className="text-indigo-800">
-                  Example: I have anxiety about an upcoming test at school.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>
-                    2. Identify negative thoughts related to the problem.
-                  </strong>
-                </p>
-                <p className="text-indigo-800">
-                  Example: If I don&apos;t get an A, I&apos;m a failure.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>3. Gather evidence to challenge this thought.</strong>
-                </p>
-                <p className="text-indigo-800">
-                  Example: I&apos;ve passed all my previous tests with good
-                  grades, one test doesn&apos;t define my overall academic
-                  ability.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>
-                    4. Restructure your negative thought to a more balanced
-                    perspective.
-                  </strong>
-                </p>
-                <p className="text-indigo-800">
-                  Example: Even if I don&apos;t get an A, it doesn&apos;t mean
-                  I&apos;m a failure. It&apos;s just one test and I&apos;ve done
-                  well in the past.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>
-                    5. Find healthy ways to cope such as journaling, meditation,
-                    or healthy communication with a friend.
-                  </strong>
-                </p>
-                <p className="text-indigo-800">
-                  Example: I can start a journal to write down my thoughts and
-                  feelings, meditate for a few minutes every day to clear my
-                  mind, or talk to a friend about my worries.
-                </p>
-              </li>
-            </ol>
+            { steps() }
           </div>
 
           <div>
@@ -205,8 +212,7 @@ const CognitiveTherapy = () => {
           </div>
         </div>
       </section>
+      
     </main>
   );
-};
-
-export default CognitiveTherapy;
+}
