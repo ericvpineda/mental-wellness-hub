@@ -76,7 +76,6 @@ export default function CognitiveTherapy() {
   
   // when convo starts, notify database that the user has started a CBT session
   if (conversation.length == 3) {
-
     fetch("http://localhost:4000/api/users/cbt", {
       method: "POST",
       headers: {
@@ -103,7 +102,6 @@ export default function CognitiveTherapy() {
           error
         );
       });
-
   } 
 
   // Refs
