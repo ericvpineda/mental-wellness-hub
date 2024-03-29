@@ -12,9 +12,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-slate-50 text-black border-b-2 p-6 z-auto">
-      <div className="container mx-auto flex text-black justify-between items-center">
-        <Link to="/" className="text-black text-3xl font-bold hidden md:block">
+    <nav className="bg-slate-50 text-black border-b-2 py-4 px-2 w-full z-auto">
+      <div className="container mx-auto flex text-sm md:text-base lg:text-base text-black justify-center md:justify-between items-center">
+        <Link to="/" className="text-black font-bold hidden md:block">
           <img
             src={Logo}
             className="w-12 h-12"
@@ -96,7 +96,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact-us"
-              className="text-black hover:text-sky-700 transition duration-200"
+              className="text-black hover:text-sky-700 transition duration-200 hidden lg:block"
             >
               Contact
             </Link>
