@@ -58,7 +58,7 @@ router.post("/meditations", async (req, res) => {
   const currentMeditationCount = users.meditation_count;
 
   // Increment session_count and update in the database
-  const { data, error: updateError } = await supabase
+  const { error: updateError } = await supabase
     .from("meditations")
     .update({ meditation_count: currentMeditationCount + 1 })
     .eq("id", user_id);
