@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 
 export default function UserDashboard() {
-    const { isSignedIn, user } = useUser();
+    const { isSignedIn, user, isLoading } = useUser();
+    const [cbtCount, setCbtCount] = useState(0);
 
-    useEffect( () => {
-      console.log("RENDERING");
-      // TODO: fetch from data base here, from this link: http://localhost:4000/api/users/
-        fetch("http://localhost:4000/api/users/")
+    useEffect(() => {
+      if (user && !isLoading) {
+        fetch(`http://localhost:4000/api/users/cbt/${user.id}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -15,28 +15,26 @@ export default function UserDashboard() {
             return response.json();
           })
           .then((data) => {
-            // Work with the data received from the API
-            console.log(data);
+            console.log("DATA:", data);
+            setCbtCount(data[0].session_count);
           })
           .catch((error) => {
-            // Handle errors that might occur during the fetch
-            console.error(
-              "There was a problem with the fetch operation:",
-              error
-            );
+            console.error("There was a problem with the fetch operation:", error);
           });
-    }, [])
+      }
+    }, [user]);
 
     if (isSignedIn) {
         return (
-            <div className="text-center">
-                <h1 className="text-3xl">Hi, {user.firstName}</h1>
-                <h1>You have completed x journals</h1>
-                <h1>You have meditated for x hours</h1>
-                <h1>You have completed x cognitive therapy sessions</h1>
-                <h1>Data visualization here</h1>
+          <React.Fragment>
+            <div className="text-center flex flex-col items-center gap-6">
+              <h1 className="text-3xl mt-10">Hi, {user.firstName}!</h1>
+              <h1>You have completed {cbtCount} cognitive therapy sessions</h1>
+              <h1>You have completed 0 journals</h1>
+              <h1 className="mb-10">You have meditated 0 times</h1>
             </div>
-        )
+          </React.Fragment>
+        );
     } else {
         return (
             <React.Fragment>

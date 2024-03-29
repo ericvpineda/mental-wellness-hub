@@ -12,7 +12,6 @@ const openai = new OpenAI({
 router.post("/kelvinAI", async (req, res) => {
   const userMessage = req.body.userMessage;
   const previousMessages = req.body.previousMessages;
-  console.log("PREVIOUS MESSAGES: ", previousMessages);
 
   const messages = [
     {
