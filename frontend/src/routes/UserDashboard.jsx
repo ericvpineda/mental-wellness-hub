@@ -8,7 +8,7 @@ export default function UserDashboard() {
 
     useEffect(() => {
       if (user && !isLoading) {
-        fetch(`http://zero-to-one-beta.vercel.app/api/users/cbt/${user.id}`)
+        fetch(`http://localhost:4000/api/users/cbt/${user.id}`)
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
