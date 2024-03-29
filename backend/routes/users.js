@@ -105,7 +105,7 @@ router.post("/cbt", async (req, res) => {
   const currentSessionCount = users.session_count;
 
   // Increment session_count and update in the database
-  const { data, error: updateError } = await supabase
+  const { error: updateError } = await supabase
     .from("cbt")
     .update({ session_count: currentSessionCount + 1 })
     .eq("id", user_id);
