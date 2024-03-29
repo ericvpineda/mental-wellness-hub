@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useUser } from "@clerk/clerk-react";
 
 const steps = () => {
   return (
@@ -71,6 +72,39 @@ export default function CognitiveTherapy() {
         "Hi, I'm KelvinAI! I assist in simulating a cognitive behavioral therapy session. Here are some example prompts for you to begin our conversation: 1. What is CBT? 2. I have a problem I would like to solve with CBT. 3. How does CBT help people?",
     },
   ]);
+  const { user } = useUser();
+  
+  // when convo starts, notify database that the user has started a CBT session
+  if (conversation.length == 3) {
+
+    fetch("http://localhost:4000/api/users/cbt", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Work with the data received from the API
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle errors that might occur during the fetch
+        console.error(
+          "There was a problem with the fetch operation:",
+          error
+        );
+      });
+
+  } 
 
   // Refs
   const textareaRef = useRef(null);
@@ -85,7 +119,7 @@ export default function CognitiveTherapy() {
   // Sends message to database and updates the conversation state
   const sendMessage = async () => {
     const userInputValue = textareaRef.current.value; // Get the value from the textarea
-    const response = await fetch("http://localhost:4000/api/chat", {
+    const response = await fetch("http://localhost:4000/api/chat/kelvinAI", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -114,13 +148,12 @@ export default function CognitiveTherapy() {
         style={{ height: "25vh" }}
         className="w-full flex flex-col justify-center items-center bg-neutral-100"
       >
-        <p className="text-6xl font-semibold">Cognitive Behavioral Therapy</p>
+        <p className="text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">Cognitive Behavioral Therapy</p>
       </section>
 
       <section className="w-full flex flex-col justify-center items-center px-2 py-8">
         <div
-          style={{ height: "120vh" }}
-          className="w-3/4 flex flex-col items-start justify-around"
+          className="w-3/4 flex flex-col items-start gap-16"
         >
           <div className="">
             <p className="text-xl font-semibold mb-6">What is it?</p>
