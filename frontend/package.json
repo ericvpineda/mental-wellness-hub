@@ -39,6 +39,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "convex": "^1.10.0",
+    "d3": "^7.9.0",
     "dotenv": "^16.4.5",
     "highlight.js": "^11.9.0",
     "lowlight": "^3.1.0",

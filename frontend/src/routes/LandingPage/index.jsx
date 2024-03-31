@@ -9,19 +9,36 @@ import "../../globals.css";
 export default function Template() {
   return (
     <main>
-      <section
-        id="HeroSection"
-        className="flex justify-center items-center bg-white py-12 lg:py-16"
-      >
+      <section id="HeroSection" className="bg-white py-12 lg:py-36">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
-          <div
-            style={{ height: "40vh" }}
-            className="space-y-2 mx-auto flex flex-col justify-center items-center"
+          <svg
+            className="absolute left-0 xl:right-24 inset-0 z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            aria-hidden="true"
           >
-            <h1 className="font-bold tracking-tighter text-5xl md:text-7xl">
+            <defs>
+              <pattern
+                id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+                width={200}
+                height={200}
+                x="50%"
+                y={-1}
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none" />
+              </pattern>
+            </defs>
+            <rect
+              width="100%"
+              height="100%"
+              strokeWidth={0}
+              fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+            />
+          </svg>
+          <div className="space-y-2 mx-auto flex flex-col gap-4 justify-center items-center">
+            <h1 className="z-10 font-bold tracking-tighter text-5xl md:text-7xl lg:text-7xl">
               Free Mental Health Support
             </h1>
-            <p className="mx-auto font-medium max-w-2xl text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+            <p className="z-10 mx-auto font-medium max-w-2xl text-gray-600 md:text-xl lg:text-base xl:text-xl dark:text-gray-400 mt-11">
               Explore our comprehensive library of resources designed to improve
               your mental well-being without the cost barrier.
             </p>
@@ -119,8 +136,7 @@ export default function Template() {
       <section
         style={{ height: "20vh" }}
         className="w-full flex justify-center items-center"
-      >
-      </section>
+      ></section>
     </main>
   );
 }

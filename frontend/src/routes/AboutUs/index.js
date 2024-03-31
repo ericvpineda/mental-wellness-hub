@@ -8,8 +8,7 @@ import PropTypes from 'prop-types';
 const TeamMember = ({ name, description, imageUrl, linkedinUrl, githubUrl }) => {
     return (
       <div
-        style={{ height: "50vh" }}
-        className="p-4 bg-gray-50 shadow-md rounded-md flex flex-col justify-around items-center"
+        className="p-4 bg-gray-50 shadow-md rounded-md flex flex-col justify-around items-center gap-1 md:gap-2"
       >
         <img
           src={imageUrl}
@@ -18,7 +17,7 @@ const TeamMember = ({ name, description, imageUrl, linkedinUrl, githubUrl }) => 
         />
         <h2 className="text-xl font-bold mb-2">{name}</h2>
         <p className="text-gray-700 mb-4">{description}</p>
-        <div>
+        <div className="pb-4">
           <a
             href={linkedinUrl}
             target="_blank"
@@ -43,6 +42,13 @@ const TeamMember = ({ name, description, imageUrl, linkedinUrl, githubUrl }) => 
 const AboutUs = () => {
     const teamMembers = [
         {
+            name: "Ethan Gutierrez",
+            description: "Specializes in full stack development, with a strong focus on API development. Devoted to building real-world solutions.",
+            imageUrl: EthanImage,
+            linkedinUrl: "https://www.linkedin.com/in/ethan-gutierrez-0a598124b/",
+            githubUrl: "https://github.com/Ethanqg0"
+        },
+        {
             name: "Eric Pineda",
             description: "Passionate about crafting efficient solutions for web applications, with a strong focus on both frontend and backend development.",
             imageUrl: EricImage,
@@ -56,13 +62,6 @@ const AboutUs = () => {
             linkedinUrl: "https://www.linkedin.com/in/sameh-fazli/",
             githubUrl: "https://github.com/sfazli96"
         },
-        {
-            name: "Ethan Gutierrez",
-            description: "Specializes in full stack development, with a strong focus on API development. Devoted to building real-world solutions.",
-            imageUrl: EthanImage,
-            linkedinUrl: "https://www.linkedin.com/in/ethan-gutierrez-0a598124b/",
-            githubUrl: "https://github.com/Ethanqg0"
-        }
     ];
 
     return (
