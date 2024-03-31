@@ -101,7 +101,7 @@ export default function UserDashboard() {
               Hi, {user.firstName}! 👋🏼
             </h1>
             <h1 className="text-base md:text-lg lg:text-xl xl:text-xl font-light">
-              We hope you're having a great day! View your dashboard for
+              We hope you are having a great day! View your dashboard for
               insights.
             </h1>
           </section>
@@ -113,7 +113,7 @@ export default function UserDashboard() {
                 {data
                   .sort((a, b) => b.count - a.count)
                   .map((item) => (
-                    <div className="flex items-center">
+                    <div key={index} className="flex items-center">
                       <div
                         style={{
                           width: "20px",
