@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-slate-50 text-black border-b-2 py-4 px-2 w-full z-auto">
+    <nav className="relative z-50 bg-slate-50 text-black border-b-2 py-4 px-2 w-full">
       <div className="container mx-auto flex text-sm md:text-base lg:text-base text-black justify-center md:justify-between items-center">
         <Link to="/" className="text-black font-bold hidden md:block">
           <img
@@ -92,14 +92,6 @@ const Navbar = () => {
                 </ul>
               )}
             </div>
-          </li>
-          <li>
-            <Link
-              to="/contact-us"
-              className="text-black hover:text-sky-700 transition duration-200 hidden lg:block"
-            >
-              Contact
-            </Link>
           </li>
         </ul>
         <SignedIn>

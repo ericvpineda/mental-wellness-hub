@@ -111,14 +111,14 @@ export default function Meditation() {
             }
           >
             <div>
-              <h1 className="text-7xl font-bold mb-2">Meditation Timer</h1>
-              <p className="text-3xl text-center text-gray-500 mb-4">
+              <h1 className="text-center text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2">Meditation Timer</h1>
+              <p className="text-xl md:text-xl lg:text-2xl xl:text-2xl text-center text-gray-500 mb-4">
                 Set your intentions and peace.
               </p>
             </div>
-            <div className="flex justify-center items-center w-1/6">
+            <div className="flex justify-center items-center w-full">
               <ClockIcon className="w-6 h-6 mr-2" />
-              <form className="w-2/3">
+              <form className="w-1/2 lg:w-1/6">
                 <input
                   type="number"
                   min="0"
@@ -169,7 +169,7 @@ export default function Meditation() {
               "flex flex-col h-1/4 justify-around items-center border-t-2"
             }
           >
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-center text-base md:text-lg lg:text-xl xl:text-2xl font-semibold">
               Peaceful, ad-free music for zero disturbance.
             </h1>
             <div className="flex flex-row w-1/2 justify-around">
