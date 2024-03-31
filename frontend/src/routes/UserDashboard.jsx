@@ -112,7 +112,7 @@ export default function UserDashboard() {
               <div>
                 {data
                   .sort((a, b) => b.count - a.count)
-                  .map((item) => (
+                  .map((item, index) => (
                     <div key={index} className="flex items-center">
                       <div
                         style={{
