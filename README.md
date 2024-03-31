@@ -29,6 +29,7 @@
         - Meditation Page
         - Resources Page
         - Journal Page
+        - CBT Page
     - Footer
     - Faq Page
     - Contact Us
