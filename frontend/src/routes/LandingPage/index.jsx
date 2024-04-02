@@ -1,12 +1,15 @@
 // import { Link } from 'react-router-dom'
 import React from 'react';
 import Faq from "../Faq/index";
+import { useNavigate } from "react-router-dom";
 import "../../globals.css";
 
 // import ChatbotAI from '../../components/chatbotAI'
 
 
 export default function Template() {
+  const navigate = useNavigate();
+
   return (
     <main>
       <section id="HeroSection" className="bg-white py-12 lg:py-36">
@@ -124,7 +127,9 @@ export default function Template() {
                     className="text-base font-semibold leading-7 text-indigo-600"
                   >
                     {" "}
-                    <span aria-hidden="true">&rarr;</span>
+                    <span aria-hidden="true" onClick={ () => {
+                      navigate("/dashboard")
+                    }}>Get Started &rarr;</span>
                   </a>
                 </div>
               </div>
