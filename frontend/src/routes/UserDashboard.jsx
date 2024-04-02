@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useUser } from "@clerk/clerk-react";
 import * as d3 from "d3";
+import { SignInButton, useUser } from "@clerk/clerk-react";
 
 export default function UserDashboard() {
   const { isSignedIn, user, isLoading } = useUser();
@@ -158,7 +158,12 @@ export default function UserDashboard() {
   } else {
     return (
       <React.Fragment>
-        <h1>To use dashboard, you must first login. :)</h1>
+        <div className="h-screen">
+          <div className="flex flex-col justify-center items-center gap-6 pt-6 pb-6">
+            <h1 className="text-xl">To use the dashboard, you must first login. :)</h1>
+            <SignInButton className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"/>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

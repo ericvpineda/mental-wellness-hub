@@ -111,7 +111,9 @@ export default function Meditation() {
             }
           >
             <div>
-              <h1 className="text-center text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2">Meditation Timer</h1>
+              <h1 className="text-center text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2">
+                Meditation Timer
+              </h1>
               <p className="text-xl md:text-xl lg:text-2xl xl:text-2xl text-center text-gray-500 mb-4">
                 Set your intentions and peace.
               </p>
@@ -188,9 +190,11 @@ export default function Meditation() {
         </div>
       </SignedIn>
       <SignedOut>
-        <div className="w-full flex flex-col justify-center items-center">
-          This page requires you to be logged in. :)
-          <SignInButton />
+        <div className="flex flex-col justify-center items-center gap-6 pt-6 pb-6">
+          <h1 className="text-xl">
+            To use our meditation service, you must first login. :)
+          </h1>
+          <SignInButton className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" />
         </div>
       </SignedOut>
     </div>
