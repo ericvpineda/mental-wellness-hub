@@ -12,7 +12,7 @@ export default function Template() {
       <section id="HeroSection" className="bg-white py-12 lg:py-36">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:gap-8 lg:px-6">
           <svg
-            className="absolute left-0 xl:right-24 inset-0 z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+            className="hidden md:absolute md:block left-0 xl:right-24 inset-0 z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
             aria-hidden="true"
           >
             <defs>
@@ -46,7 +46,7 @@ export default function Template() {
         </div>
       </section>
 
-      <section id="MissionStatement">
+      <section id="MissionStatement z-50">
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
