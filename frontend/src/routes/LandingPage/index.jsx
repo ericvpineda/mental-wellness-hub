@@ -3,9 +3,40 @@ import React from 'react';
 import Faq from "../Faq/index";
 import { useNavigate } from "react-router-dom";
 import "../../globals.css";
+import {
+  BookOpenIcon,
+  ClockIcon,
+  ChatBubbleBottomCenterIcon,
+  FingerPrintIcon,
+} from "@heroicons/react/24/outline";
 
 // import ChatbotAI from '../../components/chatbotAI'
-
+const features = [
+  {
+    name: "CBT Sessions",
+    description:
+      "With our bot, KelvinAI, we offer a guider to walk you through Cognitive Behavioral Therapy sessions.",
+    icon: ChatBubbleBottomCenterIcon,
+  },
+  {
+    name: "Journaling",
+    description:
+      "We provide a journaling feature to help you track your thoughts and feelings, and identify patterns in your behavior.",
+    icon: BookOpenIcon,
+  },
+  {
+    name: "Meditation Timer",
+    description:
+      "Our meditation timer and guides help you to practice mindfulness and reduce stress and anxiety.",
+    icon: ClockIcon,
+  },
+  {
+    name: "Personalized Dashboard",
+    description:
+      "We offer a personalized dashboard to help you track your progress and set goals for your mental health journey.",
+    icon: FingerPrintIcon,
+  },
+];
 
 export default function Template() {
   const navigate = useNavigate();
@@ -127,9 +158,14 @@ export default function Template() {
                     className="text-base font-semibold leading-7 text-indigo-600"
                   >
                     {" "}
-                    <span aria-hidden="true" onClick={ () => {
-                      navigate("/dashboard")
-                    }}>Get Started &rarr;</span>
+                    <span
+                      aria-hidden="true"
+                      onClick={() => {
+                        navigate("/dashboard");
+                      }}
+                    >
+                      Get Started &rarr;
+                    </span>
                   </a>
                 </div>
               </div>
@@ -137,11 +173,59 @@ export default function Template() {
           </div>
         </div>
       </section>
+
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-indigo-600"></h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Resources to help you thrive.
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              On our services page, you can find a variety of resources used to
+              assist in mental wellness.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              {features.map((feature) => (
+                <div key={feature.name} className="relative pl-16">
+                  <dt className="text-base font-semibold leading-7 text-gray-900">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                      <feature.icon
+                        className="h-6 w-6 text-white"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    {feature.name}
+                  </dt>
+                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                    {feature.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </div>
+
       <Faq />
+
       <section
         style={{ height: "20vh" }}
         className="w-full flex justify-center items-center"
-      ></section>
+      >
+        {" "}
+        <span
+          aria-hidden="true"
+          className="cursor-pointer"
+          onClick={() => {
+            navigate("/dashboard");
+          }}
+        >
+          Get Started &rarr;
+        </span>
+      </section>
     </main>
   );
 }
