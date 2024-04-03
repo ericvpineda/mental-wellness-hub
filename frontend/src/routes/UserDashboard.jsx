@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as d3 from "d3";
 import { SignInButton, useUser } from "@clerk/clerk-react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function UserDashboard() {
   const { isSignedIn, user, isLoading } = useUser();
@@ -10,7 +11,7 @@ export default function UserDashboard() {
 
   useEffect(() => {
     if (user && !isLoading) {
-      fetch(`http://localhost:4000/api/users/cbt/${user.id}`)
+      fetch(`http://mental-wellness-hub.vercel.app/api/users/cbt/${user.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -24,7 +25,9 @@ export default function UserDashboard() {
           console.error("There was a problem with the fetch operation:", error);
         });
 
-      fetch(`http://localhost:4000/api/users/meditations/${user.id}`)
+      fetch(
+        `http://mental-wellness-hub.vercel.app/api/users/meditations/${user.id}`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -96,6 +99,7 @@ export default function UserDashboard() {
   if (isSignedIn) {
     return (
       <React.Fragment>
+        <SpeedInsights />
         <main className="text-center flex flex-col items-center gap-6 h-screen">
           <section className="flex flex-col gap-4 justify-center items-center w-full h-1/4 bg-gray-50">
             <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium">
