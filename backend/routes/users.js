@@ -36,13 +36,13 @@ router.get("/", async (req, res) => {
   res.status(200).json(data);
 });
 
-router.get("/journals", async (res) => {
+router.get("/journals", async (req, res) => {
   const { data, error } = await supabase.from("journals").select();
   if (error) {
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
-  res.json(data);
+  res.status(200).json(data);
 });
 
 router.get("/meditations/:id", async (req, res) => {
@@ -52,7 +52,7 @@ router.get("/meditations/:id", async (req, res) => {
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
-  res.json(data);
+  res.status(200).json(data);
 });
 
 router.get("/cbt/:id", async (req, res) => {
@@ -62,7 +62,7 @@ router.get("/cbt/:id", async (req, res) => {
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
-  res.json(data);
+  res.status(200).json(data);
 });
 
 router.post("/meditations", async (req, res) => {
