@@ -15,8 +15,8 @@ import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import {createRoot} from "react-dom/client"
 
-const CONVEX_CLIENT_URL = process.env.REACT_APP_CONVEX_CLIENT_URL;
-const CLERK_PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+const CONVEX_CLIENT_URL = "https://reminiscent-scorpion-857.convex.cloud";
+const CLERK_PUBLISHABLE_KEY = "pk_test_aGlwLWJhc3MtMjYuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 const convex = new ConvexReactClient(CONVEX_CLIENT_URL);
 
