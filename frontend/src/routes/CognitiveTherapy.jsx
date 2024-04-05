@@ -114,16 +114,19 @@ export default function CognitiveTherapy() {
   // Sends message to database and updates the conversation state
   const sendMessage = async () => {
     const userInputValue = textareaRef.current.value; // Get the value from the textarea
-    const response = await fetch("http://localhost:4000/api/chat/kelvinAI", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userMessage: userInputValue, // Send the user's message to the backend
-        previousMessages: conversation,
-      }),
-    });
+    const response = await fetch(
+      "https://mental-wellness-hub-lnts.vercel.app/api/chat/kelvinAI",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userMessage: userInputValue, // Send the user's message to the backend
+          previousMessages: conversation,
+        }),
+      }
+    );
     const data = await response.text();
 
     // Update the conversation state with the user's message and the AI's response
