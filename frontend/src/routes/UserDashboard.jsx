@@ -11,7 +11,7 @@ export default function UserDashboard() {
 
   useEffect(() => {
     if (user && !isLoading) {
-      fetch(`http://mental-wellness-hub-lnts.vercel.app/api/users/cbt/${user.id}`)
+      fetch(`https://mental-wellness-hub-lnts.vercel.app/api/users/cbt/${user.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -26,7 +26,7 @@ export default function UserDashboard() {
         });
 
       fetch(
-        `http://mental-wellness-hub-lnts.vercel.app/api/users/meditations/${user.id}`
+        `https://mental-wellness-hub-lnts.vercel.app/api/users/meditations/${user.id}`
       )
         .then((response) => {
           if (!response.ok) {

@@ -44,7 +44,7 @@ export default function Meditation() {
   const startTimer = () => {
     console.log("STARTING")
     fetch(
-      "http://mental-wellness-hub-lnts.vercel.app/api/users/meditations",
+      "https://mental-wellness-hub-lnts.vercel.app/api/users/meditations",
       {
         method: "POST",
         headers: {
