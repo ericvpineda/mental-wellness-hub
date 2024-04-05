@@ -76,7 +76,7 @@ export default function CognitiveTherapy() {
   
   // when convo starts, notify database that the user has started a CBT session
   if (conversation.length == 3) {
-    fetch("http://localhost:4000/api/users/cbt", {
+    fetch("https://mental-wellness-hub-lnts.vercel.app/api/users/cbt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -97,10 +97,7 @@ export default function CognitiveTherapy() {
       })
       .catch((error) => {
         // Handle errors that might occur during the fetch
-        console.error(
-          "There was a problem with the fetch operation:",
-          error
-        );
+        console.error("There was a problem with the fetch operation:", error);
       });
   } 
 
