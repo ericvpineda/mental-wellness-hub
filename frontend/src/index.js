@@ -1,7 +1,6 @@
 import React from "react";
 import { ConvexReactClient } from "convex/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReactDOM from "react-dom";
 import "./globals.css";
 import Layout from "./Layout";
 import Journal from "routes/Journal";
@@ -14,6 +13,12 @@ import UserDashboard from "./routes/UserDashboard";
 import CognitiveTherapy from "./routes/CognitiveTherapy";
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
+import {createRoot} from "react-dom/client"
+
+const CONVEX_CLIENT_URL = process.env.REACT_APP_CONVEX_CLIENT_URL;
+const CLERK_PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+
+const convex = new ConvexReactClient(CONVEX_CLIENT_URL);
 
 const router = createBrowserRouter([
   {
@@ -58,15 +63,9 @@ const router = createBrowserRouter([
 
 
 
-const convex = new ConvexReactClient(
-  "https://reminiscent-scorpion-857.convex.cloud"
-);
-
-const PUBLISHABLE_KEY = "pk_test_bGliZXJhbC1za3lsYXJrLTM1LmNsZXJrLmFjY291bnRzLmRldiQ";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
         <RouterProvider router={router} />
       </ConvexProviderWithClerk>

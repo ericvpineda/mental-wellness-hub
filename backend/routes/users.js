@@ -26,20 +26,19 @@ const checkUserInDatabase = async (id, databaseName) => {
   return true;
 }
 
-router.get("/", async (res) => {
+// Important: Need request and response objects for async function 
+router.get("/", async (req, res) => {
   const { data, error } = await supabase.from("users").select();
   if (error) {
-    console.log(error);
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
-  res.json(data);
+  res.status(200).json(data);
 });
 
 router.get("/journals", async (res) => {
   const { data, error } = await supabase.from("journals").select();
   if (error) {
-    console.log(error);
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
@@ -50,7 +49,6 @@ router.get("/meditations/:id", async (req, res) => {
   const { id } = req.params;
   const { data, error } = await supabase.from("meditations").select().eq("id", id);
   if (error) {
-    console.log(error);
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
@@ -61,7 +59,6 @@ router.get("/cbt/:id", async (req, res) => {
   const { id } = req.params;
   const { data, error } = await supabase.from("cbt").select().eq("id", id);
   if (error) {
-    console.log(error);
     res.status(500).json({ error: "An error occurred while fetching users" });
     return;
   }
