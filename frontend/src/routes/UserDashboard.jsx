@@ -8,7 +8,7 @@ export default function UserDashboard() {
   const { isSignedIn, user } = useUser();
   const [mood, setMood] = useState("");
 
-  // grab cbtCOunt, meditationCount from the contextAPI
+  // grab cbtCount, meditationCount from the contextAPI
   const { cbtCount, meditationCount } = useContext(FetchDataContext);
 
   const data = [

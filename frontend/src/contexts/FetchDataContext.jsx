@@ -48,13 +48,21 @@ const FetchDataProvider = ({ children }) => {
     }
   };
 
+  const incrementCBT = () => {
+    setCBTCount(cbtCount + 1);
+  }
+
+  const incrementMeditation = () => {
+    setMeditationCount(meditationCount + 1);
+  }
+
   useEffect(() => {
     fetchCBT();
     fetchMeditation();
   }, [user]);
 
   return (
-    <FetchDataContext.Provider value={{ cbtCount, meditationCount, setCBTCount, setMeditationCount }}>
+    <FetchDataContext.Provider value={{ cbtCount, meditationCount, incrementCBT, incrementMeditation }}>
       {children}
     </FetchDataContext.Provider>
   );
