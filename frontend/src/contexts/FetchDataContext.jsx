@@ -23,6 +23,7 @@ const FetchDataProvider = ({ children }) => {
           setCBTCount(data[0].session_count);
         })
         .catch((error) => {
+          console.log( `DEBUG, USER ID: ${user.id}` )
           console.error("There was a problem with the fetch operation:", error);
         });
     }
