@@ -31,7 +31,7 @@ const FetchDataProvider = ({ children }) => {
   const fetchMeditation = () => {
     if (user && !isLoading) {
       fetch(
-        `https://mental-wellness-hub-lnts.vercel.app/api/users/cbt/${user.id}`
+        `https://mental-wellness-hub-lnts.vercel.app/api/users/meditations/${user.id}`
       )
         .then((response) => {
           if (!response.ok) {
