@@ -62,7 +62,7 @@ const FetchDataProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <FetchDataContext.Provider value={{ cbtCount, meditationCount, incrementCBT, incrementMeditation }}>
+    <FetchDataContext.Provider value={{ cbtCount, meditationCount }}>
       {children}
     </FetchDataContext.Provider>
   );
