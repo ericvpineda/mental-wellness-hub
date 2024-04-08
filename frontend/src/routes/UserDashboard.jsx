@@ -1,15 +1,51 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import * as d3 from "d3";
 import { SignInButton, useUser } from "@clerk/clerk-react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { FetchDataContext } from "contexts/FetchDataContext";
 
 export default function UserDashboard() {
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn, user, isLoading } = useUser();
+  const [cbtCount, setCbtCount] = useState(0);
+  const [meditationCount, setMeditationCount] = useState(0);
   const [mood, setMood] = useState("");
 
-  // grab cbtCount, meditationCount from the contextAPI
-  const { cbtCount, meditationCount } = useContext(FetchDataContext);
+  // grab cbtCOunt, meditationCount from the contextAPI
+  
+
+  useEffect(() => {
+    if (user && !isLoading) {
+      fetch(`https://mental-wellness-hub-lnts.vercel.app/api/users/cbt/${user.id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setCbtCount(data[0].session_count);
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+
+      fetch(
+        `https://mental-wellness-hub-lnts.vercel.app/api/users/meditations/${user.id}`
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("DATA:", data);
+          setMeditationCount(data[0].meditation_count);
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    }
+  }, [user]);
 
   const data = [
     { label: "CBT Count", count: cbtCount, color: "#1E90FF" }, // DodgerBlue
