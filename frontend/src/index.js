@@ -14,6 +14,7 @@ import CognitiveTherapy from "./routes/CognitiveTherapy";
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import {createRoot} from "react-dom/client"
+import { FetchDataProvider } from "contexts/FetchDataContext";
 
 const CONVEX_CLIENT_URL = "https://reminiscent-scorpion-857.convex.cloud";
 const CLERK_PUBLISHABLE_KEY = "pk_test_aGlwLWJhc3MtMjYuY2xlcmsuYWNjb3VudHMuZGV2JA";
@@ -67,7 +68,9 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
       <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-        <RouterProvider router={router} />
+        <FetchDataProvider>
+          <RouterProvider router={router} />
+        </FetchDataProvider>
       </ConvexProviderWithClerk>
     </ClerkProvider>
   </React.StrictMode>

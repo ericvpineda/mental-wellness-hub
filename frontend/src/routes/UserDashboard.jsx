@@ -1,48 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as d3 from "d3";
 import { SignInButton, useUser } from "@clerk/clerk-react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { FetchDataContext } from "contexts/FetchDataContext";
 
 export default function UserDashboard() {
-  const { isSignedIn, user, isLoading } = useUser();
-  const [cbtCount, setCbtCount] = useState(0);
-  const [meditationCount, setMeditationCount] = useState(0);
+  const { isSignedIn, user } = useUser();
   const [mood, setMood] = useState("");
 
-  useEffect(() => {
-    if (user && !isLoading) {
-      fetch(`https://mental-wellness-hub-lnts.vercel.app/api/users/cbt/${user.id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setCbtCount(data[0].session_count);
-        })
-        .catch((error) => {
-          console.error("There was a problem with the fetch operation:", error);
-        });
-
-      fetch(
-        `https://mental-wellness-hub-lnts.vercel.app/api/users/meditations/${user.id}`
-      )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("DATA:", data);
-          setMeditationCount(data[0].meditation_count);
-        })
-        .catch((error) => {
-          console.error("There was a problem with the fetch operation:", error);
-        });
-    }
-  }, [user]);
+  // grab cbtCOunt, meditationCount from the contextAPI
+  const { cbtCount, meditationCount } = useContext(FetchDataContext);
 
   const data = [
     { label: "CBT Count", count: cbtCount, color: "#1E90FF" }, // DodgerBlue
@@ -111,7 +78,7 @@ export default function UserDashboard() {
             </h1>
           </section>
 
-          <section className="w-5/6 p-4 flex flex-row justify-around items-center">
+          <section className="w-5/6 p-4 flex flex-row justify-around items-start">
             <div className="flex flex-col items-center gap-6 bg-neutral-50 p-6 rounded-md border-2 border-gray-200 w-5/6 lg:w-1/3 xl:w-1/3">
               <p className="font-semibold text-xl">Your Activity</p>
               <div>
@@ -134,8 +101,8 @@ export default function UserDashboard() {
               <div id="cbt-graph"></div>
             </div>
 
-            <div className="flex flex-col items-center gap-6">
-              <div className="grid gap-2 items-start sm:items-center rounded-lg border p-6 bg-neutral-50 w-full">
+            <div className="flex flex-col items-center gap-6 grid-cols-2">
+              <div className="grid gap-2 items-start sm:items-center rounded-lg border-2 p-6 bg-neutral-50 w-full">
                 <h2 className="text-base font-medium">How was your day?</h2>
                 <div className="flex items-center justify-around">
                   <svg
@@ -175,7 +142,7 @@ export default function UserDashboard() {
                   </p>
                 ) : null}
               </div>
-              <div className="hidden p-6 bg-neutral-50 border rounded-lg">
+              <div className="p-6 bg-neutral-50 border-2 rounded-lg">
                 <h1>Resources Recommended</h1>
                 <h1>1. Placeholder</h1>
                 <h1>2. Placeholder</h1>
