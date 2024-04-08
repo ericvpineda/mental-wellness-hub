@@ -48,6 +48,7 @@ const FetchDataProvider = ({ children }) => {
     }
   };
 
+  /*
   const incrementCBT = () => {
     setCBTCount(cbtCount + 1);
   }
@@ -55,6 +56,7 @@ const FetchDataProvider = ({ children }) => {
   const incrementMeditation = () => {
     setMeditationCount(meditationCount + 1);
   }
+  */
 
   useEffect(() => {
     fetchCBT();
