@@ -67,13 +67,14 @@ router.get("/cbt/:id", async (req, res) => {
 
 router.post("/meditations", async (req, res) => {
   const user_id = req.body.user_id;
+  const user_firstName = req.body.firstName;
   const isAuthenticated = await checkUser(user_id);
 
   // If not in user database, add them to the user database
   if (!isAuthenticated) {
     const { error } = await supabase
       .from("users")
-      .insert({ clerk_id: user_id });
+      .insert({ clerk_id: user_id, firstName: user_firstName });
 
     if (error) {
       return res.status(500).json({ error: "Failed to create user." });
@@ -122,14 +123,14 @@ router.post("/meditations", async (req, res) => {
 
 router.post("/cbt", async (req, res) => {
   const user_id = req.body.user_id;
-  // TODO: add user name
+  const user_firstName = req.body.firstName
   const isAuthenticated = await checkUser(user_id);
 
   // If not authenticated, add them to the user database
   if (!isAuthenticated) {
     const { error } = await supabase
       .from("users")
-      .insert({ clerk_id: user_id });
+      .insert({ clerk_id: user_id, firstName: user_firstName });
 
     if (error) {
       return res.status(500).json({ error: "Failed to create user." });
