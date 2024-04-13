@@ -8,6 +8,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+/*
 const resources = {
   anxiety: [
     {
@@ -38,6 +39,7 @@ const resources = {
     },
   ],
 };
+*/
 
 router.post("/kelvinAI", async (req, res) => {
   const userMessage = req.body.userMessage;
