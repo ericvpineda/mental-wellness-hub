@@ -67,7 +67,7 @@ router.get("/cbt/:id", async (req, res) => {
 
 router.post("/meditations", async (req, res) => {
   const user_id = req.body.user_id;
-  const user_firstName = req.body.firstName;
+  const user_firstName = req.body.user_firstName;
   const isAuthenticated = await checkUser(user_id);
 
   // If not in user database, add them to the user database
@@ -123,7 +123,7 @@ router.post("/meditations", async (req, res) => {
 
 router.post("/cbt", async (req, res) => {
   const user_id = req.body.user_id;
-  const user_firstName = req.body.firstName
+  const user_firstName = req.body.user_firstName;
   const isAuthenticated = await checkUser(user_id);
 
   // If not authenticated, add them to the user database
