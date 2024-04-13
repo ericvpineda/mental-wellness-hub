@@ -43,18 +43,16 @@ export default function Meditation() {
 
   const startTimer = () => {
     console.log("STARTING")
-    fetch(
-      "https://mental-wellness-hub-lnts.vercel.app/api/users/meditations",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user.id,
-        }),
-      }
-    )
+    fetch("https://mental-wellness-hub-lnts.vercel.app/api/users/meditations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        user_firstName: user.firstName,
+      }),
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
