@@ -9,8 +9,6 @@ export default function UserDashboard() {
   const [meditationCount, setMeditationCount] = useState(0);
   const [mood, setMood] = useState("");
 
-  // grab cbtCOunt, meditationCount from the contextAPI
-  
 
   useEffect(() => {
     if (user && !isLoading) {
@@ -85,7 +83,7 @@ export default function UserDashboard() {
         .attr("width", width)
         .attr("height", height)
         .attr("viewBox", [-width / 2, -height / 2, width, height])
-        .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;");
+        .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif;")
 
       svg
         .append("g")
@@ -101,23 +99,23 @@ export default function UserDashboard() {
 
   if (isSignedIn) {
     return (
-      <React.Fragment>
+      <div className="min-h-screen">
         <SpeedInsights />
-        <main className="text-center flex flex-col items-center gap-6 h-screen">
-          <section className="flex flex-col gap-4 justify-center items-center w-full h-1/4 bg-gray-50">
-            <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium">
+        <main className="text-center flex flex-col items-center gap-6 min-h-screen">
+          <section className="flex flex-col gap-4 justify-center items-center p-0 md:p-8 w-full h-1/4 bg-gray-50">
+            <h1 className="text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-medium pt-4 md:pt-0">
               Hi, {user.firstName}! 👋🏼
             </h1>
-            <h1 className="text-base md:text-lg lg:text-xl xl:text-xl font-light">
+            <h1 className="text-base md:text-lg lg:text-xl xl:text-xl font-light pb-4 md:pb-0">
               We hope you are having a great day! View your dashboard for
               insights.
             </h1>
           </section>
 
-          <section className="w-5/6 p-4 flex flex-row justify-around items-start">
-            <div className="flex flex-col items-center gap-6 bg-neutral-50 p-6 rounded-md border-2 border-gray-200 w-5/6 lg:w-1/3 xl:w-1/3">
+          <section className="w-full md:w-5/6 p-4 flex flex-col md:flex-row justify-around items-start">
+            <div className="ml-6 md:ml-0 flex flex-col justify-center items-center gap-6 bg-neutral-50 p-6 rounded-md border-2 border-gray-200 w-5/6 lg:w-1/3 xl:w-1/3">
               <p className="font-semibold text-xl">Your Activity</p>
-              <div>
+              <div className="">
                 {data
                   .sort((a, b) => b.count - a.count)
                   .map((item, index) => (
@@ -137,17 +135,23 @@ export default function UserDashboard() {
               <div id="cbt-graph"></div>
             </div>
 
-            <div className="flex flex-col items-center gap-6 grid-cols-2">
-              <div className="grid gap-2 items-start sm:items-center rounded-lg border-2 p-6 bg-neutral-50 w-full">
-                <h2 className="text-base font-medium">How was your day?</h2>
-                <div className="flex items-center justify-around">
+            <div
+              style={{ minHeight: "400px" }}
+              className="flex flex-col justify-around items-center gap-6 grid-cols-2"
+            >
+              <div
+                style={{ minHeight: "150px" }}
+                className="mt-4 mr-2 md:mt-0 md:mr-0 grid w-4/5 gap-2 items-start sm:items-center rounded-lg border-2 p-6 bg-neutral-50"
+              >
+                <h2 className="text-xl font-medium">How was your day?</h2>
+                <div className="flex items-center justify-center gap-6">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6 cursor-pointer"
+                    className="w-10 h-10 cursor-pointer"
                     onClick={() => setMood("happy")}
                   >
                     <path
@@ -162,7 +166,7 @@ export default function UserDashboard() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6 cursor-pointer"
+                    className="w-10 h-10 cursor-pointer"
                     onClick={() => setMood("sad")}
                   >
                     <path
@@ -176,19 +180,53 @@ export default function UserDashboard() {
                   <p className="text-sm font-light">
                     Thanks for your feedback!
                   </p>
-                ) : null}
+                ) : (
+                  <p></p>
+                )}
               </div>
-              <div className="p-6 bg-neutral-50 border-2 rounded-lg">
-                <h1>Resources Recommended</h1>
-                <h1>1. Placeholder</h1>
-                <h1>2. Placeholder</h1>
-                <h1>3. Placeholder</h1>
-                <h1>4. Placeholder</h1>
+              <div className="w-4/5 p-6 bg-neutral-50 border-2 rounded-lg">
+                <h1 className="text-xl font-medium pb-4">Resources Recommended</h1>
+                <div className="flex flex-col gap-2">
+                  <a href="https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961">
+                    {" "}
+                    <h1 className="font-light">
+                      1.{" "}
+                      <span className="underline">
+                        Mayo Clinic - Learn About Anxiety Disorders
+                      </span>
+                    </h1>
+                  </a>
+                  <a href="https://psychcentral.com/anxiety/what-anxiety-feels-like">
+                    {" "}
+                    <h1 className="font-light">
+                      2.{" "}
+                      <span className="underline">
+                        Psych Central - What Anxiety Feels Like
+                      </span>
+                    </h1>
+                  </a>
+
+                  <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">
+                    {" "}
+                    <h1>
+                      3.{" "}
+                      <span className="underline">NIMH - Anxiety Disorders</span>
+                    </h1>
+                  </a>
+                  <a href="https://www.webmd.com/balance/features/improve-your-day">
+                    {" "}
+                    <h1>
+                      4.{" "}
+                      <span className="underline">WebMD - Improving Your Day</span>
+                    </h1>
+                  </a>
+
+                </div>
               </div>
             </div>
           </section>
         </main>
-      </React.Fragment>
+      </div>
     );
   } else {
     return (

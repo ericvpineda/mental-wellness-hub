@@ -171,7 +171,7 @@ export default function Meditation() {
           </div>
           <div
             className={
-              "flex flex-col h-1/4 justify-around items-center border-t-2"
+              "flex-col h-1/4 justify-around items-center border-t-2 hidden"
             }
           >
             <h1 className="text-center text-base md:text-lg lg:text-xl xl:text-2xl font-semibold">

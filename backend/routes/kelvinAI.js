@@ -8,6 +8,37 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+const resources = {
+  anxiety: [
+    {
+      linkOne:
+        "https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961",
+    },
+    { linkTwo: "https://psychcentral.com/anxiety/what-anxiety-feels-like" },
+    { linkThree: "https://www.nimh.nih.gov/health/topics/anxiety-disorders" },
+    { linkFour: "https://www.healthline.com/health/anxiety" },
+    { linkFive: "https://www.medicalnewstoday.com/articles/323454" },
+  ],
+  improvingDay: [
+    {
+      linkOne: "https://www.webmd.com/balance/features/improve-your-day",
+    },
+    {
+      linkTwo: "https://www.betterup.com/blog/how-to-better-yourself",
+    },
+    {
+      linkThree: "https://psychcentral.com/health/how-to-improve-your-life",
+    },
+    {
+      linkFour:
+        "https://www.theguardian.com/lifeandstyle/2022/jan/01/marginal-gains-100-ways-to-improve-your-life-without-really-trying",
+    },
+    {
+      linkFive: "https://blog.calm.com/blog/daily-routine",
+    },
+  ],
+};
+
 router.post("/kelvinAI", async (req, res) => {
   const userMessage = req.body.userMessage;
   const previousMessages = req.body.previousMessages;
@@ -87,5 +118,48 @@ router.post("/kelvinAI", async (req, res) => {
   console.log(completion.choices[0]["message"]);
   res.send(completion.choices[0]["message"]["content"]);
 });
+
+router.post("/kelvinAI/resources", async (req, res) => {
+  const userMessage = req.body.userMessage;
+  const previousMessages = req.body.previousMessages;
+
+  const messages = [
+    {
+      role: "system",
+      content: `Your job is to create resources. `,
+    },
+    {
+      role: "system",
+      content: `Here is a sample CBT session you should base your prompting around: CBT utilizes a 5-step method. Let's take a look:
+          1. Identify the problem.
+            Example: "I have anxiety about an upcoming test at school."
+          2. Identify negative thoughts related to the problem.
+            Example: "If I don't get an A, I'm a failure."
+          3. Gather evidence to challenge this thought.
+            Example: "I've passed all my previous tests with good grades, one test doesn't define my overall academic ability."
+          4. Restructure your negative thought to a more balanced perspective.
+            Example: "Even if I don't get an A, it doesn't mean I'm a failure. It's just one test and I've done well in the past."
+          5. Find healthy ways to cope such as journaling, meditation, or healthy communication with a friend.
+            Example: "I can start a journal to write down my thoughts and feelings, meditate for a few minutes every day to clear my mind, or talk to a friend about my worries.`,
+    },
+    {
+      role: "system",
+      content:
+        "I cannot stress this enough, you should only ask once what the issue is. If youve already asked, then continue the flow of the convo to follow the CBT steps.",
+    },
+    {
+      role: "user",
+      content: `The last message was from the user saying: ${userMessage}. The previous messages were: ${previousMessages}.`,
+    },
+  ];
+
+  const completion = await openai.chat.completions.create({
+    messages,
+    model: "gpt-3.5-turbo",
+  });
+
+  console.log(completion.choices[0]["message"]);
+  res.send(completion.choices[0]["message"]["content"]);  
+})
 
 export default router;
