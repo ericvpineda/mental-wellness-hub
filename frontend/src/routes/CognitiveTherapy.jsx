@@ -145,7 +145,7 @@ export default function CognitiveTherapy() {
     <main>
       <section
         style={{ height: "25vh" }}
-        className="w-full flex flex-col justify-center items-center bg-neutral-100"
+        className="w-full flex flex-col justify-center items-center bg-gray-100"
       >
         <p className="text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">Cognitive Behavioral Therapy</p>
       </section>
