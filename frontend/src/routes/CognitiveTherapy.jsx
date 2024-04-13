@@ -83,6 +83,7 @@ export default function CognitiveTherapy() {
       },
       body: JSON.stringify({
         user_id: user.id,
+        user_firstName: user.firstName
       }),
     })
       .then((response) => {
