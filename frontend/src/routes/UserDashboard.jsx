@@ -208,14 +208,14 @@ export default function UserDashboard() {
 
                   <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">
                     {" "}
-                    <h1>
+                    <h1 className="font-light">
                       3.{" "}
                       <span className="underline">NIMH - Anxiety Disorders</span>
                     </h1>
                   </a>
                   <a href="https://www.webmd.com/balance/features/improve-your-day">
                     {" "}
-                    <h1>
+                    <h1 className="font-light">
                       4.{" "}
                       <span className="underline">WebMD - Improving Your Day</span>
                     </h1>
