@@ -107,6 +107,11 @@ router.post("/kelvinAI", async (req, res) => {
         "I cannot stress this enough, you should only ask once what the issue is. If youve already asked, then continue the flow of the convo to follow the CBT steps.",
     },
     {
+      role: "system",
+      content:
+        "It is absolutely critical that you maintain the step the user is at. Every time you go to a new step or are near completing one, inform the user."
+    },
+    {
       role: "user",
       content: `The last message was from the user saying: ${userMessage}. The previous messages were: ${previousMessages}.`,
     },
