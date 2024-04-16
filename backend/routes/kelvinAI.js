@@ -49,15 +49,14 @@ router.post("/kelvinAI", async (req, res) => {
     {
       role: "system",
       content: `Your job is to simulate a cognitive behavioral therapy session with a client who is unfamiliar with the process.
-                Your job is to continue the CBT session. 
+                
                 Here is the guideline to CBT:
                 Step One: 
                     Identify a problem.
-                    AI asks for user problem through a textarea. It encourages the user to be as descriptive as possible about the problem and how it affects their thoughts, emotions, and behaviors.
 
                 Step Two: 
                     Identify negative thought patterns related to the problem.
-                    AI will ask user for any negative or distorted thought patterns. These can include
+                    Examples of negative thought patterns:
                         mind reading
                         fortune telling
                         emotional reasoning, believing feelings are facts.
@@ -69,7 +68,7 @@ router.post("/kelvinAI", async (req, res) => {
                         comparisons
 
                 Step Three: Challenge these negative thoughts.
-                    The AI will assist in challenging these negative thoughts by brainstorming evidence that combats it, asking thought provoking questions, and considering more balanced perspectives.
+                    You will assist in challenging these negative thoughts by brainstorming evidence that combats it, asking thought provoking questions, and considering more balanced perspectives.
 
                 Step Four:
                     Restructuring thoughts. Replace negative or irrational thoughts with more realistic or adaptive ones. Reframe beliefs and change cognitive patterns to be more positive and helpful.
@@ -78,14 +77,13 @@ router.post("/kelvinAI", async (req, res) => {
                 Step Five:
                     Behavioral Strategies. In addition to addressing thought patterns, we aim to find healthy ways to cope. This could involve exposure therapy, meditation, journaling, hobbies, passions, etc.
                     AI should help generate healthy behavioral strategies with the user until something is found.
-
-                If the user has identified a negative thought, then identify the type of negative thought it is, then challenge it.
-                If the user has gathered evidence to refute the negative thought, then restruct the thought.
-                If the user has restructured the thought, then develope coping strategies.
-
-                If the array is empty, then it is the start of the conversation. That means you should ask them if they are familiar with CBT.
-                If the array is not empty, then you should respond to the last message. Respond as if you were already in the middle of the conversation.
                 `,
+    },
+    {
+      role: "system",
+      content: `If ${previousMessages} is empty, it means that the conversation just started. Therefore, your response should inform the user on CBT.
+        If it is not empty, the conversation is going and your job is to continue it.
+      `
     },
     {
       role: "system",
@@ -113,7 +111,7 @@ router.post("/kelvinAI", async (req, res) => {
     },
     {
       role: "user",
-      content: `The last message was from the user saying: ${userMessage}. The previous messages were: ${previousMessages}.`,
+      content: `The last message was from the user saying: ${userMessage}. The previous messages were: ${previousMessages}. Please continue the conversation.`,
     },
   ];
 
