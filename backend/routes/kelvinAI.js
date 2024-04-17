@@ -72,11 +72,11 @@ router.post("/kelvinAI", async (req, res) => {
 
                 Step Four:
                     Restructuring thoughts. Replace negative or irrational thoughts with more realistic or adaptive ones. Reframe beliefs and change cognitive patterns to be more positive and helpful.
-                    AI should replace negative thoughts with several alternatives, utilizing information provided from previous steps to help narrow down. It should provide options to the others, asking if the new solutions resonate with them or not.
+                    You should help replace negative thoughts with several alternatives, utilizing information provided from previous steps to help narrow down. It should provide options to the others, asking if the new solutions resonate with them or not.
 
                 Step Five:
                     Behavioral Strategies. In addition to addressing thought patterns, we aim to find healthy ways to cope. This could involve exposure therapy, meditation, journaling, hobbies, passions, etc.
-                    AI should help generate healthy behavioral strategies with the user until something is found.
+                    You should help generate healthy behavioral strategies with the user until something is found.
                 `,
     },
     {
@@ -107,7 +107,7 @@ router.post("/kelvinAI", async (req, res) => {
     {
       role: "system",
       content:
-        "It is absolutely critical that you maintain the step the user is at. Every time you go to a new step or are near completing one, inform the user."
+        "It is absolutely critical that you maintain the step the user is at. Every time you go to a new step or are near completing one, inform the user. If the user is at step five and it looks like they are done, conclude the session if they give you permission."
     },
     {
       role: "user",
