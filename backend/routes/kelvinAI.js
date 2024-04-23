@@ -8,39 +8,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-/*
-const resources = {
-  anxiety: [
-    {
-      linkOne:
-        "https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961",
-    },
-    { linkTwo: "https://psychcentral.com/anxiety/what-anxiety-feels-like" },
-    { linkThree: "https://www.nimh.nih.gov/health/topics/anxiety-disorders" },
-    { linkFour: "https://www.healthline.com/health/anxiety" },
-    { linkFive: "https://www.medicalnewstoday.com/articles/323454" },
-  ],
-  improvingDay: [
-    {
-      linkOne: "https://www.webmd.com/balance/features/improve-your-day",
-    },
-    {
-      linkTwo: "https://www.betterup.com/blog/how-to-better-yourself",
-    },
-    {
-      linkThree: "https://psychcentral.com/health/how-to-improve-your-life",
-    },
-    {
-      linkFour:
-        "https://www.theguardian.com/lifeandstyle/2022/jan/01/marginal-gains-100-ways-to-improve-your-life-without-really-trying",
-    },
-    {
-      linkFive: "https://blog.calm.com/blog/daily-routine",
-    },
-  ],
-};
-*/
-
 router.post("/kelvinAI", async (req, res) => {
   const userMessage = req.body.userMessage;
   const previousMessages = req.body.previousMessages;

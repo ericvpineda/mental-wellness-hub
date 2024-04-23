@@ -7,46 +7,46 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import express from 'express';
+import express from "express";
+import NodeMailer from "nodemailer";
 const router = express.Router();
-// const nodemailer = require('nodemailer');
-import NodeMailer from 'nodemailer';
 const transporter = NodeMailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
         user: "bd8be42c8be94c",
-        pass: "1bda57cb0d5d06"
-    }
+        pass: "1bda57cb0d5d06",
+    },
 });
 const sendEmail = (emailData) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield transporter.sendMail({
+        const info = yield transporter.sendMail({
             from: emailData.from,
-            to: 'recipient@mailtrap.io',
+            to: "recipient@mailtrap.io",
             subject: emailData.subject,
-            text: emailData.message
+            text: emailData.message,
         });
+        console.log("Email sent:", info.response);
     }
     catch (error) {
-        console.error('Error sending email:', error);
-        return error;
+        console.error("Error sending email:", error);
+        throw error; // Re-throw the caught error for higher-level error handling
     }
 });
-router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { firstName, lastName, email, subject, message } = req.body;
     const emailData = {
         from: email,
         subject: subject,
-        message: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`
+        message: `Name: ${firstName} ${lastName}\nEmail: ${email}\n\n${message}`,
     };
     try {
         console.log(req.body);
         yield sendEmail(emailData);
-        res.status(200).json({ message: 'Message sent successfully' });
+        res.status(200).json({ message: "Message sent successfully" });
     }
     catch (error) {
-        res.status(500).json({ message: 'Failed to send message' });
+        res.status(500).json({ message: "Failed to send message" });
     }
 }));
 export default router;
