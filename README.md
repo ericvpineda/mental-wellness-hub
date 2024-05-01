@@ -5,20 +5,6 @@
 
 ## Important Installation
 - Please read the Frontend and Backend readme for step-by-step instruction on how to setup the frontend + backend + convex (database). Thank you!
-
-Backend:
-    cd backend
-    npm run build
-    npm run start
-
-Add .env file to backend root directory
-OPENAI_API_KEY="XXX"
-SUPABASE_API_KEY="XXX"
-
-Frontend:
-    cd frontend
-    npm install
-    npm run start
   
 ## Technologies used:
 - Frontend:
@@ -73,15 +59,15 @@ Frontend:
 - CI/CD Pipeline: Github Actions
 
 
-# Example Usage:
+## Example Usage:
 
-## Journaling Feature:
+### Journaling Feature:
 - Users can record their thoughts and feeling ins the journal section.
 - They can track their journal entries over time.
 
-## Meditation Timer:
+### Meditation Timer:
 - Users can set a time for their meditation sessions.
 - The application tracks the duration of each mediation session.
 
-## AI Bot for Mental Health Support
+### AI Bot for Mental Health Support
 - Users can engage in conversations with an AI bout about mental health topics.
