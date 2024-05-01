@@ -1,10 +1,25 @@
 # Mental Wellness Hub
 
 ## Live Version:
-- To explore the live version of our website, simply follow this link: https://zero-to-one-beta.vercel.app/.
+- To explore the live version of our website, simply follow this link: https://mental-wellness-hub.vercel.app/
 
 ## Important Installation
 - Please read the Frontend and Backend readme for step-by-step instruction on how to setup the frontend + backend + convex (database). Thank you!
+
+Backend:
+    cd backend
+    npm run build
+    npm run start
+
+Add .env file to backend root directory
+OPENAI_API_KEY="XXX"
+SUPABASE_API_KEY="XXX"
+
+Frontend:
+    cd frontend
+    npm install
+    npm run start
+  
 ## Technologies used:
 - Frontend:
     - ReactJS
@@ -20,12 +35,11 @@
     - GitHub Actions (CI/CD)
     - Vercel (Hosting)
 
-## Features:
-
 ### Website Pages:
     - Home Page
     - About Page
     - Services Dropdown
+        - CBT Page
         - Meditation Page
         - Resources Page
         - Journal Page
@@ -40,12 +54,6 @@
     - Record and manage journals
 - Meditation Timer
     - Track meditation sessions and duration
-
-# Future Features
-- AI Bot for Mental Health Support
-    - Record and review previous conversations
-- Implement Dark-Mode theme for all pages
-    - User can be able to switch between light and dark-mode in each page and should stay that mode.
 
 ## Backend:
 - Routing Configuration
@@ -64,26 +72,7 @@
 - Hosting Server: Vercel
 - CI/CD Pipeline: Github Actions
 
-## Screenshots
 
-### About Us Page:
-![About Us](./assets/about-us.png)
-
-
-## Resources Page:
-![resources1](assets/resources.png)
-![alt text](assets/resources1.png)
-![alt text](assets/resources2.png)
-
-## Faq Page:
-![alt text](assets/faq.png)
-
-## Contact Us Page:
-![alt text](assets/contact-us.png)
-
-## Meditation page (required to login to see it):
-![alt text](assets/med.png)
-![alt text](assets/meditationTimer.png)
 # Example Usage:
 
 ## Journaling Feature:
